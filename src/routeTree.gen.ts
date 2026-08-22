@@ -21,6 +21,7 @@ import { Route as FaqRouteImport } from './routes/faq'
 import { Route as GacAppealRouteImport } from './routes/gac-appeal'
 import { Route as LearningCornerRouteImport } from './routes/learning-corner'
 import { Route as MediaGalleryRouteImport } from './routes/media-gallery'
+import { Route as PublicNoticesRouteImport } from './routes/public-notices'
 import { Route as ReportAbuseSocialMediaRouteImport } from './routes/report-abuse-social-media'
 import { Route as ReportSuspectRouteImport } from './routes/report-suspect'
 import { Route as SafetyTipsRouteImport } from './routes/safety-tips'
@@ -92,6 +93,11 @@ const MediaGalleryRoute = MediaGalleryRouteImport.update({
   path: '/media-gallery',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PublicNoticesRoute = PublicNoticesRouteImport.update({
+  id: '/public-notices',
+  path: '/public-notices',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ReportAbuseSocialMediaRoute = ReportAbuseSocialMediaRouteImport.update({
   id: '/report-abuse-social-media',
   path: '/report-abuse-social-media',
@@ -158,6 +164,7 @@ export interface FileRoutesByFullPath {
   '/gac-appeal': typeof GacAppealRoute
   '/learning-corner': typeof LearningCornerRoute
   '/media-gallery': typeof MediaGalleryRoute
+  '/public-notices': typeof PublicNoticesRoute
   '/report-abuse-social-media': typeof ReportAbuseSocialMediaRoute
   '/report-suspect': typeof ReportSuspectRoute
   '/safety-tips': typeof SafetyTipsRoute
@@ -182,6 +189,7 @@ export interface FileRoutesByTo {
   '/gac-appeal': typeof GacAppealRoute
   '/learning-corner': typeof LearningCornerRoute
   '/media-gallery': typeof MediaGalleryRoute
+  '/public-notices': typeof PublicNoticesRoute
   '/report-abuse-social-media': typeof ReportAbuseSocialMediaRoute
   '/report-suspect': typeof ReportSuspectRoute
   '/safety-tips': typeof SafetyTipsRoute
@@ -207,6 +215,7 @@ export interface FileRoutesById {
   '/gac-appeal': typeof GacAppealRoute
   '/learning-corner': typeof LearningCornerRoute
   '/media-gallery': typeof MediaGalleryRoute
+  '/public-notices': typeof PublicNoticesRoute
   '/report-abuse-social-media': typeof ReportAbuseSocialMediaRoute
   '/report-suspect': typeof ReportSuspectRoute
   '/safety-tips': typeof SafetyTipsRoute
@@ -233,6 +242,7 @@ export interface FileRouteTypes {
     | '/gac-appeal'
     | '/learning-corner'
     | '/media-gallery'
+    | '/public-notices'
     | '/report-abuse-social-media'
     | '/report-suspect'
     | '/safety-tips'
@@ -257,6 +267,7 @@ export interface FileRouteTypes {
     | '/gac-appeal'
     | '/learning-corner'
     | '/media-gallery'
+    | '/public-notices'
     | '/report-abuse-social-media'
     | '/report-suspect'
     | '/safety-tips'
@@ -281,6 +292,7 @@ export interface FileRouteTypes {
     | '/gac-appeal'
     | '/learning-corner'
     | '/media-gallery'
+    | '/public-notices'
     | '/report-abuse-social-media'
     | '/report-suspect'
     | '/safety-tips'
@@ -306,6 +318,7 @@ export interface RootRouteChildren {
   GacAppealRoute: typeof GacAppealRoute
   LearningCornerRoute: typeof LearningCornerRoute
   MediaGalleryRoute: typeof MediaGalleryRoute
+  PublicNoticesRoute: typeof PublicNoticesRoute
   ReportAbuseSocialMediaRoute: typeof ReportAbuseSocialMediaRoute
   ReportSuspectRoute: typeof ReportSuspectRoute
   SafetyTipsRoute: typeof SafetyTipsRoute
@@ -404,6 +417,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof MediaGalleryRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/public-notices': {
+      id: '/public-notices'
+      path: '/public-notices'
+      fullPath: '/public-notices'
+      preLoaderRoute: typeof PublicNoticesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/report-abuse-social-media': {
       id: '/report-abuse-social-media'
       path: '/report-abuse-social-media'
@@ -490,6 +510,7 @@ const rootRouteChildren: RootRouteChildren = {
   GacAppealRoute: GacAppealRoute,
   LearningCornerRoute: LearningCornerRoute,
   MediaGalleryRoute: MediaGalleryRoute,
+  PublicNoticesRoute: PublicNoticesRoute,
   ReportAbuseSocialMediaRoute: ReportAbuseSocialMediaRoute,
   ReportSuspectRoute: ReportSuspectRoute,
   SafetyTipsRoute: SafetyTipsRoute,
