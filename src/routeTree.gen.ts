@@ -29,6 +29,7 @@ import { Route as ReportSuspectRouteImport } from './routes/report-suspect'
 import { Route as SafetyTipsRouteImport } from './routes/safety-tips'
 import { Route as TrackRouteImport } from './routes/track'
 import { Route as TrainingResourcesRouteImport } from './routes/training-resources'
+import { Route as WebsitePoliciesRouteImport } from './routes/website-policies'
 import { Route as ReportSafetyRouteImport } from './routes/report/safety'
 import { Route as ReportFinancialEvidenceRouteImport } from './routes/report/financial/evidence'
 import { Route as ReportFinancialSubmittedRouteImport } from './routes/report/financial/submitted'
@@ -135,6 +136,11 @@ const TrainingResourcesRoute = TrainingResourcesRouteImport.update({
   path: '/training-resources',
   getParentRoute: () => rootRouteImport,
 } as any)
+const WebsitePoliciesRoute = WebsitePoliciesRouteImport.update({
+  id: '/website-policies',
+  path: '/website-policies',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ReportSafetyRoute = ReportSafetyRouteImport.update({
   id: '/report/safety',
   path: '/report/safety',
@@ -184,6 +190,7 @@ export interface FileRoutesByFullPath {
   '/safety-tips': typeof SafetyTipsRoute
   '/track': typeof TrackRoute
   '/training-resources': typeof TrainingResourcesRoute
+  '/website-policies': typeof WebsitePoliciesRoute
   '/report/safety': typeof ReportSafetyRoute
   '/report/financial/evidence': typeof ReportFinancialEvidenceRoute
   '/report/financial/submitted': typeof ReportFinancialSubmittedRoute
@@ -211,6 +218,7 @@ export interface FileRoutesByTo {
   '/safety-tips': typeof SafetyTipsRoute
   '/track': typeof TrackRoute
   '/training-resources': typeof TrainingResourcesRoute
+  '/website-policies': typeof WebsitePoliciesRoute
   '/report/safety': typeof ReportSafetyRoute
   '/report/financial/evidence': typeof ReportFinancialEvidenceRoute
   '/report/financial/submitted': typeof ReportFinancialSubmittedRoute
@@ -239,6 +247,7 @@ export interface FileRoutesById {
   '/safety-tips': typeof SafetyTipsRoute
   '/track': typeof TrackRoute
   '/training-resources': typeof TrainingResourcesRoute
+  '/website-policies': typeof WebsitePoliciesRoute
   '/report/safety': typeof ReportSafetyRoute
   '/report/financial/evidence': typeof ReportFinancialEvidenceRoute
   '/report/financial/submitted': typeof ReportFinancialSubmittedRoute
@@ -268,6 +277,7 @@ export interface FileRouteTypes {
     | '/safety-tips'
     | '/track'
     | '/training-resources'
+    | '/website-policies'
     | '/report/safety'
     | '/report/financial/evidence'
     | '/report/financial/submitted'
@@ -295,6 +305,7 @@ export interface FileRouteTypes {
     | '/safety-tips'
     | '/track'
     | '/training-resources'
+    | '/website-policies'
     | '/report/safety'
     | '/report/financial/evidence'
     | '/report/financial/submitted'
@@ -322,6 +333,7 @@ export interface FileRouteTypes {
     | '/safety-tips'
     | '/track'
     | '/training-resources'
+    | '/website-policies'
     | '/report/safety'
     | '/report/financial/evidence'
     | '/report/financial/submitted'
@@ -350,6 +362,7 @@ export interface RootRouteChildren {
   SafetyTipsRoute: typeof SafetyTipsRoute
   TrackRoute: typeof TrackRoute
   TrainingResourcesRoute: typeof TrainingResourcesRoute
+  WebsitePoliciesRoute: typeof WebsitePoliciesRoute
   ReportSafetyRoute: typeof ReportSafetyRoute
   ReportFinancialEvidenceRoute: typeof ReportFinancialEvidenceRoute
   ReportFinancialSubmittedRoute: typeof ReportFinancialSubmittedRoute
@@ -499,6 +512,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TrainingResourcesRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/website-policies': {
+      id: '/website-policies'
+      path: '/website-policies'
+      fullPath: '/website-policies'
+      preLoaderRoute: typeof WebsitePoliciesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/report/safety': {
       id: '/report/safety'
       path: '/report/safety'
@@ -558,6 +578,7 @@ const rootRouteChildren: RootRouteChildren = {
   SafetyTipsRoute: SafetyTipsRoute,
   TrackRoute: TrackRoute,
   TrainingResourcesRoute: TrainingResourcesRoute,
+  WebsitePoliciesRoute: WebsitePoliciesRoute,
   ReportSafetyRoute: ReportSafetyRoute,
   ReportFinancialEvidenceRoute: ReportFinancialEvidenceRoute,
   ReportFinancialSubmittedRoute: ReportFinancialSubmittedRoute,
