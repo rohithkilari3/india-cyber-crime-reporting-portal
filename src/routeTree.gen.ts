@@ -21,6 +21,7 @@ import { Route as FaqRouteImport } from './routes/faq'
 import { Route as GacAppealRouteImport } from './routes/gac-appeal'
 import { Route as LearningCornerRouteImport } from './routes/learning-corner'
 import { Route as MediaGalleryRouteImport } from './routes/media-gallery'
+import { Route as NodalOfficersRouteImport } from './routes/nodal-officers'
 import { Route as PublicNoticesRouteImport } from './routes/public-notices'
 import { Route as ReportAbuseSocialMediaRouteImport } from './routes/report-abuse-social-media'
 import { Route as ReportSuspectRouteImport } from './routes/report-suspect'
@@ -91,6 +92,11 @@ const LearningCornerRoute = LearningCornerRouteImport.update({
 const MediaGalleryRoute = MediaGalleryRouteImport.update({
   id: '/media-gallery',
   path: '/media-gallery',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NodalOfficersRoute = NodalOfficersRouteImport.update({
+  id: '/nodal-officers',
+  path: '/nodal-officers',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PublicNoticesRoute = PublicNoticesRouteImport.update({
@@ -164,6 +170,7 @@ export interface FileRoutesByFullPath {
   '/gac-appeal': typeof GacAppealRoute
   '/learning-corner': typeof LearningCornerRoute
   '/media-gallery': typeof MediaGalleryRoute
+  '/nodal-officers': typeof NodalOfficersRoute
   '/public-notices': typeof PublicNoticesRoute
   '/report-abuse-social-media': typeof ReportAbuseSocialMediaRoute
   '/report-suspect': typeof ReportSuspectRoute
@@ -189,6 +196,7 @@ export interface FileRoutesByTo {
   '/gac-appeal': typeof GacAppealRoute
   '/learning-corner': typeof LearningCornerRoute
   '/media-gallery': typeof MediaGalleryRoute
+  '/nodal-officers': typeof NodalOfficersRoute
   '/public-notices': typeof PublicNoticesRoute
   '/report-abuse-social-media': typeof ReportAbuseSocialMediaRoute
   '/report-suspect': typeof ReportSuspectRoute
@@ -215,6 +223,7 @@ export interface FileRoutesById {
   '/gac-appeal': typeof GacAppealRoute
   '/learning-corner': typeof LearningCornerRoute
   '/media-gallery': typeof MediaGalleryRoute
+  '/nodal-officers': typeof NodalOfficersRoute
   '/public-notices': typeof PublicNoticesRoute
   '/report-abuse-social-media': typeof ReportAbuseSocialMediaRoute
   '/report-suspect': typeof ReportSuspectRoute
@@ -242,6 +251,7 @@ export interface FileRouteTypes {
     | '/gac-appeal'
     | '/learning-corner'
     | '/media-gallery'
+    | '/nodal-officers'
     | '/public-notices'
     | '/report-abuse-social-media'
     | '/report-suspect'
@@ -267,6 +277,7 @@ export interface FileRouteTypes {
     | '/gac-appeal'
     | '/learning-corner'
     | '/media-gallery'
+    | '/nodal-officers'
     | '/public-notices'
     | '/report-abuse-social-media'
     | '/report-suspect'
@@ -292,6 +303,7 @@ export interface FileRouteTypes {
     | '/gac-appeal'
     | '/learning-corner'
     | '/media-gallery'
+    | '/nodal-officers'
     | '/public-notices'
     | '/report-abuse-social-media'
     | '/report-suspect'
@@ -318,6 +330,7 @@ export interface RootRouteChildren {
   GacAppealRoute: typeof GacAppealRoute
   LearningCornerRoute: typeof LearningCornerRoute
   MediaGalleryRoute: typeof MediaGalleryRoute
+  NodalOfficersRoute: typeof NodalOfficersRoute
   PublicNoticesRoute: typeof PublicNoticesRoute
   ReportAbuseSocialMediaRoute: typeof ReportAbuseSocialMediaRoute
   ReportSuspectRoute: typeof ReportSuspectRoute
@@ -417,6 +430,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof MediaGalleryRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/nodal-officers': {
+      id: '/nodal-officers'
+      path: '/nodal-officers'
+      fullPath: '/nodal-officers'
+      preLoaderRoute: typeof NodalOfficersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/public-notices': {
       id: '/public-notices'
       path: '/public-notices'
@@ -510,6 +530,7 @@ const rootRouteChildren: RootRouteChildren = {
   GacAppealRoute: GacAppealRoute,
   LearningCornerRoute: LearningCornerRoute,
   MediaGalleryRoute: MediaGalleryRoute,
+  NodalOfficersRoute: NodalOfficersRoute,
   PublicNoticesRoute: PublicNoticesRoute,
   ReportAbuseSocialMediaRoute: ReportAbuseSocialMediaRoute,
   ReportSuspectRoute: ReportSuspectRoute,
