@@ -20,8 +20,10 @@ import { Route as DailyDigestRouteImport } from './routes/daily-digest'
 import { Route as FaqRouteImport } from './routes/faq'
 import { Route as FeedbackRouteImport } from './routes/feedback'
 import { Route as GacAppealRouteImport } from './routes/gac-appeal'
+import { Route as LearnCybercrimeRouteImport } from './routes/learn-cybercrime'
 import { Route as LearningCornerRouteImport } from './routes/learning-corner'
 import { Route as MediaGalleryRouteImport } from './routes/media-gallery'
+import { Route as MyReportsRouteImport } from './routes/my-reports'
 import { Route as NodalOfficersRouteImport } from './routes/nodal-officers'
 import { Route as PublicNoticesRouteImport } from './routes/public-notices'
 import { Route as ReportAbuseSocialMediaRouteImport } from './routes/report-abuse-social-media'
@@ -93,6 +95,11 @@ const GacAppealRoute = GacAppealRouteImport.update({
   path: '/gac-appeal',
   getParentRoute: () => rootRouteImport,
 } as any)
+const LearnCybercrimeRoute = LearnCybercrimeRouteImport.update({
+  id: '/learn-cybercrime',
+  path: '/learn-cybercrime',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const LearningCornerRoute = LearningCornerRouteImport.update({
   id: '/learning-corner',
   path: '/learning-corner',
@@ -101,6 +108,11 @@ const LearningCornerRoute = LearningCornerRouteImport.update({
 const MediaGalleryRoute = MediaGalleryRouteImport.update({
   id: '/media-gallery',
   path: '/media-gallery',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MyReportsRoute = MyReportsRouteImport.update({
+  id: '/my-reports',
+  path: '/my-reports',
   getParentRoute: () => rootRouteImport,
 } as any)
 const NodalOfficersRoute = NodalOfficersRouteImport.update({
@@ -193,8 +205,10 @@ export interface FileRoutesByFullPath {
   '/faq': typeof FaqRoute
   '/feedback': typeof FeedbackRoute
   '/gac-appeal': typeof GacAppealRoute
+  '/learn-cybercrime': typeof LearnCybercrimeRoute
   '/learning-corner': typeof LearningCornerRoute
   '/media-gallery': typeof MediaGalleryRoute
+  '/my-reports': typeof MyReportsRoute
   '/nodal-officers': typeof NodalOfficersRoute
   '/public-notices': typeof PublicNoticesRoute
   '/report-abuse-social-media': typeof ReportAbuseSocialMediaRoute
@@ -223,8 +237,10 @@ export interface FileRoutesByTo {
   '/faq': typeof FaqRoute
   '/feedback': typeof FeedbackRoute
   '/gac-appeal': typeof GacAppealRoute
+  '/learn-cybercrime': typeof LearnCybercrimeRoute
   '/learning-corner': typeof LearningCornerRoute
   '/media-gallery': typeof MediaGalleryRoute
+  '/my-reports': typeof MyReportsRoute
   '/nodal-officers': typeof NodalOfficersRoute
   '/public-notices': typeof PublicNoticesRoute
   '/report-abuse-social-media': typeof ReportAbuseSocialMediaRoute
@@ -254,8 +270,10 @@ export interface FileRoutesById {
   '/faq': typeof FaqRoute
   '/feedback': typeof FeedbackRoute
   '/gac-appeal': typeof GacAppealRoute
+  '/learn-cybercrime': typeof LearnCybercrimeRoute
   '/learning-corner': typeof LearningCornerRoute
   '/media-gallery': typeof MediaGalleryRoute
+  '/my-reports': typeof MyReportsRoute
   '/nodal-officers': typeof NodalOfficersRoute
   '/public-notices': typeof PublicNoticesRoute
   '/report-abuse-social-media': typeof ReportAbuseSocialMediaRoute
@@ -286,8 +304,10 @@ export interface FileRouteTypes {
     | '/faq'
     | '/feedback'
     | '/gac-appeal'
+    | '/learn-cybercrime'
     | '/learning-corner'
     | '/media-gallery'
+    | '/my-reports'
     | '/nodal-officers'
     | '/public-notices'
     | '/report-abuse-social-media'
@@ -316,8 +336,10 @@ export interface FileRouteTypes {
     | '/faq'
     | '/feedback'
     | '/gac-appeal'
+    | '/learn-cybercrime'
     | '/learning-corner'
     | '/media-gallery'
+    | '/my-reports'
     | '/nodal-officers'
     | '/public-notices'
     | '/report-abuse-social-media'
@@ -346,8 +368,10 @@ export interface FileRouteTypes {
     | '/faq'
     | '/feedback'
     | '/gac-appeal'
+    | '/learn-cybercrime'
     | '/learning-corner'
     | '/media-gallery'
+    | '/my-reports'
     | '/nodal-officers'
     | '/public-notices'
     | '/report-abuse-social-media'
@@ -377,8 +401,10 @@ export interface RootRouteChildren {
   FaqRoute: typeof FaqRoute
   FeedbackRoute: typeof FeedbackRoute
   GacAppealRoute: typeof GacAppealRoute
+  LearnCybercrimeRoute: typeof LearnCybercrimeRoute
   LearningCornerRoute: typeof LearningCornerRoute
   MediaGalleryRoute: typeof MediaGalleryRoute
+  MyReportsRoute: typeof MyReportsRoute
   NodalOfficersRoute: typeof NodalOfficersRoute
   PublicNoticesRoute: typeof PublicNoticesRoute
   ReportAbuseSocialMediaRoute: typeof ReportAbuseSocialMediaRoute
@@ -475,6 +501,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof GacAppealRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/learn-cybercrime': {
+      id: '/learn-cybercrime'
+      path: '/learn-cybercrime'
+      fullPath: '/learn-cybercrime'
+      preLoaderRoute: typeof LearnCybercrimeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/learning-corner': {
       id: '/learning-corner'
       path: '/learning-corner'
@@ -487,6 +520,13 @@ declare module '@tanstack/react-router' {
       path: '/media-gallery'
       fullPath: '/media-gallery'
       preLoaderRoute: typeof MediaGalleryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/my-reports': {
+      id: '/my-reports'
+      path: '/my-reports'
+      fullPath: '/my-reports'
+      preLoaderRoute: typeof MyReportsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/nodal-officers': {
@@ -609,8 +649,10 @@ const rootRouteChildren: RootRouteChildren = {
   FaqRoute: FaqRoute,
   FeedbackRoute: FeedbackRoute,
   GacAppealRoute: GacAppealRoute,
+  LearnCybercrimeRoute: LearnCybercrimeRoute,
   LearningCornerRoute: LearningCornerRoute,
   MediaGalleryRoute: MediaGalleryRoute,
+  MyReportsRoute: MyReportsRoute,
   NodalOfficersRoute: NodalOfficersRoute,
   PublicNoticesRoute: PublicNoticesRoute,
   ReportAbuseSocialMediaRoute: ReportAbuseSocialMediaRoute,
