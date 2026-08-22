@@ -1,6 +1,71 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { BookOpen, GraduationCap, Users, Baby, Briefcase } from "lucide-react";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import {
+  BookOpen,
+  GraduationCap,
+  Users,
+  Baby,
+  Briefcase,
+  HelpCircle,
+  AlertTriangle,
+  ShieldCheck,
+  Megaphone,
+  Newspaper,
+  Images,
+  BookMarked,
+} from "lucide-react";
 import { Page } from "@/components/site/Page";
+
+const resources = [
+  {
+    to: "/citizen-manual" as const,
+    icon: BookMarked,
+    title: "Citizen manual",
+    body: "How to use this portal, step by step.",
+  },
+  {
+    to: "/safety-tips" as const,
+    icon: ShieldCheck,
+    title: "Online safety tips",
+    body: "Everyday habits that keep your money and accounts safe.",
+  },
+  {
+    to: "/cyber-awareness" as const,
+    icon: Megaphone,
+    title: "Cyber awareness",
+    body: "Posters, booklets and campaign material you can share.",
+  },
+  {
+    to: "/daily-digest" as const,
+    icon: Newspaper,
+    title: "Daily digest",
+    body: "The fraud methods being reported today.",
+  },
+  {
+    to: "/advisories" as const,
+    icon: AlertTriangle,
+    title: "Advisories",
+    body: "Current warnings on scams spreading across India.",
+  },
+  {
+    to: "/faq" as const,
+    icon: HelpCircle,
+    title: "Frequently asked questions",
+    body: "Straight answers about reporting and what happens next.",
+  },
+  {
+    to: "/media-gallery" as const,
+    icon: Images,
+    title: "Photo, video and radio gallery",
+    body: "Awareness films, campaign photos and radio spots.",
+  },
+  {
+    to: "/training-resources" as const,
+    icon: GraduationCap,
+    title: "Training resources",
+    body: "Courses for police, prosecutors and volunteers.",
+  },
+];
+
 
 export const Route = createFileRoute("/learning-corner")({
   head: () => ({
