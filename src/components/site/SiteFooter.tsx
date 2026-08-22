@@ -62,7 +62,7 @@ export function SiteFooter() {
           — free, 24 hours a day. The sooner you call, the better the chance of stopping the money.
         </p>
 
-        <div className="mt-8 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-8 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {columns.map((col) => (
             <nav key={col.title} aria-label={col.title}>
               <h3 className="text-sm font-bold uppercase tracking-wide text-navy">{col.title}</h3>
