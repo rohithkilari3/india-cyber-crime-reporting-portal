@@ -11,6 +11,12 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as CheckSuspectRouteImport } from './routes/check-suspect'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as CyberVolunteersRouteImport } from './routes/cyber-volunteers'
+import { Route as GacAppealRouteImport } from './routes/gac-appeal'
+import { Route as LearningCornerRouteImport } from './routes/learning-corner'
+import { Route as ReportAbuseSocialMediaRouteImport } from './routes/report-abuse-social-media'
+import { Route as ReportSuspectRouteImport } from './routes/report-suspect'
 import { Route as TrackRouteImport } from './routes/track'
 import { Route as ReportSafetyRouteImport } from './routes/report/safety'
 import { Route as ReportFinancialEvidenceRouteImport } from './routes/report/financial/evidence'
@@ -26,6 +32,36 @@ const IndexRoute = IndexRouteImport.update({
 const CheckSuspectRoute = CheckSuspectRouteImport.update({
   id: '/check-suspect',
   path: '/check-suspect',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CyberVolunteersRoute = CyberVolunteersRouteImport.update({
+  id: '/cyber-volunteers',
+  path: '/cyber-volunteers',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GacAppealRoute = GacAppealRouteImport.update({
+  id: '/gac-appeal',
+  path: '/gac-appeal',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LearningCornerRoute = LearningCornerRouteImport.update({
+  id: '/learning-corner',
+  path: '/learning-corner',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReportAbuseSocialMediaRoute = ReportAbuseSocialMediaRouteImport.update({
+  id: '/report-abuse-social-media',
+  path: '/report-abuse-social-media',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReportSuspectRoute = ReportSuspectRouteImport.update({
+  id: '/report-suspect',
+  path: '/report-suspect',
   getParentRoute: () => rootRouteImport,
 } as any)
 const TrackRoute = TrackRouteImport.update({
@@ -64,6 +100,12 @@ const ReportFinancialWhatHappenedRoute =
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/check-suspect': typeof CheckSuspectRoute
+  '/contact': typeof ContactRoute
+  '/cyber-volunteers': typeof CyberVolunteersRoute
+  '/gac-appeal': typeof GacAppealRoute
+  '/learning-corner': typeof LearningCornerRoute
+  '/report-abuse-social-media': typeof ReportAbuseSocialMediaRoute
+  '/report-suspect': typeof ReportSuspectRoute
   '/track': typeof TrackRoute
   '/report/safety': typeof ReportSafetyRoute
   '/report/financial/evidence': typeof ReportFinancialEvidenceRoute
@@ -74,6 +116,12 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/check-suspect': typeof CheckSuspectRoute
+  '/contact': typeof ContactRoute
+  '/cyber-volunteers': typeof CyberVolunteersRoute
+  '/gac-appeal': typeof GacAppealRoute
+  '/learning-corner': typeof LearningCornerRoute
+  '/report-abuse-social-media': typeof ReportAbuseSocialMediaRoute
+  '/report-suspect': typeof ReportSuspectRoute
   '/track': typeof TrackRoute
   '/report/safety': typeof ReportSafetyRoute
   '/report/financial/evidence': typeof ReportFinancialEvidenceRoute
@@ -85,6 +133,12 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/check-suspect': typeof CheckSuspectRoute
+  '/contact': typeof ContactRoute
+  '/cyber-volunteers': typeof CyberVolunteersRoute
+  '/gac-appeal': typeof GacAppealRoute
+  '/learning-corner': typeof LearningCornerRoute
+  '/report-abuse-social-media': typeof ReportAbuseSocialMediaRoute
+  '/report-suspect': typeof ReportSuspectRoute
   '/track': typeof TrackRoute
   '/report/safety': typeof ReportSafetyRoute
   '/report/financial/evidence': typeof ReportFinancialEvidenceRoute
@@ -97,6 +151,12 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/check-suspect'
+    | '/contact'
+    | '/cyber-volunteers'
+    | '/gac-appeal'
+    | '/learning-corner'
+    | '/report-abuse-social-media'
+    | '/report-suspect'
     | '/track'
     | '/report/safety'
     | '/report/financial/evidence'
@@ -107,6 +167,12 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/check-suspect'
+    | '/contact'
+    | '/cyber-volunteers'
+    | '/gac-appeal'
+    | '/learning-corner'
+    | '/report-abuse-social-media'
+    | '/report-suspect'
     | '/track'
     | '/report/safety'
     | '/report/financial/evidence'
@@ -117,6 +183,12 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/check-suspect'
+    | '/contact'
+    | '/cyber-volunteers'
+    | '/gac-appeal'
+    | '/learning-corner'
+    | '/report-abuse-social-media'
+    | '/report-suspect'
     | '/track'
     | '/report/safety'
     | '/report/financial/evidence'
@@ -128,6 +200,12 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   CheckSuspectRoute: typeof CheckSuspectRoute
+  ContactRoute: typeof ContactRoute
+  CyberVolunteersRoute: typeof CyberVolunteersRoute
+  GacAppealRoute: typeof GacAppealRoute
+  LearningCornerRoute: typeof LearningCornerRoute
+  ReportAbuseSocialMediaRoute: typeof ReportAbuseSocialMediaRoute
+  ReportSuspectRoute: typeof ReportSuspectRoute
   TrackRoute: typeof TrackRoute
   ReportSafetyRoute: typeof ReportSafetyRoute
   ReportFinancialEvidenceRoute: typeof ReportFinancialEvidenceRoute
@@ -150,6 +228,48 @@ declare module '@tanstack/react-router' {
       path: '/check-suspect'
       fullPath: '/check-suspect'
       preLoaderRoute: typeof CheckSuspectRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cyber-volunteers': {
+      id: '/cyber-volunteers'
+      path: '/cyber-volunteers'
+      fullPath: '/cyber-volunteers'
+      preLoaderRoute: typeof CyberVolunteersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/gac-appeal': {
+      id: '/gac-appeal'
+      path: '/gac-appeal'
+      fullPath: '/gac-appeal'
+      preLoaderRoute: typeof GacAppealRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/learning-corner': {
+      id: '/learning-corner'
+      path: '/learning-corner'
+      fullPath: '/learning-corner'
+      preLoaderRoute: typeof LearningCornerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/report-abuse-social-media': {
+      id: '/report-abuse-social-media'
+      path: '/report-abuse-social-media'
+      fullPath: '/report-abuse-social-media'
+      preLoaderRoute: typeof ReportAbuseSocialMediaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/report-suspect': {
+      id: '/report-suspect'
+      path: '/report-suspect'
+      fullPath: '/report-suspect'
+      preLoaderRoute: typeof ReportSuspectRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/track': {
@@ -200,6 +320,12 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   CheckSuspectRoute: CheckSuspectRoute,
+  ContactRoute: ContactRoute,
+  CyberVolunteersRoute: CyberVolunteersRoute,
+  GacAppealRoute: GacAppealRoute,
+  LearningCornerRoute: LearningCornerRoute,
+  ReportAbuseSocialMediaRoute: ReportAbuseSocialMediaRoute,
+  ReportSuspectRoute: ReportSuspectRoute,
   TrackRoute: TrackRoute,
   ReportSafetyRoute: ReportSafetyRoute,
   ReportFinancialEvidenceRoute: ReportFinancialEvidenceRoute,
