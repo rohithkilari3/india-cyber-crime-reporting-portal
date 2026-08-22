@@ -13,6 +13,10 @@ import {
   FileClock,
   Phone,
   Sparkles,
+  AlertTriangle,
+  Users,
+  MessageSquare,
+
 } from "lucide-react";
 import { Page } from "@/components/site/Page";
 import { HomeBanner } from "@/components/site/HomeBanner";
