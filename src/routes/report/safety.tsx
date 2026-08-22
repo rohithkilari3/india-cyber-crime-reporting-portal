@@ -25,7 +25,7 @@ export const Route = createFileRoute("/report/safety")({
 
 function Safety() {
   const [story, setStory] = useState("");
-  const [mode, setMode] = useState<"anonymous" | "tracked">("");
+  const [mode, setMode] = useState<"anonymous" | "tracked" | "">("");
   const [ack, setAck] = useState("");
 
   function submit(e: React.FormEvent) {
