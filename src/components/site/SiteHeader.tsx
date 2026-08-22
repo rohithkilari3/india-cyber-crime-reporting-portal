@@ -25,16 +25,16 @@ const scales: { value: FontScale; label: string; sr: string }[] = [
 
 export const primaryNav = [
   { to: "/" as const, label: "Home" },
-  { to: "/report/financial/what-happened" as const, label: "Report fraud" },
-  { to: "/report/safety" as const, label: "Report threats or abuse" },
+  { to: "/report/financial/what-happened" as const, label: "Money was stolen" },
+  { to: "/report/safety" as const, label: "Threats or abuse" },
   { to: "/report-suspect" as const, label: "Report a suspect" },
   { to: "/report-abuse-social-media" as const, label: "Social media abuse" },
-  { to: "/track" as const, label: "Check my report" },
   { to: "/cyber-volunteers" as const, label: "Cyber volunteers" },
   { to: "/learning-corner" as const, label: "Learning corner" },
-  { to: "/faq" as const, label: "Help and FAQs" },
+  { to: "/track" as const, label: "Check my report" },
   { to: "/contact" as const, label: "Contact us" },
 ];
+
 
 export const socialLinks = [
   { href: "https://www.facebook.com/CyberDost", label: "Facebook", Icon: Facebook },
