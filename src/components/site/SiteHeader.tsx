@@ -32,6 +32,7 @@ export const primaryNav = [
   { to: "/cyber-volunteers" as const, label: "Cyber volunteers" },
   { to: "/learning-corner" as const, label: "Learning corner" },
   { to: "/track" as const, label: "Check my report" },
+  { to: "/my-reports" as const, label: "My reports" },
   { to: "/contact" as const, label: "Contact us" },
 ];
 

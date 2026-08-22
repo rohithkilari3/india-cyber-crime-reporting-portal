@@ -20,8 +20,10 @@ import { Route as DailyDigestRouteImport } from './routes/daily-digest'
 import { Route as FaqRouteImport } from './routes/faq'
 import { Route as FeedbackRouteImport } from './routes/feedback'
 import { Route as GacAppealRouteImport } from './routes/gac-appeal'
+import { Route as LearnCybercrimeRouteImport } from './routes/learn-cybercrime'
 import { Route as LearningCornerRouteImport } from './routes/learning-corner'
 import { Route as MediaGalleryRouteImport } from './routes/media-gallery'
+import { Route as MyReportsRouteImport } from './routes/my-reports'
 import { Route as NodalOfficersRouteImport } from './routes/nodal-officers'
 import { Route as PublicNoticesRouteImport } from './routes/public-notices'
 import { Route as ReportAbuseSocialMediaRouteImport } from './routes/report-abuse-social-media'
@@ -31,8 +33,10 @@ import { Route as TrackRouteImport } from './routes/track'
 import { Route as TrainingResourcesRouteImport } from './routes/training-resources'
 import { Route as WebsitePoliciesRouteImport } from './routes/website-policies'
 import { Route as ReportSafetyRouteImport } from './routes/report/safety'
+import { Route as ReportFinancialAboutYouRouteImport } from './routes/report/financial/about-you'
 import { Route as ReportFinancialEvidenceRouteImport } from './routes/report/financial/evidence'
 import { Route as ReportFinancialSubmittedRouteImport } from './routes/report/financial/submitted'
+import { Route as ReportFinancialSuspectRouteImport } from './routes/report/financial/suspect'
 import { Route as ReportFinancialVerifyRouteImport } from './routes/report/financial/verify'
 import { Route as ReportFinancialWhatHappenedRouteImport } from './routes/report/financial/what-happened'
 
@@ -91,6 +95,11 @@ const GacAppealRoute = GacAppealRouteImport.update({
   path: '/gac-appeal',
   getParentRoute: () => rootRouteImport,
 } as any)
+const LearnCybercrimeRoute = LearnCybercrimeRouteImport.update({
+  id: '/learn-cybercrime',
+  path: '/learn-cybercrime',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const LearningCornerRoute = LearningCornerRouteImport.update({
   id: '/learning-corner',
   path: '/learning-corner',
@@ -99,6 +108,11 @@ const LearningCornerRoute = LearningCornerRouteImport.update({
 const MediaGalleryRoute = MediaGalleryRouteImport.update({
   id: '/media-gallery',
   path: '/media-gallery',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MyReportsRoute = MyReportsRouteImport.update({
+  id: '/my-reports',
+  path: '/my-reports',
   getParentRoute: () => rootRouteImport,
 } as any)
 const NodalOfficersRoute = NodalOfficersRouteImport.update({
@@ -146,6 +160,11 @@ const ReportSafetyRoute = ReportSafetyRouteImport.update({
   path: '/report/safety',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ReportFinancialAboutYouRoute = ReportFinancialAboutYouRouteImport.update({
+  id: '/report/financial/about-you',
+  path: '/report/financial/about-you',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ReportFinancialEvidenceRoute = ReportFinancialEvidenceRouteImport.update({
   id: '/report/financial/evidence',
   path: '/report/financial/evidence',
@@ -157,6 +176,11 @@ const ReportFinancialSubmittedRoute =
     path: '/report/financial/submitted',
     getParentRoute: () => rootRouteImport,
   } as any)
+const ReportFinancialSuspectRoute = ReportFinancialSuspectRouteImport.update({
+  id: '/report/financial/suspect',
+  path: '/report/financial/suspect',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ReportFinancialVerifyRoute = ReportFinancialVerifyRouteImport.update({
   id: '/report/financial/verify',
   path: '/report/financial/verify',
@@ -181,8 +205,10 @@ export interface FileRoutesByFullPath {
   '/faq': typeof FaqRoute
   '/feedback': typeof FeedbackRoute
   '/gac-appeal': typeof GacAppealRoute
+  '/learn-cybercrime': typeof LearnCybercrimeRoute
   '/learning-corner': typeof LearningCornerRoute
   '/media-gallery': typeof MediaGalleryRoute
+  '/my-reports': typeof MyReportsRoute
   '/nodal-officers': typeof NodalOfficersRoute
   '/public-notices': typeof PublicNoticesRoute
   '/report-abuse-social-media': typeof ReportAbuseSocialMediaRoute
@@ -192,8 +218,10 @@ export interface FileRoutesByFullPath {
   '/training-resources': typeof TrainingResourcesRoute
   '/website-policies': typeof WebsitePoliciesRoute
   '/report/safety': typeof ReportSafetyRoute
+  '/report/financial/about-you': typeof ReportFinancialAboutYouRoute
   '/report/financial/evidence': typeof ReportFinancialEvidenceRoute
   '/report/financial/submitted': typeof ReportFinancialSubmittedRoute
+  '/report/financial/suspect': typeof ReportFinancialSuspectRoute
   '/report/financial/verify': typeof ReportFinancialVerifyRoute
   '/report/financial/what-happened': typeof ReportFinancialWhatHappenedRoute
 }
@@ -209,8 +237,10 @@ export interface FileRoutesByTo {
   '/faq': typeof FaqRoute
   '/feedback': typeof FeedbackRoute
   '/gac-appeal': typeof GacAppealRoute
+  '/learn-cybercrime': typeof LearnCybercrimeRoute
   '/learning-corner': typeof LearningCornerRoute
   '/media-gallery': typeof MediaGalleryRoute
+  '/my-reports': typeof MyReportsRoute
   '/nodal-officers': typeof NodalOfficersRoute
   '/public-notices': typeof PublicNoticesRoute
   '/report-abuse-social-media': typeof ReportAbuseSocialMediaRoute
@@ -220,8 +250,10 @@ export interface FileRoutesByTo {
   '/training-resources': typeof TrainingResourcesRoute
   '/website-policies': typeof WebsitePoliciesRoute
   '/report/safety': typeof ReportSafetyRoute
+  '/report/financial/about-you': typeof ReportFinancialAboutYouRoute
   '/report/financial/evidence': typeof ReportFinancialEvidenceRoute
   '/report/financial/submitted': typeof ReportFinancialSubmittedRoute
+  '/report/financial/suspect': typeof ReportFinancialSuspectRoute
   '/report/financial/verify': typeof ReportFinancialVerifyRoute
   '/report/financial/what-happened': typeof ReportFinancialWhatHappenedRoute
 }
@@ -238,8 +270,10 @@ export interface FileRoutesById {
   '/faq': typeof FaqRoute
   '/feedback': typeof FeedbackRoute
   '/gac-appeal': typeof GacAppealRoute
+  '/learn-cybercrime': typeof LearnCybercrimeRoute
   '/learning-corner': typeof LearningCornerRoute
   '/media-gallery': typeof MediaGalleryRoute
+  '/my-reports': typeof MyReportsRoute
   '/nodal-officers': typeof NodalOfficersRoute
   '/public-notices': typeof PublicNoticesRoute
   '/report-abuse-social-media': typeof ReportAbuseSocialMediaRoute
@@ -249,8 +283,10 @@ export interface FileRoutesById {
   '/training-resources': typeof TrainingResourcesRoute
   '/website-policies': typeof WebsitePoliciesRoute
   '/report/safety': typeof ReportSafetyRoute
+  '/report/financial/about-you': typeof ReportFinancialAboutYouRoute
   '/report/financial/evidence': typeof ReportFinancialEvidenceRoute
   '/report/financial/submitted': typeof ReportFinancialSubmittedRoute
+  '/report/financial/suspect': typeof ReportFinancialSuspectRoute
   '/report/financial/verify': typeof ReportFinancialVerifyRoute
   '/report/financial/what-happened': typeof ReportFinancialWhatHappenedRoute
 }
@@ -268,8 +304,10 @@ export interface FileRouteTypes {
     | '/faq'
     | '/feedback'
     | '/gac-appeal'
+    | '/learn-cybercrime'
     | '/learning-corner'
     | '/media-gallery'
+    | '/my-reports'
     | '/nodal-officers'
     | '/public-notices'
     | '/report-abuse-social-media'
@@ -279,8 +317,10 @@ export interface FileRouteTypes {
     | '/training-resources'
     | '/website-policies'
     | '/report/safety'
+    | '/report/financial/about-you'
     | '/report/financial/evidence'
     | '/report/financial/submitted'
+    | '/report/financial/suspect'
     | '/report/financial/verify'
     | '/report/financial/what-happened'
   fileRoutesByTo: FileRoutesByTo
@@ -296,8 +336,10 @@ export interface FileRouteTypes {
     | '/faq'
     | '/feedback'
     | '/gac-appeal'
+    | '/learn-cybercrime'
     | '/learning-corner'
     | '/media-gallery'
+    | '/my-reports'
     | '/nodal-officers'
     | '/public-notices'
     | '/report-abuse-social-media'
@@ -307,8 +349,10 @@ export interface FileRouteTypes {
     | '/training-resources'
     | '/website-policies'
     | '/report/safety'
+    | '/report/financial/about-you'
     | '/report/financial/evidence'
     | '/report/financial/submitted'
+    | '/report/financial/suspect'
     | '/report/financial/verify'
     | '/report/financial/what-happened'
   id:
@@ -324,8 +368,10 @@ export interface FileRouteTypes {
     | '/faq'
     | '/feedback'
     | '/gac-appeal'
+    | '/learn-cybercrime'
     | '/learning-corner'
     | '/media-gallery'
+    | '/my-reports'
     | '/nodal-officers'
     | '/public-notices'
     | '/report-abuse-social-media'
@@ -335,8 +381,10 @@ export interface FileRouteTypes {
     | '/training-resources'
     | '/website-policies'
     | '/report/safety'
+    | '/report/financial/about-you'
     | '/report/financial/evidence'
     | '/report/financial/submitted'
+    | '/report/financial/suspect'
     | '/report/financial/verify'
     | '/report/financial/what-happened'
   fileRoutesById: FileRoutesById
@@ -353,8 +401,10 @@ export interface RootRouteChildren {
   FaqRoute: typeof FaqRoute
   FeedbackRoute: typeof FeedbackRoute
   GacAppealRoute: typeof GacAppealRoute
+  LearnCybercrimeRoute: typeof LearnCybercrimeRoute
   LearningCornerRoute: typeof LearningCornerRoute
   MediaGalleryRoute: typeof MediaGalleryRoute
+  MyReportsRoute: typeof MyReportsRoute
   NodalOfficersRoute: typeof NodalOfficersRoute
   PublicNoticesRoute: typeof PublicNoticesRoute
   ReportAbuseSocialMediaRoute: typeof ReportAbuseSocialMediaRoute
@@ -364,8 +414,10 @@ export interface RootRouteChildren {
   TrainingResourcesRoute: typeof TrainingResourcesRoute
   WebsitePoliciesRoute: typeof WebsitePoliciesRoute
   ReportSafetyRoute: typeof ReportSafetyRoute
+  ReportFinancialAboutYouRoute: typeof ReportFinancialAboutYouRoute
   ReportFinancialEvidenceRoute: typeof ReportFinancialEvidenceRoute
   ReportFinancialSubmittedRoute: typeof ReportFinancialSubmittedRoute
+  ReportFinancialSuspectRoute: typeof ReportFinancialSuspectRoute
   ReportFinancialVerifyRoute: typeof ReportFinancialVerifyRoute
   ReportFinancialWhatHappenedRoute: typeof ReportFinancialWhatHappenedRoute
 }
@@ -449,6 +501,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof GacAppealRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/learn-cybercrime': {
+      id: '/learn-cybercrime'
+      path: '/learn-cybercrime'
+      fullPath: '/learn-cybercrime'
+      preLoaderRoute: typeof LearnCybercrimeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/learning-corner': {
       id: '/learning-corner'
       path: '/learning-corner'
@@ -461,6 +520,13 @@ declare module '@tanstack/react-router' {
       path: '/media-gallery'
       fullPath: '/media-gallery'
       preLoaderRoute: typeof MediaGalleryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/my-reports': {
+      id: '/my-reports'
+      path: '/my-reports'
+      fullPath: '/my-reports'
+      preLoaderRoute: typeof MyReportsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/nodal-officers': {
@@ -526,6 +592,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ReportSafetyRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/report/financial/about-you': {
+      id: '/report/financial/about-you'
+      path: '/report/financial/about-you'
+      fullPath: '/report/financial/about-you'
+      preLoaderRoute: typeof ReportFinancialAboutYouRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/report/financial/evidence': {
       id: '/report/financial/evidence'
       path: '/report/financial/evidence'
@@ -538,6 +611,13 @@ declare module '@tanstack/react-router' {
       path: '/report/financial/submitted'
       fullPath: '/report/financial/submitted'
       preLoaderRoute: typeof ReportFinancialSubmittedRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/report/financial/suspect': {
+      id: '/report/financial/suspect'
+      path: '/report/financial/suspect'
+      fullPath: '/report/financial/suspect'
+      preLoaderRoute: typeof ReportFinancialSuspectRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/report/financial/verify': {
@@ -569,8 +649,10 @@ const rootRouteChildren: RootRouteChildren = {
   FaqRoute: FaqRoute,
   FeedbackRoute: FeedbackRoute,
   GacAppealRoute: GacAppealRoute,
+  LearnCybercrimeRoute: LearnCybercrimeRoute,
   LearningCornerRoute: LearningCornerRoute,
   MediaGalleryRoute: MediaGalleryRoute,
+  MyReportsRoute: MyReportsRoute,
   NodalOfficersRoute: NodalOfficersRoute,
   PublicNoticesRoute: PublicNoticesRoute,
   ReportAbuseSocialMediaRoute: ReportAbuseSocialMediaRoute,
@@ -580,8 +662,10 @@ const rootRouteChildren: RootRouteChildren = {
   TrainingResourcesRoute: TrainingResourcesRoute,
   WebsitePoliciesRoute: WebsitePoliciesRoute,
   ReportSafetyRoute: ReportSafetyRoute,
+  ReportFinancialAboutYouRoute: ReportFinancialAboutYouRoute,
   ReportFinancialEvidenceRoute: ReportFinancialEvidenceRoute,
   ReportFinancialSubmittedRoute: ReportFinancialSubmittedRoute,
+  ReportFinancialSuspectRoute: ReportFinancialSuspectRoute,
   ReportFinancialVerifyRoute: ReportFinancialVerifyRoute,
   ReportFinancialWhatHappenedRoute: ReportFinancialWhatHappenedRoute,
 }

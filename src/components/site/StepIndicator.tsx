@@ -1,6 +1,8 @@
-const steps = ["What happened", "Evidence", "Verify", "Done"];
+const steps = ["What happened", "Who contacted you", "Evidence", "About you", "Confirm", "Done"];
 
-export function StepIndicator({ current }: { current: 1 | 2 | 3 | 4 }) {
+export type StepNumber = 1 | 2 | 3 | 4 | 5 | 6;
+
+export function StepIndicator({ current }: { current: StepNumber }) {
   return (
     <div className="mb-8">
       <p className="text-sm font-semibold text-muted-foreground">

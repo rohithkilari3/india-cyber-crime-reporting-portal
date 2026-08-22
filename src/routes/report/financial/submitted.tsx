@@ -59,7 +59,7 @@ function Submitted() {
 
   return (
     <Page>
-      <StepIndicator current={4} />
+      <StepIndicator current={6} />
       <div className="flex items-center gap-3">
         <CheckCircle2 className="size-9 text-success" aria-hidden="true" />
         <h1 className="text-3xl font-bold text-navy">We&apos;ve received your report</h1>

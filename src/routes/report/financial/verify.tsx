@@ -72,7 +72,7 @@ function Verify() {
 
   return (
     <Page>
-      <StepIndicator current={3} />
+      <StepIndicator current={5} />
       <h1 className="text-3xl font-bold text-navy">Confirm it&apos;s you</h1>
       <p className="mt-3 text-base text-muted-foreground">
         We need a mobile number so we can send you updates about your report. Take your time —
@@ -195,8 +195,8 @@ function Verify() {
           >
             Submit my report
           </button>
-          <Link to="/report/financial/evidence" className="font-semibold text-brand-blue underline">
-            Back to evidence
+          <Link to="/report/financial/about-you" className="font-semibold text-brand-blue underline">
+            Back to your details
           </Link>
         </div>
       </form>

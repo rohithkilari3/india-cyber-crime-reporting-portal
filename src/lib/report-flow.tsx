@@ -7,7 +7,21 @@ export type FinancialReport = {
   otherDescription: string;
   amount: string;
   whenHappened: string;
+  /** Where the incident reached you — call, WhatsApp, website, app, in person */
+  platform: string;
+  platformDetail: string;
+  /** Suspect details */
+  suspectKind: string;
+  suspectValue: string;
+  suspectNotes: string;
   files: ReportFile[];
+  /** Complainant details */
+  fullName: string;
+  email: string;
+  state: string;
+  district: string;
+  policeStation: string;
+  anonymousContact: boolean;
   mobile: string;
   acknowledgement: string;
 };
@@ -17,7 +31,18 @@ const emptyReport: FinancialReport = {
   otherDescription: "",
   amount: "",
   whenHappened: "",
+  platform: "",
+  platformDetail: "",
+  suspectKind: "",
+  suspectValue: "",
+  suspectNotes: "",
   files: [],
+  fullName: "",
+  email: "",
+  state: "",
+  district: "",
+  policeStation: "",
+  anonymousContact: false,
   mobile: "",
   acknowledgement: "",
 };
@@ -59,3 +84,42 @@ export function formatBytes(bytes: number) {
   if (bytes < 1024 * 1024) return `${Math.round(bytes / 1024)} KB`;
   return `${(bytes / (1024 * 1024)).toFixed(1)} MB`;
 }
+
+export const STATES = [
+  "Andhra Pradesh",
+  "Arunachal Pradesh",
+  "Assam",
+  "Bihar",
+  "Chhattisgarh",
+  "Delhi",
+  "Goa",
+  "Gujarat",
+  "Haryana",
+  "Himachal Pradesh",
+  "Jammu & Kashmir",
+  "Jharkhand",
+  "Karnataka",
+  "Kerala",
+  "Ladakh",
+  "Madhya Pradesh",
+  "Maharashtra",
+  "Manipur",
+  "Meghalaya",
+  "Mizoram",
+  "Nagaland",
+  "Odisha",
+  "Puducherry",
+  "Punjab",
+  "Rajasthan",
+  "Sikkim",
+  "Tamil Nadu",
+  "Telangana",
+  "Tripura",
+  "Uttar Pradesh",
+  "Uttarakhand",
+  "West Bengal",
+  "Andaman & Nicobar Islands",
+  "Chandigarh",
+  "Dadra & Nagar Haveli and Daman & Diu",
+  "Lakshadweep",
+];
