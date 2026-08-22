@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AdvisoriesRouteImport } from './routes/advisories'
 import { Route as CheckSuspectRouteImport } from './routes/check-suspect'
+import { Route as CitizenManualRouteImport } from './routes/citizen-manual'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CyberAwarenessRouteImport } from './routes/cyber-awareness'
 import { Route as CyberVolunteersRouteImport } from './routes/cyber-volunteers'
@@ -44,6 +45,11 @@ const AdvisoriesRoute = AdvisoriesRouteImport.update({
 const CheckSuspectRoute = CheckSuspectRouteImport.update({
   id: '/check-suspect',
   path: '/check-suspect',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CitizenManualRoute = CitizenManualRouteImport.update({
+  id: '/citizen-manual',
+  path: '/citizen-manual',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactRoute = ContactRouteImport.update({
@@ -143,6 +149,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/advisories': typeof AdvisoriesRoute
   '/check-suspect': typeof CheckSuspectRoute
+  '/citizen-manual': typeof CitizenManualRoute
   '/contact': typeof ContactRoute
   '/cyber-awareness': typeof CyberAwarenessRoute
   '/cyber-volunteers': typeof CyberVolunteersRoute
@@ -166,6 +173,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/advisories': typeof AdvisoriesRoute
   '/check-suspect': typeof CheckSuspectRoute
+  '/citizen-manual': typeof CitizenManualRoute
   '/contact': typeof ContactRoute
   '/cyber-awareness': typeof CyberAwarenessRoute
   '/cyber-volunteers': typeof CyberVolunteersRoute
@@ -190,6 +198,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/advisories': typeof AdvisoriesRoute
   '/check-suspect': typeof CheckSuspectRoute
+  '/citizen-manual': typeof CitizenManualRoute
   '/contact': typeof ContactRoute
   '/cyber-awareness': typeof CyberAwarenessRoute
   '/cyber-volunteers': typeof CyberVolunteersRoute
@@ -215,6 +224,7 @@ export interface FileRouteTypes {
     | '/'
     | '/advisories'
     | '/check-suspect'
+    | '/citizen-manual'
     | '/contact'
     | '/cyber-awareness'
     | '/cyber-volunteers'
@@ -238,6 +248,7 @@ export interface FileRouteTypes {
     | '/'
     | '/advisories'
     | '/check-suspect'
+    | '/citizen-manual'
     | '/contact'
     | '/cyber-awareness'
     | '/cyber-volunteers'
@@ -261,6 +272,7 @@ export interface FileRouteTypes {
     | '/'
     | '/advisories'
     | '/check-suspect'
+    | '/citizen-manual'
     | '/contact'
     | '/cyber-awareness'
     | '/cyber-volunteers'
@@ -285,6 +297,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AdvisoriesRoute: typeof AdvisoriesRoute
   CheckSuspectRoute: typeof CheckSuspectRoute
+  CitizenManualRoute: typeof CitizenManualRoute
   ContactRoute: typeof ContactRoute
   CyberAwarenessRoute: typeof CyberAwarenessRoute
   CyberVolunteersRoute: typeof CyberVolunteersRoute
@@ -326,6 +339,13 @@ declare module '@tanstack/react-router' {
       path: '/check-suspect'
       fullPath: '/check-suspect'
       preLoaderRoute: typeof CheckSuspectRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/citizen-manual': {
+      id: '/citizen-manual'
+      path: '/citizen-manual'
+      fullPath: '/citizen-manual'
+      preLoaderRoute: typeof CitizenManualRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contact': {
@@ -461,6 +481,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AdvisoriesRoute: AdvisoriesRoute,
   CheckSuspectRoute: CheckSuspectRoute,
+  CitizenManualRoute: CitizenManualRoute,
   ContactRoute: ContactRoute,
   CyberAwarenessRoute: CyberAwarenessRoute,
   CyberVolunteersRoute: CyberVolunteersRoute,
