@@ -19,6 +19,7 @@ import { Route as GacAppealRouteImport } from './routes/gac-appeal'
 import { Route as LearningCornerRouteImport } from './routes/learning-corner'
 import { Route as ReportAbuseSocialMediaRouteImport } from './routes/report-abuse-social-media'
 import { Route as ReportSuspectRouteImport } from './routes/report-suspect'
+import { Route as SafetyTipsRouteImport } from './routes/safety-tips'
 import { Route as TrackRouteImport } from './routes/track'
 import { Route as ReportSafetyRouteImport } from './routes/report/safety'
 import { Route as ReportFinancialEvidenceRouteImport } from './routes/report/financial/evidence'
@@ -76,6 +77,11 @@ const ReportSuspectRoute = ReportSuspectRouteImport.update({
   path: '/report-suspect',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SafetyTipsRoute = SafetyTipsRouteImport.update({
+  id: '/safety-tips',
+  path: '/safety-tips',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const TrackRoute = TrackRouteImport.update({
   id: '/track',
   path: '/track',
@@ -120,6 +126,7 @@ export interface FileRoutesByFullPath {
   '/learning-corner': typeof LearningCornerRoute
   '/report-abuse-social-media': typeof ReportAbuseSocialMediaRoute
   '/report-suspect': typeof ReportSuspectRoute
+  '/safety-tips': typeof SafetyTipsRoute
   '/track': typeof TrackRoute
   '/report/safety': typeof ReportSafetyRoute
   '/report/financial/evidence': typeof ReportFinancialEvidenceRoute
@@ -138,6 +145,7 @@ export interface FileRoutesByTo {
   '/learning-corner': typeof LearningCornerRoute
   '/report-abuse-social-media': typeof ReportAbuseSocialMediaRoute
   '/report-suspect': typeof ReportSuspectRoute
+  '/safety-tips': typeof SafetyTipsRoute
   '/track': typeof TrackRoute
   '/report/safety': typeof ReportSafetyRoute
   '/report/financial/evidence': typeof ReportFinancialEvidenceRoute
@@ -157,6 +165,7 @@ export interface FileRoutesById {
   '/learning-corner': typeof LearningCornerRoute
   '/report-abuse-social-media': typeof ReportAbuseSocialMediaRoute
   '/report-suspect': typeof ReportSuspectRoute
+  '/safety-tips': typeof SafetyTipsRoute
   '/track': typeof TrackRoute
   '/report/safety': typeof ReportSafetyRoute
   '/report/financial/evidence': typeof ReportFinancialEvidenceRoute
@@ -177,6 +186,7 @@ export interface FileRouteTypes {
     | '/learning-corner'
     | '/report-abuse-social-media'
     | '/report-suspect'
+    | '/safety-tips'
     | '/track'
     | '/report/safety'
     | '/report/financial/evidence'
@@ -195,6 +205,7 @@ export interface FileRouteTypes {
     | '/learning-corner'
     | '/report-abuse-social-media'
     | '/report-suspect'
+    | '/safety-tips'
     | '/track'
     | '/report/safety'
     | '/report/financial/evidence'
@@ -213,6 +224,7 @@ export interface FileRouteTypes {
     | '/learning-corner'
     | '/report-abuse-social-media'
     | '/report-suspect'
+    | '/safety-tips'
     | '/track'
     | '/report/safety'
     | '/report/financial/evidence'
@@ -232,6 +244,7 @@ export interface RootRouteChildren {
   LearningCornerRoute: typeof LearningCornerRoute
   ReportAbuseSocialMediaRoute: typeof ReportAbuseSocialMediaRoute
   ReportSuspectRoute: typeof ReportSuspectRoute
+  SafetyTipsRoute: typeof SafetyTipsRoute
   TrackRoute: typeof TrackRoute
   ReportSafetyRoute: typeof ReportSafetyRoute
   ReportFinancialEvidenceRoute: typeof ReportFinancialEvidenceRoute
@@ -312,6 +325,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ReportSuspectRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/safety-tips': {
+      id: '/safety-tips'
+      path: '/safety-tips'
+      fullPath: '/safety-tips'
+      preLoaderRoute: typeof SafetyTipsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/track': {
       id: '/track'
       path: '/track'
@@ -368,6 +388,7 @@ const rootRouteChildren: RootRouteChildren = {
   LearningCornerRoute: LearningCornerRoute,
   ReportAbuseSocialMediaRoute: ReportAbuseSocialMediaRoute,
   ReportSuspectRoute: ReportSuspectRoute,
+  SafetyTipsRoute: SafetyTipsRoute,
   TrackRoute: TrackRoute,
   ReportSafetyRoute: ReportSafetyRoute,
   ReportFinancialEvidenceRoute: ReportFinancialEvidenceRoute,
