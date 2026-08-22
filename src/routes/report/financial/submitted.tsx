@@ -50,7 +50,7 @@ function Submitted() {
             to="/report/financial/what-happened"
             className="inline-flex min-h-12 items-center rounded-sm bg-brand-blue px-6 font-semibold text-primary-foreground hover:bg-brand-blue-hover"
           >
-            Start a report
+            Report what happened
           </Link>
         </p>
       </Page>

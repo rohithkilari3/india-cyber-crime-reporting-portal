@@ -9,26 +9,45 @@ const columns = [
       { to: "/report/safety" as const, label: "Threats, abuse or harassment" },
       { to: "/report-suspect" as const, label: "Report a suspect to I4C" },
       { to: "/report-abuse-social-media" as const, label: "Report abuse to social media" },
+      { to: "/gac-appeal" as const, label: "File an appeal with GAC" },
     ],
   },
   {
     title: "Services",
     links: [
-      { to: "/track" as const, label: "Track a report" },
+      { to: "/track" as const, label: "Check my report" },
       { to: "/check-suspect" as const, label: "Check a number, link or UPI ID" },
-      { to: "/gac-appeal" as const, label: "File an appeal with GAC" },
       { to: "/cyber-volunteers" as const, label: "Become a cyber volunteer" },
+      { to: "/nodal-officers" as const, label: "State nodal and grievance officers" },
+      { to: "/feedback" as const, label: "Give feedback" },
     ],
   },
   {
-    title: "Help and information",
+    title: "Learn",
     links: [
       { to: "/learning-corner" as const, label: "Learning corner" },
+      { to: "/faq" as const, label: "Frequently asked questions" },
+      { to: "/advisories" as const, label: "Advisories" },
+      { to: "/safety-tips" as const, label: "Online safety tips" },
+      { to: "/cyber-awareness" as const, label: "Cyber awareness" },
+      { to: "/daily-digest" as const, label: "Daily digest" },
+      { to: "/media-gallery" as const, label: "Photo, video and radio gallery" },
+      { to: "/training-resources" as const, label: "Training resources" },
+      { to: "/citizen-manual" as const, label: "Citizen manual" },
+    ],
+  },
+  {
+    title: "About this site",
+    links: [
       { to: "/contact" as const, label: "Contact us" },
-      { to: "/" as const, label: "Home" },
+      { to: "/public-notices" as const, label: "Public notices (RTI, CPGRAMS)" },
+      { to: "/website-policies" as const, label: "Website policy and privacy" },
+      { to: "/website-policies" as const, label: "Disclaimer" },
+      { to: "/website-policies" as const, label: "Accessibility statement" },
     ],
   },
 ];
+
 
 export function SiteFooter() {
   return (
@@ -43,7 +62,7 @@ export function SiteFooter() {
           — free, 24 hours a day. The sooner you call, the better the chance of stopping the money.
         </p>
 
-        <div className="mt-8 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-8 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {columns.map((col) => (
             <nav key={col.title} aria-label={col.title}>
               <h3 className="text-sm font-bold uppercase tracking-wide text-navy">{col.title}</h3>
@@ -78,6 +97,21 @@ export function SiteFooter() {
             ))}
           </ul>
         </div>
+
+        <p className="mt-6 text-sm text-muted-foreground">
+          Using a screen reader? This site is tested with NVDA, JAWS, VoiceOver and TalkBack.{" "}
+          <a
+            href="https://www.nvaccess.org/download/"
+            target="_blank"
+            rel="noreferrer"
+            className="font-semibold text-brand-blue underline"
+          >
+            Download the free NVDA screen reader
+          </a>
+          .
+        </p>
+
+
 
         <p className="mt-6 text-xs text-muted-foreground">
           Prototype interface for the National Cyber Crime Reporting Portal, Indian Cyber Crime

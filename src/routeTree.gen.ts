@@ -10,14 +10,26 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AdvisoriesRouteImport } from './routes/advisories'
 import { Route as CheckSuspectRouteImport } from './routes/check-suspect'
+import { Route as CitizenManualRouteImport } from './routes/citizen-manual'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as CyberAwarenessRouteImport } from './routes/cyber-awareness'
 import { Route as CyberVolunteersRouteImport } from './routes/cyber-volunteers'
+import { Route as DailyDigestRouteImport } from './routes/daily-digest'
+import { Route as FaqRouteImport } from './routes/faq'
+import { Route as FeedbackRouteImport } from './routes/feedback'
 import { Route as GacAppealRouteImport } from './routes/gac-appeal'
 import { Route as LearningCornerRouteImport } from './routes/learning-corner'
+import { Route as MediaGalleryRouteImport } from './routes/media-gallery'
+import { Route as NodalOfficersRouteImport } from './routes/nodal-officers'
+import { Route as PublicNoticesRouteImport } from './routes/public-notices'
 import { Route as ReportAbuseSocialMediaRouteImport } from './routes/report-abuse-social-media'
 import { Route as ReportSuspectRouteImport } from './routes/report-suspect'
+import { Route as SafetyTipsRouteImport } from './routes/safety-tips'
 import { Route as TrackRouteImport } from './routes/track'
+import { Route as TrainingResourcesRouteImport } from './routes/training-resources'
+import { Route as WebsitePoliciesRouteImport } from './routes/website-policies'
 import { Route as ReportSafetyRouteImport } from './routes/report/safety'
 import { Route as ReportFinancialEvidenceRouteImport } from './routes/report/financial/evidence'
 import { Route as ReportFinancialSubmittedRouteImport } from './routes/report/financial/submitted'
@@ -29,9 +41,19 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdvisoriesRoute = AdvisoriesRouteImport.update({
+  id: '/advisories',
+  path: '/advisories',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const CheckSuspectRoute = CheckSuspectRouteImport.update({
   id: '/check-suspect',
   path: '/check-suspect',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CitizenManualRoute = CitizenManualRouteImport.update({
+  id: '/citizen-manual',
+  path: '/citizen-manual',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactRoute = ContactRouteImport.update({
@@ -39,9 +61,29 @@ const ContactRoute = ContactRouteImport.update({
   path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CyberAwarenessRoute = CyberAwarenessRouteImport.update({
+  id: '/cyber-awareness',
+  path: '/cyber-awareness',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const CyberVolunteersRoute = CyberVolunteersRouteImport.update({
   id: '/cyber-volunteers',
   path: '/cyber-volunteers',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DailyDigestRoute = DailyDigestRouteImport.update({
+  id: '/daily-digest',
+  path: '/daily-digest',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FaqRoute = FaqRouteImport.update({
+  id: '/faq',
+  path: '/faq',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FeedbackRoute = FeedbackRouteImport.update({
+  id: '/feedback',
+  path: '/feedback',
   getParentRoute: () => rootRouteImport,
 } as any)
 const GacAppealRoute = GacAppealRouteImport.update({
@@ -54,6 +96,21 @@ const LearningCornerRoute = LearningCornerRouteImport.update({
   path: '/learning-corner',
   getParentRoute: () => rootRouteImport,
 } as any)
+const MediaGalleryRoute = MediaGalleryRouteImport.update({
+  id: '/media-gallery',
+  path: '/media-gallery',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NodalOfficersRoute = NodalOfficersRouteImport.update({
+  id: '/nodal-officers',
+  path: '/nodal-officers',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PublicNoticesRoute = PublicNoticesRouteImport.update({
+  id: '/public-notices',
+  path: '/public-notices',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ReportAbuseSocialMediaRoute = ReportAbuseSocialMediaRouteImport.update({
   id: '/report-abuse-social-media',
   path: '/report-abuse-social-media',
@@ -64,9 +121,24 @@ const ReportSuspectRoute = ReportSuspectRouteImport.update({
   path: '/report-suspect',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SafetyTipsRoute = SafetyTipsRouteImport.update({
+  id: '/safety-tips',
+  path: '/safety-tips',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const TrackRoute = TrackRouteImport.update({
   id: '/track',
   path: '/track',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TrainingResourcesRoute = TrainingResourcesRouteImport.update({
+  id: '/training-resources',
+  path: '/training-resources',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WebsitePoliciesRoute = WebsitePoliciesRouteImport.update({
+  id: '/website-policies',
+  path: '/website-policies',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ReportSafetyRoute = ReportSafetyRouteImport.update({
@@ -99,14 +171,26 @@ const ReportFinancialWhatHappenedRoute =
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/advisories': typeof AdvisoriesRoute
   '/check-suspect': typeof CheckSuspectRoute
+  '/citizen-manual': typeof CitizenManualRoute
   '/contact': typeof ContactRoute
+  '/cyber-awareness': typeof CyberAwarenessRoute
   '/cyber-volunteers': typeof CyberVolunteersRoute
+  '/daily-digest': typeof DailyDigestRoute
+  '/faq': typeof FaqRoute
+  '/feedback': typeof FeedbackRoute
   '/gac-appeal': typeof GacAppealRoute
   '/learning-corner': typeof LearningCornerRoute
+  '/media-gallery': typeof MediaGalleryRoute
+  '/nodal-officers': typeof NodalOfficersRoute
+  '/public-notices': typeof PublicNoticesRoute
   '/report-abuse-social-media': typeof ReportAbuseSocialMediaRoute
   '/report-suspect': typeof ReportSuspectRoute
+  '/safety-tips': typeof SafetyTipsRoute
   '/track': typeof TrackRoute
+  '/training-resources': typeof TrainingResourcesRoute
+  '/website-policies': typeof WebsitePoliciesRoute
   '/report/safety': typeof ReportSafetyRoute
   '/report/financial/evidence': typeof ReportFinancialEvidenceRoute
   '/report/financial/submitted': typeof ReportFinancialSubmittedRoute
@@ -115,14 +199,26 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/advisories': typeof AdvisoriesRoute
   '/check-suspect': typeof CheckSuspectRoute
+  '/citizen-manual': typeof CitizenManualRoute
   '/contact': typeof ContactRoute
+  '/cyber-awareness': typeof CyberAwarenessRoute
   '/cyber-volunteers': typeof CyberVolunteersRoute
+  '/daily-digest': typeof DailyDigestRoute
+  '/faq': typeof FaqRoute
+  '/feedback': typeof FeedbackRoute
   '/gac-appeal': typeof GacAppealRoute
   '/learning-corner': typeof LearningCornerRoute
+  '/media-gallery': typeof MediaGalleryRoute
+  '/nodal-officers': typeof NodalOfficersRoute
+  '/public-notices': typeof PublicNoticesRoute
   '/report-abuse-social-media': typeof ReportAbuseSocialMediaRoute
   '/report-suspect': typeof ReportSuspectRoute
+  '/safety-tips': typeof SafetyTipsRoute
   '/track': typeof TrackRoute
+  '/training-resources': typeof TrainingResourcesRoute
+  '/website-policies': typeof WebsitePoliciesRoute
   '/report/safety': typeof ReportSafetyRoute
   '/report/financial/evidence': typeof ReportFinancialEvidenceRoute
   '/report/financial/submitted': typeof ReportFinancialSubmittedRoute
@@ -132,14 +228,26 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/advisories': typeof AdvisoriesRoute
   '/check-suspect': typeof CheckSuspectRoute
+  '/citizen-manual': typeof CitizenManualRoute
   '/contact': typeof ContactRoute
+  '/cyber-awareness': typeof CyberAwarenessRoute
   '/cyber-volunteers': typeof CyberVolunteersRoute
+  '/daily-digest': typeof DailyDigestRoute
+  '/faq': typeof FaqRoute
+  '/feedback': typeof FeedbackRoute
   '/gac-appeal': typeof GacAppealRoute
   '/learning-corner': typeof LearningCornerRoute
+  '/media-gallery': typeof MediaGalleryRoute
+  '/nodal-officers': typeof NodalOfficersRoute
+  '/public-notices': typeof PublicNoticesRoute
   '/report-abuse-social-media': typeof ReportAbuseSocialMediaRoute
   '/report-suspect': typeof ReportSuspectRoute
+  '/safety-tips': typeof SafetyTipsRoute
   '/track': typeof TrackRoute
+  '/training-resources': typeof TrainingResourcesRoute
+  '/website-policies': typeof WebsitePoliciesRoute
   '/report/safety': typeof ReportSafetyRoute
   '/report/financial/evidence': typeof ReportFinancialEvidenceRoute
   '/report/financial/submitted': typeof ReportFinancialSubmittedRoute
@@ -150,14 +258,26 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/advisories'
     | '/check-suspect'
+    | '/citizen-manual'
     | '/contact'
+    | '/cyber-awareness'
     | '/cyber-volunteers'
+    | '/daily-digest'
+    | '/faq'
+    | '/feedback'
     | '/gac-appeal'
     | '/learning-corner'
+    | '/media-gallery'
+    | '/nodal-officers'
+    | '/public-notices'
     | '/report-abuse-social-media'
     | '/report-suspect'
+    | '/safety-tips'
     | '/track'
+    | '/training-resources'
+    | '/website-policies'
     | '/report/safety'
     | '/report/financial/evidence'
     | '/report/financial/submitted'
@@ -166,14 +286,26 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/advisories'
     | '/check-suspect'
+    | '/citizen-manual'
     | '/contact'
+    | '/cyber-awareness'
     | '/cyber-volunteers'
+    | '/daily-digest'
+    | '/faq'
+    | '/feedback'
     | '/gac-appeal'
     | '/learning-corner'
+    | '/media-gallery'
+    | '/nodal-officers'
+    | '/public-notices'
     | '/report-abuse-social-media'
     | '/report-suspect'
+    | '/safety-tips'
     | '/track'
+    | '/training-resources'
+    | '/website-policies'
     | '/report/safety'
     | '/report/financial/evidence'
     | '/report/financial/submitted'
@@ -182,14 +314,26 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/advisories'
     | '/check-suspect'
+    | '/citizen-manual'
     | '/contact'
+    | '/cyber-awareness'
     | '/cyber-volunteers'
+    | '/daily-digest'
+    | '/faq'
+    | '/feedback'
     | '/gac-appeal'
     | '/learning-corner'
+    | '/media-gallery'
+    | '/nodal-officers'
+    | '/public-notices'
     | '/report-abuse-social-media'
     | '/report-suspect'
+    | '/safety-tips'
     | '/track'
+    | '/training-resources'
+    | '/website-policies'
     | '/report/safety'
     | '/report/financial/evidence'
     | '/report/financial/submitted'
@@ -199,14 +343,26 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AdvisoriesRoute: typeof AdvisoriesRoute
   CheckSuspectRoute: typeof CheckSuspectRoute
+  CitizenManualRoute: typeof CitizenManualRoute
   ContactRoute: typeof ContactRoute
+  CyberAwarenessRoute: typeof CyberAwarenessRoute
   CyberVolunteersRoute: typeof CyberVolunteersRoute
+  DailyDigestRoute: typeof DailyDigestRoute
+  FaqRoute: typeof FaqRoute
+  FeedbackRoute: typeof FeedbackRoute
   GacAppealRoute: typeof GacAppealRoute
   LearningCornerRoute: typeof LearningCornerRoute
+  MediaGalleryRoute: typeof MediaGalleryRoute
+  NodalOfficersRoute: typeof NodalOfficersRoute
+  PublicNoticesRoute: typeof PublicNoticesRoute
   ReportAbuseSocialMediaRoute: typeof ReportAbuseSocialMediaRoute
   ReportSuspectRoute: typeof ReportSuspectRoute
+  SafetyTipsRoute: typeof SafetyTipsRoute
   TrackRoute: typeof TrackRoute
+  TrainingResourcesRoute: typeof TrainingResourcesRoute
+  WebsitePoliciesRoute: typeof WebsitePoliciesRoute
   ReportSafetyRoute: typeof ReportSafetyRoute
   ReportFinancialEvidenceRoute: typeof ReportFinancialEvidenceRoute
   ReportFinancialSubmittedRoute: typeof ReportFinancialSubmittedRoute
@@ -223,11 +379,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/advisories': {
+      id: '/advisories'
+      path: '/advisories'
+      fullPath: '/advisories'
+      preLoaderRoute: typeof AdvisoriesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/check-suspect': {
       id: '/check-suspect'
       path: '/check-suspect'
       fullPath: '/check-suspect'
       preLoaderRoute: typeof CheckSuspectRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/citizen-manual': {
+      id: '/citizen-manual'
+      path: '/citizen-manual'
+      fullPath: '/citizen-manual'
+      preLoaderRoute: typeof CitizenManualRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contact': {
@@ -237,11 +407,39 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/cyber-awareness': {
+      id: '/cyber-awareness'
+      path: '/cyber-awareness'
+      fullPath: '/cyber-awareness'
+      preLoaderRoute: typeof CyberAwarenessRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/cyber-volunteers': {
       id: '/cyber-volunteers'
       path: '/cyber-volunteers'
       fullPath: '/cyber-volunteers'
       preLoaderRoute: typeof CyberVolunteersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/daily-digest': {
+      id: '/daily-digest'
+      path: '/daily-digest'
+      fullPath: '/daily-digest'
+      preLoaderRoute: typeof DailyDigestRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/faq': {
+      id: '/faq'
+      path: '/faq'
+      fullPath: '/faq'
+      preLoaderRoute: typeof FaqRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/feedback': {
+      id: '/feedback'
+      path: '/feedback'
+      fullPath: '/feedback'
+      preLoaderRoute: typeof FeedbackRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/gac-appeal': {
@@ -258,6 +456,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LearningCornerRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/media-gallery': {
+      id: '/media-gallery'
+      path: '/media-gallery'
+      fullPath: '/media-gallery'
+      preLoaderRoute: typeof MediaGalleryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/nodal-officers': {
+      id: '/nodal-officers'
+      path: '/nodal-officers'
+      fullPath: '/nodal-officers'
+      preLoaderRoute: typeof NodalOfficersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/public-notices': {
+      id: '/public-notices'
+      path: '/public-notices'
+      fullPath: '/public-notices'
+      preLoaderRoute: typeof PublicNoticesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/report-abuse-social-media': {
       id: '/report-abuse-social-media'
       path: '/report-abuse-social-media'
@@ -272,11 +491,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ReportSuspectRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/safety-tips': {
+      id: '/safety-tips'
+      path: '/safety-tips'
+      fullPath: '/safety-tips'
+      preLoaderRoute: typeof SafetyTipsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/track': {
       id: '/track'
       path: '/track'
       fullPath: '/track'
       preLoaderRoute: typeof TrackRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/training-resources': {
+      id: '/training-resources'
+      path: '/training-resources'
+      fullPath: '/training-resources'
+      preLoaderRoute: typeof TrainingResourcesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/website-policies': {
+      id: '/website-policies'
+      path: '/website-policies'
+      fullPath: '/website-policies'
+      preLoaderRoute: typeof WebsitePoliciesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/report/safety': {
@@ -319,14 +559,26 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AdvisoriesRoute: AdvisoriesRoute,
   CheckSuspectRoute: CheckSuspectRoute,
+  CitizenManualRoute: CitizenManualRoute,
   ContactRoute: ContactRoute,
+  CyberAwarenessRoute: CyberAwarenessRoute,
   CyberVolunteersRoute: CyberVolunteersRoute,
+  DailyDigestRoute: DailyDigestRoute,
+  FaqRoute: FaqRoute,
+  FeedbackRoute: FeedbackRoute,
   GacAppealRoute: GacAppealRoute,
   LearningCornerRoute: LearningCornerRoute,
+  MediaGalleryRoute: MediaGalleryRoute,
+  NodalOfficersRoute: NodalOfficersRoute,
+  PublicNoticesRoute: PublicNoticesRoute,
   ReportAbuseSocialMediaRoute: ReportAbuseSocialMediaRoute,
   ReportSuspectRoute: ReportSuspectRoute,
+  SafetyTipsRoute: SafetyTipsRoute,
   TrackRoute: TrackRoute,
+  TrainingResourcesRoute: TrainingResourcesRoute,
+  WebsitePoliciesRoute: WebsitePoliciesRoute,
   ReportSafetyRoute: ReportSafetyRoute,
   ReportFinancialEvidenceRoute: ReportFinancialEvidenceRoute,
   ReportFinancialSubmittedRoute: ReportFinancialSubmittedRoute,
