@@ -107,6 +107,18 @@ const services = [
     detail: "See what has happened with a report you already made, using your acknowledgement number.",
   },
   {
+    to: "/my-reports" as const,
+    icon: FileClock,
+    title: "My reports",
+    detail: "Continue an unfinished report, withdraw a report, or change your mobile number.",
+  },
+  {
+    to: "/learn-cybercrime" as const,
+    icon: BookOpen,
+    title: "What kind of cyber crime is this?",
+    detail: "Plain-language explanations, grouped by money, harassment and fake content.",
+  },
+  {
     to: "/faq" as const,
     icon: HelpCircle,
     title: "Questions and answers",

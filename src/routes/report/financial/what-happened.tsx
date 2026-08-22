@@ -69,6 +69,23 @@ function WhatHappened() {
         out the exact category for you.
       </p>
 
+      <div className="mt-6 rounded-sm border-2 border-border bg-surface-grey p-5">
+        <h2 className="text-lg font-bold text-navy">Handy to have, but not required</h2>
+        <ul className="mt-2 list-disc space-y-1 pl-5 text-base text-muted-foreground">
+          <li>The date and rough time it happened</li>
+          <li>Your bank SMS, screenshots or transaction receipts</li>
+          <li>The number, UPI ID or link the other person used</li>
+          <li>A mobile number we can send updates to</li>
+        </ul>
+        <p className="mt-3 text-base text-muted-foreground">
+          Missing something? Start anyway — you can add more later. Not sure what to call this?{" "}
+          <Link to="/learn-cybercrime" className="font-semibold text-brand-blue underline">
+            See cyber crime types in plain words
+          </Link>
+          .
+        </p>
+      </div>
+
       {error ? (
         <div
           id="error-summary"
