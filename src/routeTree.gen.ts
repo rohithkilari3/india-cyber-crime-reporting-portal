@@ -10,33 +10,130 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as CheckSuspectRouteImport } from './routes/check-suspect'
+import { Route as TrackRouteImport } from './routes/track'
+import { Route as ReportSafetyRouteImport } from './routes/report/safety'
+import { Route as ReportFinancialEvidenceRouteImport } from './routes/report/financial/evidence'
+import { Route as ReportFinancialSubmittedRouteImport } from './routes/report/financial/submitted'
+import { Route as ReportFinancialVerifyRouteImport } from './routes/report/financial/verify'
+import { Route as ReportFinancialWhatHappenedRouteImport } from './routes/report/financial/what-happened'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CheckSuspectRoute = CheckSuspectRouteImport.update({
+  id: '/check-suspect',
+  path: '/check-suspect',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TrackRoute = TrackRouteImport.update({
+  id: '/track',
+  path: '/track',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReportSafetyRoute = ReportSafetyRouteImport.update({
+  id: '/report/safety',
+  path: '/report/safety',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReportFinancialEvidenceRoute = ReportFinancialEvidenceRouteImport.update({
+  id: '/report/financial/evidence',
+  path: '/report/financial/evidence',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReportFinancialSubmittedRoute =
+  ReportFinancialSubmittedRouteImport.update({
+    id: '/report/financial/submitted',
+    path: '/report/financial/submitted',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ReportFinancialVerifyRoute = ReportFinancialVerifyRouteImport.update({
+  id: '/report/financial/verify',
+  path: '/report/financial/verify',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReportFinancialWhatHappenedRoute =
+  ReportFinancialWhatHappenedRouteImport.update({
+    id: '/report/financial/what-happened',
+    path: '/report/financial/what-happened',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/check-suspect': typeof CheckSuspectRoute
+  '/track': typeof TrackRoute
+  '/report/safety': typeof ReportSafetyRoute
+  '/report/financial/evidence': typeof ReportFinancialEvidenceRoute
+  '/report/financial/submitted': typeof ReportFinancialSubmittedRoute
+  '/report/financial/verify': typeof ReportFinancialVerifyRoute
+  '/report/financial/what-happened': typeof ReportFinancialWhatHappenedRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/check-suspect': typeof CheckSuspectRoute
+  '/track': typeof TrackRoute
+  '/report/safety': typeof ReportSafetyRoute
+  '/report/financial/evidence': typeof ReportFinancialEvidenceRoute
+  '/report/financial/submitted': typeof ReportFinancialSubmittedRoute
+  '/report/financial/verify': typeof ReportFinancialVerifyRoute
+  '/report/financial/what-happened': typeof ReportFinancialWhatHappenedRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/check-suspect': typeof CheckSuspectRoute
+  '/track': typeof TrackRoute
+  '/report/safety': typeof ReportSafetyRoute
+  '/report/financial/evidence': typeof ReportFinancialEvidenceRoute
+  '/report/financial/submitted': typeof ReportFinancialSubmittedRoute
+  '/report/financial/verify': typeof ReportFinancialVerifyRoute
+  '/report/financial/what-happened': typeof ReportFinancialWhatHappenedRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/check-suspect'
+    | '/track'
+    | '/report/safety'
+    | '/report/financial/evidence'
+    | '/report/financial/submitted'
+    | '/report/financial/verify'
+    | '/report/financial/what-happened'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/check-suspect'
+    | '/track'
+    | '/report/safety'
+    | '/report/financial/evidence'
+    | '/report/financial/submitted'
+    | '/report/financial/verify'
+    | '/report/financial/what-happened'
+  id:
+    | '__root__'
+    | '/'
+    | '/check-suspect'
+    | '/track'
+    | '/report/safety'
+    | '/report/financial/evidence'
+    | '/report/financial/submitted'
+    | '/report/financial/verify'
+    | '/report/financial/what-happened'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  CheckSuspectRoute: typeof CheckSuspectRoute
+  TrackRoute: typeof TrackRoute
+  ReportSafetyRoute: typeof ReportSafetyRoute
+  ReportFinancialEvidenceRoute: typeof ReportFinancialEvidenceRoute
+  ReportFinancialSubmittedRoute: typeof ReportFinancialSubmittedRoute
+  ReportFinancialVerifyRoute: typeof ReportFinancialVerifyRoute
+  ReportFinancialWhatHappenedRoute: typeof ReportFinancialWhatHappenedRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +145,67 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/check-suspect': {
+      id: '/check-suspect'
+      path: '/check-suspect'
+      fullPath: '/check-suspect'
+      preLoaderRoute: typeof CheckSuspectRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/track': {
+      id: '/track'
+      path: '/track'
+      fullPath: '/track'
+      preLoaderRoute: typeof TrackRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/report/safety': {
+      id: '/report/safety'
+      path: '/report/safety'
+      fullPath: '/report/safety'
+      preLoaderRoute: typeof ReportSafetyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/report/financial/evidence': {
+      id: '/report/financial/evidence'
+      path: '/report/financial/evidence'
+      fullPath: '/report/financial/evidence'
+      preLoaderRoute: typeof ReportFinancialEvidenceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/report/financial/submitted': {
+      id: '/report/financial/submitted'
+      path: '/report/financial/submitted'
+      fullPath: '/report/financial/submitted'
+      preLoaderRoute: typeof ReportFinancialSubmittedRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/report/financial/verify': {
+      id: '/report/financial/verify'
+      path: '/report/financial/verify'
+      fullPath: '/report/financial/verify'
+      preLoaderRoute: typeof ReportFinancialVerifyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/report/financial/what-happened': {
+      id: '/report/financial/what-happened'
+      path: '/report/financial/what-happened'
+      fullPath: '/report/financial/what-happened'
+      preLoaderRoute: typeof ReportFinancialWhatHappenedRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  CheckSuspectRoute: CheckSuspectRoute,
+  TrackRoute: TrackRoute,
+  ReportSafetyRoute: ReportSafetyRoute,
+  ReportFinancialEvidenceRoute: ReportFinancialEvidenceRoute,
+  ReportFinancialSubmittedRoute: ReportFinancialSubmittedRoute,
+  ReportFinancialVerifyRoute: ReportFinancialVerifyRoute,
+  ReportFinancialWhatHappenedRoute: ReportFinancialWhatHappenedRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
