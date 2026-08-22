@@ -96,11 +96,12 @@ function LearningCorner() {
         </ol>
       </section>
 
-      <ul className="mt-8 grid gap-4 md:grid-cols-2">
+      <h2 className="mt-12 text-2xl font-bold text-navy">Guides by who you are</h2>
+      <ul className="mt-4 grid gap-4 md:grid-cols-2">
         {audiences.map((a) => (
           <li key={a.title} className="rounded-sm border-2 border-border p-6">
             <a.icon className="size-8 text-brand-blue" aria-hidden="true" strokeWidth={1.75} />
-            <h2 className="mt-3 text-xl font-bold text-navy">{a.title}</h2>
+            <h3 className="mt-3 text-xl font-bold text-navy">{a.title}</h3>
             <ul className="mt-3 list-disc space-y-2 pl-5 text-base text-muted-foreground">
               {a.points.map((p) => (
                 <li key={p}>{p}</li>
@@ -109,6 +110,23 @@ function LearningCorner() {
           </li>
         ))}
       </ul>
+
+      <h2 className="mt-12 text-2xl font-bold text-navy">More in the learning corner</h2>
+      <ul className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {resources.map((r) => (
+          <li key={r.to}>
+            <Link
+              to={r.to}
+              className="flex h-full flex-col rounded-sm border-2 border-border p-5 hover:border-navy hover:bg-surface-grey"
+            >
+              <r.icon className="size-7 text-brand-blue" aria-hidden="true" strokeWidth={1.75} />
+              <span className="mt-3 text-lg font-bold text-brand-blue underline">{r.title}</span>
+              <span className="mt-1 text-base text-muted-foreground">{r.body}</span>
+            </Link>
+          </li>
+        ))}
+      </ul>
     </Page>
   );
 }
+
