@@ -99,8 +99,32 @@ const services = [
   {
     to: "/track" as const,
     icon: FileClock,
-    title: "Track a report",
-    detail: "Check the status of a report using your acknowledgement number.",
+    title: "Check my report",
+    detail: "See what has happened with a report you already made, using your acknowledgement number.",
+  },
+  {
+    to: "/faq" as const,
+    icon: HelpCircle,
+    title: "Questions and answers",
+    detail: "What to prepare, what happens to your money, and how long things take.",
+  },
+  {
+    to: "/advisories" as const,
+    icon: AlertTriangle,
+    title: "Advisories",
+    detail: "Current warnings about scams spreading across India right now.",
+  },
+  {
+    to: "/nodal-officers" as const,
+    icon: Users,
+    title: "State nodal officers",
+    detail: "Who to contact in your state if a report needs to be escalated.",
+  },
+  {
+    to: "/feedback" as const,
+    icon: MessageSquare,
+    title: "Give feedback",
+    detail: "Tell us what was confusing so we can fix it for the next person.",
   },
   {
     to: "/contact" as const,
@@ -109,6 +133,7 @@ const services = [
     detail: "Helpline 1930, email support, and I4C contact details.",
   },
 ];
+
 
 const whatsNew = [
   {
