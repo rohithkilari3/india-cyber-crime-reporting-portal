@@ -15,6 +15,7 @@ import { Route as CheckSuspectRouteImport } from './routes/check-suspect'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CyberAwarenessRouteImport } from './routes/cyber-awareness'
 import { Route as CyberVolunteersRouteImport } from './routes/cyber-volunteers'
+import { Route as DailyDigestRouteImport } from './routes/daily-digest'
 import { Route as FaqRouteImport } from './routes/faq'
 import { Route as GacAppealRouteImport } from './routes/gac-appeal'
 import { Route as LearningCornerRouteImport } from './routes/learning-corner'
@@ -57,6 +58,11 @@ const CyberAwarenessRoute = CyberAwarenessRouteImport.update({
 const CyberVolunteersRoute = CyberVolunteersRouteImport.update({
   id: '/cyber-volunteers',
   path: '/cyber-volunteers',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DailyDigestRoute = DailyDigestRouteImport.update({
+  id: '/daily-digest',
+  path: '/daily-digest',
   getParentRoute: () => rootRouteImport,
 } as any)
 const FaqRoute = FaqRouteImport.update({
@@ -134,6 +140,7 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/cyber-awareness': typeof CyberAwarenessRoute
   '/cyber-volunteers': typeof CyberVolunteersRoute
+  '/daily-digest': typeof DailyDigestRoute
   '/faq': typeof FaqRoute
   '/gac-appeal': typeof GacAppealRoute
   '/learning-corner': typeof LearningCornerRoute
@@ -155,6 +162,7 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/cyber-awareness': typeof CyberAwarenessRoute
   '/cyber-volunteers': typeof CyberVolunteersRoute
+  '/daily-digest': typeof DailyDigestRoute
   '/faq': typeof FaqRoute
   '/gac-appeal': typeof GacAppealRoute
   '/learning-corner': typeof LearningCornerRoute
@@ -177,6 +185,7 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/cyber-awareness': typeof CyberAwarenessRoute
   '/cyber-volunteers': typeof CyberVolunteersRoute
+  '/daily-digest': typeof DailyDigestRoute
   '/faq': typeof FaqRoute
   '/gac-appeal': typeof GacAppealRoute
   '/learning-corner': typeof LearningCornerRoute
@@ -200,6 +209,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/cyber-awareness'
     | '/cyber-volunteers'
+    | '/daily-digest'
     | '/faq'
     | '/gac-appeal'
     | '/learning-corner'
@@ -221,6 +231,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/cyber-awareness'
     | '/cyber-volunteers'
+    | '/daily-digest'
     | '/faq'
     | '/gac-appeal'
     | '/learning-corner'
@@ -242,6 +253,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/cyber-awareness'
     | '/cyber-volunteers'
+    | '/daily-digest'
     | '/faq'
     | '/gac-appeal'
     | '/learning-corner'
@@ -264,6 +276,7 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   CyberAwarenessRoute: typeof CyberAwarenessRoute
   CyberVolunteersRoute: typeof CyberVolunteersRoute
+  DailyDigestRoute: typeof DailyDigestRoute
   FaqRoute: typeof FaqRoute
   GacAppealRoute: typeof GacAppealRoute
   LearningCornerRoute: typeof LearningCornerRoute
@@ -321,6 +334,13 @@ declare module '@tanstack/react-router' {
       path: '/cyber-volunteers'
       fullPath: '/cyber-volunteers'
       preLoaderRoute: typeof CyberVolunteersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/daily-digest': {
+      id: '/daily-digest'
+      path: '/daily-digest'
+      fullPath: '/daily-digest'
+      preLoaderRoute: typeof DailyDigestRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/faq': {
@@ -424,6 +444,7 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   CyberAwarenessRoute: CyberAwarenessRoute,
   CyberVolunteersRoute: CyberVolunteersRoute,
+  DailyDigestRoute: DailyDigestRoute,
   FaqRoute: FaqRoute,
   GacAppealRoute: GacAppealRoute,
   LearningCornerRoute: LearningCornerRoute,
