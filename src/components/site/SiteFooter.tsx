@@ -98,6 +98,21 @@ export function SiteFooter() {
           </ul>
         </div>
 
+        <p className="mt-6 text-sm text-muted-foreground">
+          Using a screen reader? This site is tested with NVDA, JAWS, VoiceOver and TalkBack.{" "}
+          <a
+            href="https://www.nvaccess.org/download/"
+            target="_blank"
+            rel="noreferrer"
+            className="font-semibold text-brand-blue underline"
+          >
+            Download the free NVDA screen reader
+          </a>
+          .
+        </p>
+
+
+
         <p className="mt-6 text-xs text-muted-foreground">
           Prototype interface for the National Cyber Crime Reporting Portal, Indian Cyber Crime
           Coordination Centre (I4C), Ministry of Home Affairs. Not the live government service.
