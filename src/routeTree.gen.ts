@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AdvisoriesRouteImport } from './routes/advisories'
 import { Route as CheckSuspectRouteImport } from './routes/check-suspect'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CyberVolunteersRouteImport } from './routes/cyber-volunteers'
@@ -28,6 +29,11 @@ import { Route as ReportFinancialWhatHappenedRouteImport } from './routes/report
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdvisoriesRoute = AdvisoriesRouteImport.update({
+  id: '/advisories',
+  path: '/advisories',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CheckSuspectRoute = CheckSuspectRouteImport.update({
@@ -105,6 +111,7 @@ const ReportFinancialWhatHappenedRoute =
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/advisories': typeof AdvisoriesRoute
   '/check-suspect': typeof CheckSuspectRoute
   '/contact': typeof ContactRoute
   '/cyber-volunteers': typeof CyberVolunteersRoute
@@ -122,6 +129,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/advisories': typeof AdvisoriesRoute
   '/check-suspect': typeof CheckSuspectRoute
   '/contact': typeof ContactRoute
   '/cyber-volunteers': typeof CyberVolunteersRoute
@@ -140,6 +148,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/advisories': typeof AdvisoriesRoute
   '/check-suspect': typeof CheckSuspectRoute
   '/contact': typeof ContactRoute
   '/cyber-volunteers': typeof CyberVolunteersRoute
@@ -159,6 +168,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/advisories'
     | '/check-suspect'
     | '/contact'
     | '/cyber-volunteers'
@@ -176,6 +186,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/advisories'
     | '/check-suspect'
     | '/contact'
     | '/cyber-volunteers'
@@ -193,6 +204,7 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/advisories'
     | '/check-suspect'
     | '/contact'
     | '/cyber-volunteers'
@@ -211,6 +223,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AdvisoriesRoute: typeof AdvisoriesRoute
   CheckSuspectRoute: typeof CheckSuspectRoute
   ContactRoute: typeof ContactRoute
   CyberVolunteersRoute: typeof CyberVolunteersRoute
@@ -234,6 +247,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/advisories': {
+      id: '/advisories'
+      path: '/advisories'
+      fullPath: '/advisories'
+      preLoaderRoute: typeof AdvisoriesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/check-suspect': {
@@ -339,6 +359,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AdvisoriesRoute: AdvisoriesRoute,
   CheckSuspectRoute: CheckSuspectRoute,
   ContactRoute: ContactRoute,
   CyberVolunteersRoute: CyberVolunteersRoute,
