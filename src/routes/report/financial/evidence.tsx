@@ -47,7 +47,7 @@ function Evidence() {
 
   return (
     <Page>
-      <StepIndicator current={2} />
+      <StepIndicator current={3} />
       <h1 className="text-3xl font-bold text-navy">Add anything that shows what happened</h1>
       <p className="mt-3 text-base text-muted-foreground">
         Screenshots, bank SMS messages, transaction receipts, chat conversations. You can add
@@ -132,19 +132,19 @@ function Evidence() {
       <div className="mt-10 flex flex-wrap items-center gap-4">
         <button
           type="button"
-          onClick={() => navigate({ to: "/report/financial/verify" })}
+          onClick={() => navigate({ to: "/report/financial/about-you" })}
           className="inline-flex min-h-12 items-center gap-2 rounded-sm bg-brand-blue px-6 text-lg font-semibold text-primary-foreground hover:bg-brand-blue-hover"
         >
           Continue
           <ArrowRight className="size-5" aria-hidden="true" />
         </button>
-        <Link to="/report/financial/verify" className="font-semibold text-brand-blue underline">
+        <Link to="/report/financial/about-you" className="font-semibold text-brand-blue underline">
           Skip — I don&apos;t have anything to add
         </Link>
       </div>
       <p className="mt-6">
-        <Link to="/report/financial/what-happened" className="font-semibold text-brand-blue underline">
-          Back to what happened
+        <Link to="/report/financial/suspect" className="font-semibold text-brand-blue underline">
+          Back to who contacted you
         </Link>
       </p>
     </Page>

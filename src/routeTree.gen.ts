@@ -31,6 +31,7 @@ import { Route as TrackRouteImport } from './routes/track'
 import { Route as TrainingResourcesRouteImport } from './routes/training-resources'
 import { Route as WebsitePoliciesRouteImport } from './routes/website-policies'
 import { Route as ReportSafetyRouteImport } from './routes/report/safety'
+import { Route as ReportFinancialAboutYouRouteImport } from './routes/report/financial/about-you'
 import { Route as ReportFinancialEvidenceRouteImport } from './routes/report/financial/evidence'
 import { Route as ReportFinancialSubmittedRouteImport } from './routes/report/financial/submitted'
 import { Route as ReportFinancialSuspectRouteImport } from './routes/report/financial/suspect'
@@ -147,6 +148,11 @@ const ReportSafetyRoute = ReportSafetyRouteImport.update({
   path: '/report/safety',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ReportFinancialAboutYouRoute = ReportFinancialAboutYouRouteImport.update({
+  id: '/report/financial/about-you',
+  path: '/report/financial/about-you',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ReportFinancialEvidenceRoute = ReportFinancialEvidenceRouteImport.update({
   id: '/report/financial/evidence',
   path: '/report/financial/evidence',
@@ -198,6 +204,7 @@ export interface FileRoutesByFullPath {
   '/training-resources': typeof TrainingResourcesRoute
   '/website-policies': typeof WebsitePoliciesRoute
   '/report/safety': typeof ReportSafetyRoute
+  '/report/financial/about-you': typeof ReportFinancialAboutYouRoute
   '/report/financial/evidence': typeof ReportFinancialEvidenceRoute
   '/report/financial/submitted': typeof ReportFinancialSubmittedRoute
   '/report/financial/suspect': typeof ReportFinancialSuspectRoute
@@ -227,6 +234,7 @@ export interface FileRoutesByTo {
   '/training-resources': typeof TrainingResourcesRoute
   '/website-policies': typeof WebsitePoliciesRoute
   '/report/safety': typeof ReportSafetyRoute
+  '/report/financial/about-you': typeof ReportFinancialAboutYouRoute
   '/report/financial/evidence': typeof ReportFinancialEvidenceRoute
   '/report/financial/submitted': typeof ReportFinancialSubmittedRoute
   '/report/financial/suspect': typeof ReportFinancialSuspectRoute
@@ -257,6 +265,7 @@ export interface FileRoutesById {
   '/training-resources': typeof TrainingResourcesRoute
   '/website-policies': typeof WebsitePoliciesRoute
   '/report/safety': typeof ReportSafetyRoute
+  '/report/financial/about-you': typeof ReportFinancialAboutYouRoute
   '/report/financial/evidence': typeof ReportFinancialEvidenceRoute
   '/report/financial/submitted': typeof ReportFinancialSubmittedRoute
   '/report/financial/suspect': typeof ReportFinancialSuspectRoute
@@ -288,6 +297,7 @@ export interface FileRouteTypes {
     | '/training-resources'
     | '/website-policies'
     | '/report/safety'
+    | '/report/financial/about-you'
     | '/report/financial/evidence'
     | '/report/financial/submitted'
     | '/report/financial/suspect'
@@ -317,6 +327,7 @@ export interface FileRouteTypes {
     | '/training-resources'
     | '/website-policies'
     | '/report/safety'
+    | '/report/financial/about-you'
     | '/report/financial/evidence'
     | '/report/financial/submitted'
     | '/report/financial/suspect'
@@ -346,6 +357,7 @@ export interface FileRouteTypes {
     | '/training-resources'
     | '/website-policies'
     | '/report/safety'
+    | '/report/financial/about-you'
     | '/report/financial/evidence'
     | '/report/financial/submitted'
     | '/report/financial/suspect'
@@ -376,6 +388,7 @@ export interface RootRouteChildren {
   TrainingResourcesRoute: typeof TrainingResourcesRoute
   WebsitePoliciesRoute: typeof WebsitePoliciesRoute
   ReportSafetyRoute: typeof ReportSafetyRoute
+  ReportFinancialAboutYouRoute: typeof ReportFinancialAboutYouRoute
   ReportFinancialEvidenceRoute: typeof ReportFinancialEvidenceRoute
   ReportFinancialSubmittedRoute: typeof ReportFinancialSubmittedRoute
   ReportFinancialSuspectRoute: typeof ReportFinancialSuspectRoute
@@ -539,6 +552,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ReportSafetyRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/report/financial/about-you': {
+      id: '/report/financial/about-you'
+      path: '/report/financial/about-you'
+      fullPath: '/report/financial/about-you'
+      preLoaderRoute: typeof ReportFinancialAboutYouRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/report/financial/evidence': {
       id: '/report/financial/evidence'
       path: '/report/financial/evidence'
@@ -600,6 +620,7 @@ const rootRouteChildren: RootRouteChildren = {
   TrainingResourcesRoute: TrainingResourcesRoute,
   WebsitePoliciesRoute: WebsitePoliciesRoute,
   ReportSafetyRoute: ReportSafetyRoute,
+  ReportFinancialAboutYouRoute: ReportFinancialAboutYouRoute,
   ReportFinancialEvidenceRoute: ReportFinancialEvidenceRoute,
   ReportFinancialSubmittedRoute: ReportFinancialSubmittedRoute,
   ReportFinancialSuspectRoute: ReportFinancialSuspectRoute,
