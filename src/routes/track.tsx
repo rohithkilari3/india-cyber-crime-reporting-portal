@@ -6,12 +6,12 @@ import { Page } from "@/components/site/Page";
 export const Route = createFileRoute("/track")({
   head: () => ({
     meta: [
-      { title: "Track a report — Cyber Crime Help" },
+      { title: "Check my report — National Cyber Crime Reporting Portal" },
       {
         name: "description",
         content: "Enter your acknowledgement number to see the progress of a report you made.",
       },
-      { property: "og:title", content: "Track a report" },
+      { property: "og:title", content: "Check my report" },
       {
         property: "og:description",
         content: "Enter your acknowledgement number to see the progress of your report.",
@@ -32,7 +32,7 @@ function Track() {
 
   return (
     <Page>
-      <h1 className="text-3xl font-bold text-navy">Track a report</h1>
+      <h1 className="text-3xl font-bold text-navy">Check my report</h1>
       <p className="mt-3 text-base text-muted-foreground">
         Enter the acknowledgement number you were given, for example NCRP-2026-1234567.
       </p>

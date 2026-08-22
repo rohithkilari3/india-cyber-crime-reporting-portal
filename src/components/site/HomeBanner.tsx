@@ -49,7 +49,7 @@ export function HomeBanner() {
             to="/report/financial/what-happened"
             className="inline-flex min-h-14 items-center gap-2 rounded-sm bg-background px-6 text-lg font-bold text-navy hover:bg-surface-grey"
           >
-            Start a report
+            Report what happened
             <ChevronRight className="size-5" aria-hidden="true" />
           </Link>
           <a
