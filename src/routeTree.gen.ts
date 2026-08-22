@@ -18,6 +18,7 @@ import { Route as CyberVolunteersRouteImport } from './routes/cyber-volunteers'
 import { Route as FaqRouteImport } from './routes/faq'
 import { Route as GacAppealRouteImport } from './routes/gac-appeal'
 import { Route as LearningCornerRouteImport } from './routes/learning-corner'
+import { Route as MediaGalleryRouteImport } from './routes/media-gallery'
 import { Route as ReportAbuseSocialMediaRouteImport } from './routes/report-abuse-social-media'
 import { Route as ReportSuspectRouteImport } from './routes/report-suspect'
 import { Route as SafetyTipsRouteImport } from './routes/safety-tips'
@@ -71,6 +72,11 @@ const GacAppealRoute = GacAppealRouteImport.update({
 const LearningCornerRoute = LearningCornerRouteImport.update({
   id: '/learning-corner',
   path: '/learning-corner',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MediaGalleryRoute = MediaGalleryRouteImport.update({
+  id: '/media-gallery',
+  path: '/media-gallery',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ReportAbuseSocialMediaRoute = ReportAbuseSocialMediaRouteImport.update({
@@ -131,6 +137,7 @@ export interface FileRoutesByFullPath {
   '/faq': typeof FaqRoute
   '/gac-appeal': typeof GacAppealRoute
   '/learning-corner': typeof LearningCornerRoute
+  '/media-gallery': typeof MediaGalleryRoute
   '/report-abuse-social-media': typeof ReportAbuseSocialMediaRoute
   '/report-suspect': typeof ReportSuspectRoute
   '/safety-tips': typeof SafetyTipsRoute
@@ -151,6 +158,7 @@ export interface FileRoutesByTo {
   '/faq': typeof FaqRoute
   '/gac-appeal': typeof GacAppealRoute
   '/learning-corner': typeof LearningCornerRoute
+  '/media-gallery': typeof MediaGalleryRoute
   '/report-abuse-social-media': typeof ReportAbuseSocialMediaRoute
   '/report-suspect': typeof ReportSuspectRoute
   '/safety-tips': typeof SafetyTipsRoute
@@ -172,6 +180,7 @@ export interface FileRoutesById {
   '/faq': typeof FaqRoute
   '/gac-appeal': typeof GacAppealRoute
   '/learning-corner': typeof LearningCornerRoute
+  '/media-gallery': typeof MediaGalleryRoute
   '/report-abuse-social-media': typeof ReportAbuseSocialMediaRoute
   '/report-suspect': typeof ReportSuspectRoute
   '/safety-tips': typeof SafetyTipsRoute
@@ -194,6 +203,7 @@ export interface FileRouteTypes {
     | '/faq'
     | '/gac-appeal'
     | '/learning-corner'
+    | '/media-gallery'
     | '/report-abuse-social-media'
     | '/report-suspect'
     | '/safety-tips'
@@ -214,6 +224,7 @@ export interface FileRouteTypes {
     | '/faq'
     | '/gac-appeal'
     | '/learning-corner'
+    | '/media-gallery'
     | '/report-abuse-social-media'
     | '/report-suspect'
     | '/safety-tips'
@@ -234,6 +245,7 @@ export interface FileRouteTypes {
     | '/faq'
     | '/gac-appeal'
     | '/learning-corner'
+    | '/media-gallery'
     | '/report-abuse-social-media'
     | '/report-suspect'
     | '/safety-tips'
@@ -255,6 +267,7 @@ export interface RootRouteChildren {
   FaqRoute: typeof FaqRoute
   GacAppealRoute: typeof GacAppealRoute
   LearningCornerRoute: typeof LearningCornerRoute
+  MediaGalleryRoute: typeof MediaGalleryRoute
   ReportAbuseSocialMediaRoute: typeof ReportAbuseSocialMediaRoute
   ReportSuspectRoute: typeof ReportSuspectRoute
   SafetyTipsRoute: typeof SafetyTipsRoute
@@ -329,6 +342,13 @@ declare module '@tanstack/react-router' {
       path: '/learning-corner'
       fullPath: '/learning-corner'
       preLoaderRoute: typeof LearningCornerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/media-gallery': {
+      id: '/media-gallery'
+      path: '/media-gallery'
+      fullPath: '/media-gallery'
+      preLoaderRoute: typeof MediaGalleryRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/report-abuse-social-media': {
@@ -407,6 +427,7 @@ const rootRouteChildren: RootRouteChildren = {
   FaqRoute: FaqRoute,
   GacAppealRoute: GacAppealRoute,
   LearningCornerRoute: LearningCornerRoute,
+  MediaGalleryRoute: MediaGalleryRoute,
   ReportAbuseSocialMediaRoute: ReportAbuseSocialMediaRoute,
   ReportSuspectRoute: ReportSuspectRoute,
   SafetyTipsRoute: SafetyTipsRoute,
