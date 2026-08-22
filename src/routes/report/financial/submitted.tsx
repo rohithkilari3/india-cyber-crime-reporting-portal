@@ -21,7 +21,7 @@ export const Route = createFileRoute("/report/financial/submitted")({
       },
     ],
   }),
-  component: Submitted;
+  component: Submitted,
 });
 
 function Submitted() {
