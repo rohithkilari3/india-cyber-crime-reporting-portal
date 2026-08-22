@@ -1,6 +1,8 @@
 import { createContext, useCallback, useContext, useEffect, useState, type ReactNode } from "react";
 
-export type FontScale = 100 | 125 | 150;
+export type FontScale = 87.5 | 100 | 125 | 150;
+
+const VALID: FontScale[] = [87.5, 100, 125, 150];
 
 type A11yContextValue = {
   fontScale: FontScale;
@@ -14,7 +16,8 @@ const A11yContext = createContext<A11yContextValue | null>(null);
 const STORAGE_KEY = "ncrp-a11y";
 
 export function A11yProvider({ children }: { children: ReactNode }) {
-  const [fontScale, setFontScaleState] = useState<FontScale>(100);
+  // Compact size is the default — the previous default read as oversized.
+  const [fontScale, setFontScaleState] = useState<FontScale>(87.5);
   const [highContrast, setHighContrast] = useState(false);
 
   // Read persisted preferences after hydration to avoid SSR mismatches.
@@ -23,7 +26,7 @@ export function A11yProvider({ children }: { children: ReactNode }) {
       const raw = window.localStorage.getItem(STORAGE_KEY);
       if (!raw) return;
       const parsed = JSON.parse(raw) as { fontScale?: FontScale; highContrast?: boolean };
-      if (parsed.fontScale === 100 || parsed.fontScale === 125 || parsed.fontScale === 150) {
+      if (parsed.fontScale && VALID.includes(parsed.fontScale)) {
         setFontScaleState(parsed.fontScale);
       }
       if (typeof parsed.highContrast === "boolean") setHighContrast(parsed.highContrast);
