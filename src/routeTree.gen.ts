@@ -31,7 +31,6 @@ import { Route as SafetyTipsRouteImport } from './routes/safety-tips'
 import { Route as TrackRouteImport } from './routes/track'
 import { Route as TrainingResourcesRouteImport } from './routes/training-resources'
 import { Route as WebsitePoliciesRouteImport } from './routes/website-policies'
-import { Route as ReportSafetyRouteImport } from './routes/report/safety'
 import { Route as ReportFinancialAboutYouRouteImport } from './routes/report/financial/about-you'
 import { Route as ReportFinancialEvidenceRouteImport } from './routes/report/financial/evidence'
 import { Route as ReportFinancialMoneyRouteImport } from './routes/report/financial/money'
@@ -44,6 +43,7 @@ import { Route as ReportOtherEvidenceRouteImport } from './routes/report/other/e
 import { Route as ReportOtherSubmittedRouteImport } from './routes/report/other/submitted'
 import { Route as ReportOtherVerifyRouteImport } from './routes/report/other/verify'
 import { Route as ReportOtherWhatHappenedRouteImport } from './routes/report/other/what-happened'
+import { Route as ReportSafetyIndexRouteImport } from './routes/report/safety/index'
 import { Route as ReportSafetyAboutYouRouteImport } from './routes/report/safety/about-you'
 import { Route as ReportSafetyEvidenceRouteImport } from './routes/report/safety/evidence'
 import { Route as ReportSafetyPersonRouteImport } from './routes/report/safety/person'
@@ -161,11 +161,6 @@ const WebsitePoliciesRoute = WebsitePoliciesRouteImport.update({
   path: '/website-policies',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ReportSafetyRoute = ReportSafetyRouteImport.update({
-  id: '/report/safety',
-  path: '/report/safety',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const ReportFinancialAboutYouRoute = ReportFinancialAboutYouRouteImport.update({
   id: '/report/financial/about-you',
   path: '/report/financial/about-you',
@@ -228,6 +223,11 @@ const ReportOtherWhatHappenedRoute = ReportOtherWhatHappenedRouteImport.update({
   path: '/report/other/what-happened',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ReportSafetyIndexRoute = ReportSafetyIndexRouteImport.update({
+  id: '/report/safety/',
+  path: '/report/safety/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ReportSafetyAboutYouRoute = ReportSafetyAboutYouRouteImport.update({
   id: '/about-you',
   path: '/about-you',
@@ -283,7 +283,6 @@ export interface FileRoutesByFullPath {
   '/track': typeof TrackRoute
   '/training-resources': typeof TrainingResourcesRoute
   '/website-policies': typeof WebsitePoliciesRoute
-  '/report/safety': typeof ReportSafetyRouteWithChildren
   '/report/financial/about-you': typeof ReportFinancialAboutYouRoute
   '/report/financial/evidence': typeof ReportFinancialEvidenceRoute
   '/report/financial/money': typeof ReportFinancialMoneyRoute
@@ -302,6 +301,7 @@ export interface FileRoutesByFullPath {
   '/report/safety/start': typeof ReportSafetyStartRoute
   '/report/safety/submitted': typeof ReportSafetySubmittedRoute
   '/report/safety/what-happened': typeof ReportSafetyWhatHappenedRoute
+  '/report/safety/': typeof ReportSafetyIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -326,7 +326,6 @@ export interface FileRoutesByTo {
   '/track': typeof TrackRoute
   '/training-resources': typeof TrainingResourcesRoute
   '/website-policies': typeof WebsitePoliciesRoute
-  '/report/safety': typeof ReportSafetyRouteWithChildren
   '/report/financial/about-you': typeof ReportFinancialAboutYouRoute
   '/report/financial/evidence': typeof ReportFinancialEvidenceRoute
   '/report/financial/money': typeof ReportFinancialMoneyRoute
@@ -345,6 +344,7 @@ export interface FileRoutesByTo {
   '/report/safety/start': typeof ReportSafetyStartRoute
   '/report/safety/submitted': typeof ReportSafetySubmittedRoute
   '/report/safety/what-happened': typeof ReportSafetyWhatHappenedRoute
+  '/report/safety': typeof ReportSafetyIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -370,7 +370,6 @@ export interface FileRoutesById {
   '/track': typeof TrackRoute
   '/training-resources': typeof TrainingResourcesRoute
   '/website-policies': typeof WebsitePoliciesRoute
-  '/report/safety': typeof ReportSafetyRouteWithChildren
   '/report/financial/about-you': typeof ReportFinancialAboutYouRoute
   '/report/financial/evidence': typeof ReportFinancialEvidenceRoute
   '/report/financial/money': typeof ReportFinancialMoneyRoute
@@ -389,6 +388,7 @@ export interface FileRoutesById {
   '/report/safety/start': typeof ReportSafetyStartRoute
   '/report/safety/submitted': typeof ReportSafetySubmittedRoute
   '/report/safety/what-happened': typeof ReportSafetyWhatHappenedRoute
+  '/report/safety/': typeof ReportSafetyIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -415,7 +415,6 @@ export interface FileRouteTypes {
     | '/track'
     | '/training-resources'
     | '/website-policies'
-    | '/report/safety'
     | '/report/financial/about-you'
     | '/report/financial/evidence'
     | '/report/financial/money'
@@ -434,6 +433,7 @@ export interface FileRouteTypes {
     | '/report/safety/start'
     | '/report/safety/submitted'
     | '/report/safety/what-happened'
+    | '/report/safety/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -458,7 +458,6 @@ export interface FileRouteTypes {
     | '/track'
     | '/training-resources'
     | '/website-policies'
-    | '/report/safety'
     | '/report/financial/about-you'
     | '/report/financial/evidence'
     | '/report/financial/money'
@@ -477,6 +476,7 @@ export interface FileRouteTypes {
     | '/report/safety/start'
     | '/report/safety/submitted'
     | '/report/safety/what-happened'
+    | '/report/safety'
   id:
     | '__root__'
     | '/'
@@ -501,7 +501,6 @@ export interface FileRouteTypes {
     | '/track'
     | '/training-resources'
     | '/website-policies'
-    | '/report/safety'
     | '/report/financial/about-you'
     | '/report/financial/evidence'
     | '/report/financial/money'
@@ -520,6 +519,7 @@ export interface FileRouteTypes {
     | '/report/safety/start'
     | '/report/safety/submitted'
     | '/report/safety/what-happened'
+    | '/report/safety/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -545,7 +545,6 @@ export interface RootRouteChildren {
   TrackRoute: typeof TrackRoute
   TrainingResourcesRoute: typeof TrainingResourcesRoute
   WebsitePoliciesRoute: typeof WebsitePoliciesRoute
-  ReportSafetyRoute: typeof ReportSafetyRouteWithChildren
   ReportFinancialAboutYouRoute: typeof ReportFinancialAboutYouRoute
   ReportFinancialEvidenceRoute: typeof ReportFinancialEvidenceRoute
   ReportFinancialMoneyRoute: typeof ReportFinancialMoneyRoute
@@ -558,6 +557,7 @@ export interface RootRouteChildren {
   ReportOtherSubmittedRoute: typeof ReportOtherSubmittedRoute
   ReportOtherVerifyRoute: typeof ReportOtherVerifyRoute
   ReportOtherWhatHappenedRoute: typeof ReportOtherWhatHappenedRoute
+  ReportSafetyIndexRoute: typeof ReportSafetyIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -716,13 +716,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof WebsitePoliciesRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/report/safety': {
-      id: '/report/safety'
-      path: '/report/safety'
-      fullPath: '/report/safety'
-      preLoaderRoute: typeof ReportSafetyRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/report/financial/about-you': {
       id: '/report/financial/about-you'
       path: '/report/financial/about-you'
@@ -807,6 +800,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ReportOtherWhatHappenedRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/report/safety/': {
+      id: '/report/safety/'
+      path: '/report/safety'
+      fullPath: '/report/safety/'
+      preLoaderRoute: typeof ReportSafetyIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/report/safety/about-you': {
       id: '/report/safety/about-you'
       path: '/about-you'
@@ -852,28 +852,6 @@ declare module '@tanstack/react-router' {
   }
 }
 
-interface ReportSafetyRouteChildren {
-  ReportSafetyAboutYouRoute: typeof ReportSafetyAboutYouRoute
-  ReportSafetyEvidenceRoute: typeof ReportSafetyEvidenceRoute
-  ReportSafetyPersonRoute: typeof ReportSafetyPersonRoute
-  ReportSafetyStartRoute: typeof ReportSafetyStartRoute
-  ReportSafetySubmittedRoute: typeof ReportSafetySubmittedRoute
-  ReportSafetyWhatHappenedRoute: typeof ReportSafetyWhatHappenedRoute
-}
-
-const ReportSafetyRouteChildren: ReportSafetyRouteChildren = {
-  ReportSafetyAboutYouRoute: ReportSafetyAboutYouRoute,
-  ReportSafetyEvidenceRoute: ReportSafetyEvidenceRoute,
-  ReportSafetyPersonRoute: ReportSafetyPersonRoute,
-  ReportSafetyStartRoute: ReportSafetyStartRoute,
-  ReportSafetySubmittedRoute: ReportSafetySubmittedRoute,
-  ReportSafetyWhatHappenedRoute: ReportSafetyWhatHappenedRoute,
-}
-
-const ReportSafetyRouteWithChildren = ReportSafetyRoute._addFileChildren(
-  ReportSafetyRouteChildren,
-)
-
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AdvisoriesRoute: AdvisoriesRoute,
@@ -897,7 +875,6 @@ const rootRouteChildren: RootRouteChildren = {
   TrackRoute: TrackRoute,
   TrainingResourcesRoute: TrainingResourcesRoute,
   WebsitePoliciesRoute: WebsitePoliciesRoute,
-  ReportSafetyRoute: ReportSafetyRouteWithChildren,
   ReportFinancialAboutYouRoute: ReportFinancialAboutYouRoute,
   ReportFinancialEvidenceRoute: ReportFinancialEvidenceRoute,
   ReportFinancialMoneyRoute: ReportFinancialMoneyRoute,
@@ -910,6 +887,7 @@ const rootRouteChildren: RootRouteChildren = {
   ReportOtherSubmittedRoute: ReportOtherSubmittedRoute,
   ReportOtherVerifyRoute: ReportOtherVerifyRoute,
   ReportOtherWhatHappenedRoute: ReportOtherWhatHappenedRoute,
+  ReportSafetyIndexRoute: ReportSafetyIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
