@@ -5,7 +5,7 @@ import { Page } from "@/components/site/Page";
 import { StepIndicator } from "@/components/site/StepIndicator";
 import { SAFETY_STEPS } from "@/components/site/safety-steps";
 import { ErrorSummary, focusErrorSummary, labelTone } from "@/components/site/form-ui";
-import { makeDraftRef, useReportFlow } from "@/lib/report-flow";
+import { makeDraftRef, useReportFlow, useStartFreshReport } from "@/lib/report-flow";
 
 export const Route = createFileRoute("/report/safety/start")({
   head: () => ({
@@ -29,9 +29,8 @@ export const Route = createFileRoute("/report/safety/start")({
 function SafetyStart() {
   const navigate = useNavigate();
   const { report, update } = useReportFlow();
-  const [choice, setChoice] = useState<"anonymous" | "tracked" | "">(
-    report.track === "safety" ? (report.anonymous ? "anonymous" : "tracked") : "",
-  );
+  useStartFreshReport("safety");
+  const [choice, setChoice] = useState<"anonymous" | "tracked" | "">("");
   const [sent, setSent] = useState(false);
   const [digits, setDigits] = useState<string[]>(Array(6).fill(""));
   const [errors, setErrors] = useState<Record<string, string>>({});

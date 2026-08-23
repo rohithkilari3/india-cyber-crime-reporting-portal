@@ -1,4 +1,13 @@
-import { createContext, useCallback, useContext, useMemo, useState, type ReactNode } from "react";
+import {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+  type ReactNode,
+} from "react";
 
 export type ReportFile = { id: string; name: string; size: number; type: string };
 
@@ -126,23 +135,49 @@ const emptyReport: FinancialReport = {
   acknowledgement: "",
 };
 
+type FlowTrack = "financial" | "safety" | "other";
+
 type ReportFlowValue = {
   report: FinancialReport;
   update: (patch: Partial<FinancialReport>) => void;
   reset: () => void;
+  /** Start a brand new report for a track, clearing anything typed in another flow. */
+  beginFlow: (track: FlowTrack) => void;
+  /** Resume an existing draft - keeps whatever is already in the context. */
+  resumeFlow: (track: FlowTrack) => void;
+  /** Called when a report is finished, so the next visit starts clean. */
+  endFlow: () => void;
 };
 
 const ReportFlowContext = createContext<ReportFlowValue | null>(null);
 
 export function ReportFlowProvider({ children }: { children: ReactNode }) {
   const [report, setReport] = useState<FinancialReport>(emptyReport);
+  const activeFlow = useRef<FlowTrack | null>(null);
 
   const update = useCallback((patch: Partial<FinancialReport>) => {
     setReport((prev) => ({ ...prev, ...patch }));
   }, []);
   const reset = useCallback(() => setReport(emptyReport), []);
 
-  const value = useMemo(() => ({ report, update, reset }), [report, update, reset]);
+  const beginFlow = useCallback((track: FlowTrack) => {
+    if (activeFlow.current === track) return;
+    activeFlow.current = track;
+    setReport({ ...emptyReport });
+  }, []);
+
+  const resumeFlow = useCallback((track: FlowTrack) => {
+    activeFlow.current = track;
+  }, []);
+
+  const endFlow = useCallback(() => {
+    activeFlow.current = null;
+  }, []);
+
+  const value = useMemo(
+    () => ({ report, update, reset, beginFlow, resumeFlow, endFlow }),
+    [report, update, reset, beginFlow, resumeFlow, endFlow],
+  );
   return <ReportFlowContext.Provider value={value}>{children}</ReportFlowContext.Provider>;
 }
 
@@ -150,6 +185,14 @@ export function useReportFlow() {
   const ctx = useContext(ReportFlowContext);
   if (!ctx) throw new Error("useReportFlow must be used inside ReportFlowProvider");
   return ctx;
+}
+
+/** Use on the first step of a flow: clears leftovers from any other report. */
+export function useStartFreshReport(track: FlowTrack) {
+  const { beginFlow } = useReportFlow();
+  useEffect(() => {
+    beginFlow(track);
+  }, [beginFlow, track]);
 }
 
 export function makeAcknowledgement() {
