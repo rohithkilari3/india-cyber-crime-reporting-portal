@@ -3,9 +3,10 @@ import { useState } from "react";
 import { CheckCircle2, Copy, Phone } from "lucide-react";
 import { Page } from "@/components/site/Page";
 import { StepIndicator } from "@/components/site/StepIndicator";
+import { SAFETY_STEPS } from "@/components/site/safety-steps";
 import { useReportFlow } from "@/lib/report-flow";
 
-export const Route = createFileRoute("/report/financial/submitted")({
+export const Route = createFileRoute("/report/safety/submitted")({
   head: () => ({
     meta: [
       { title: "Report received - your acknowledgement number" },
@@ -47,7 +48,7 @@ function Submitted() {
         </p>
         <p className="mt-6">
           <Link
-            to="/report/financial/verify"
+            to="/report/safety/start"
             className="inline-flex min-h-12 items-center rounded-sm bg-brand-blue px-6 font-semibold text-primary-foreground hover:bg-brand-blue-hover"
           >
             Report what happened
@@ -59,20 +60,23 @@ function Submitted() {
 
   return (
     <Page>
-      <StepIndicator current={7} />
+      <StepIndicator current={6} steps={SAFETY_STEPS} />
       <div className="flex items-center gap-3">
         <CheckCircle2 className="size-9 text-success" aria-hidden="true" />
         <h1 className="text-3xl font-bold text-navy">We&apos;ve received your report</h1>
       </div>
       <p className="mt-3 text-base text-muted-foreground">
-        Thank you. You did the right thing by reporting quickly.
+        Thank you for reporting. You did the right thing.
       </p>
 
       <div className="mt-8 rounded-sm border-2 border-success bg-success-tint p-6">
         <h2 className="text-lg font-semibold text-success">Your acknowledgement number</h2>
         <p className="mt-2 break-all text-3xl font-bold tracking-wide text-navy">{ack}</p>
         <p className="mt-2 text-base text-foreground">
-          Write this down or take a screenshot. You&apos;ll need it to check progress.
+          Write this down or take a screenshot.{" "}
+          {report.anonymous
+            ? "Because you reported anonymously, this number is the only way to refer to your case - we cannot send you updates or recover it if lost."
+            : "You'll need it to check progress."}
         </p>
         <button
           type="button"
@@ -88,48 +92,37 @@ function Submitted() {
       </div>
 
       <section className="mt-10">
-        <h2 className="text-2xl font-bold text-navy">Do these two things now</h2>
-        <ol className="mt-4 space-y-4">
-          <li className="rounded-sm border-2 border-emergency bg-emergency-tint p-4">
-            <p className="text-lg font-bold text-emergency">1. Call 1930</p>
-            <p className="mt-1 text-base text-foreground">
-              The helpline can ask banks to hold the money while it is still moving.
-            </p>
-            <a
-              href="tel:1930"
-              className="mt-3 inline-flex min-h-12 items-center gap-2 rounded-sm border-2 border-emergency bg-background px-5 font-bold text-emergency"
-            >
-              <Phone className="size-5" aria-hidden="true" />
-              Call 1930 now
-            </a>
-          </li>
-          <li className="rounded-sm border p-4">
-            <p className="text-lg font-bold text-navy">2. Tell your bank</p>
-            <p className="mt-1 text-base text-muted-foreground">
-              Ask them to block the card or account used, and quote your acknowledgement number.
-            </p>
-          </li>
-        </ol>
-      </section>
-
-      <section className="mt-10 border-t pt-6">
         <h2 className="text-2xl font-bold text-navy">What happens next</h2>
-        <ul className="mt-3 list-disc space-y-2 pl-6 text-base text-muted-foreground">
-          <li>Your report goes to the police unit for the area where the fraud happened.</li>
-          <li>You&apos;ll get an SMS if an officer needs anything more from you.</li>
-          <li>You can check progress any time in “My reports”, after a one-time code.</li>
+        <ul className="mt-3 list-disc space-y-2 pl-6 text-base text-foreground">
+          <li>Your report goes to the cyber crime unit for your state.</li>
           <li>
-            Remembered something later - a screenshot, a transaction number, another payment? Open
-            the report in “My reports” and choose “Add more details”.
+            If the content is still online, a takedown request goes to the platform. Save the links
+           - don&apos;t delete anything yourself yet.
+          </li>
+          {!report.anonymous ? (
+            <li>An officer may call you from an official number to ask a few questions.</li>
+          ) : null}
+          <li>
+            If you are in immediate danger, call{" "}
+            <a href="tel:112" className="font-semibold text-brand-blue underline">
+              112
+            </a>
+            . For women and children, help is also on{" "}
+            <a href="tel:1098" className="font-semibold text-brand-blue underline">
+              1098
+            </a>
+            .
           </li>
         </ul>
         <div className="mt-6 flex flex-wrap gap-3">
-          <Link
-            to="/track"
-            className="inline-flex min-h-12 items-center rounded-sm bg-brand-blue px-6 font-semibold text-primary-foreground hover:bg-brand-blue-hover"
-          >
-            Go to my reports
-          </Link>
+          {!report.anonymous ? (
+            <Link
+              to="/track"
+              className="inline-flex min-h-12 items-center rounded-sm bg-brand-blue px-6 font-semibold text-primary-foreground hover:bg-brand-blue-hover"
+            >
+              Go to my reports
+            </Link>
+          ) : null}
           <Link
             to="/"
             className="inline-flex min-h-12 items-center rounded-sm border-2 border-navy px-6 font-semibold text-navy hover:bg-surface-grey"
@@ -138,6 +131,13 @@ function Submitted() {
           </Link>
         </div>
       </section>
+
+      <div className="mt-8 rounded-sm border-2 border-emergency bg-emergency-tint p-4">
+        <p className="flex items-center gap-2 text-base font-semibold text-emergency">
+          <Phone className="size-5" aria-hidden="true" />
+          Emergency: call 112. Women and child helpline: call 1098.
+        </p>
+      </div>
     </Page>
   );
 }

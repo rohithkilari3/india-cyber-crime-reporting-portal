@@ -31,7 +31,6 @@ import { Route as SafetyTipsRouteImport } from './routes/safety-tips'
 import { Route as TrackRouteImport } from './routes/track'
 import { Route as TrainingResourcesRouteImport } from './routes/training-resources'
 import { Route as WebsitePoliciesRouteImport } from './routes/website-policies'
-import { Route as ReportSafetyRouteImport } from './routes/report/safety'
 import { Route as ReportFinancialAboutYouRouteImport } from './routes/report/financial/about-you'
 import { Route as ReportFinancialEvidenceRouteImport } from './routes/report/financial/evidence'
 import { Route as ReportFinancialMoneyRouteImport } from './routes/report/financial/money'
@@ -39,6 +38,18 @@ import { Route as ReportFinancialSubmittedRouteImport } from './routes/report/fi
 import { Route as ReportFinancialSuspectRouteImport } from './routes/report/financial/suspect'
 import { Route as ReportFinancialVerifyRouteImport } from './routes/report/financial/verify'
 import { Route as ReportFinancialWhatHappenedRouteImport } from './routes/report/financial/what-happened'
+import { Route as ReportOtherAboutYouRouteImport } from './routes/report/other/about-you'
+import { Route as ReportOtherEvidenceRouteImport } from './routes/report/other/evidence'
+import { Route as ReportOtherSubmittedRouteImport } from './routes/report/other/submitted'
+import { Route as ReportOtherVerifyRouteImport } from './routes/report/other/verify'
+import { Route as ReportOtherWhatHappenedRouteImport } from './routes/report/other/what-happened'
+import { Route as ReportSafetyIndexRouteImport } from './routes/report/safety/index'
+import { Route as ReportSafetyAboutYouRouteImport } from './routes/report/safety/about-you'
+import { Route as ReportSafetyEvidenceRouteImport } from './routes/report/safety/evidence'
+import { Route as ReportSafetyPersonRouteImport } from './routes/report/safety/person'
+import { Route as ReportSafetyStartRouteImport } from './routes/report/safety/start'
+import { Route as ReportSafetySubmittedRouteImport } from './routes/report/safety/submitted'
+import { Route as ReportSafetyWhatHappenedRouteImport } from './routes/report/safety/what-happened'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -150,11 +161,6 @@ const WebsitePoliciesRoute = WebsitePoliciesRouteImport.update({
   path: '/website-policies',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ReportSafetyRoute = ReportSafetyRouteImport.update({
-  id: '/report/safety',
-  path: '/report/safety',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const ReportFinancialAboutYouRoute = ReportFinancialAboutYouRouteImport.update({
   id: '/report/financial/about-you',
   path: '/report/financial/about-you',
@@ -192,6 +198,67 @@ const ReportFinancialWhatHappenedRoute =
     path: '/report/financial/what-happened',
     getParentRoute: () => rootRouteImport,
   } as any)
+const ReportOtherAboutYouRoute = ReportOtherAboutYouRouteImport.update({
+  id: '/report/other/about-you',
+  path: '/report/other/about-you',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReportOtherEvidenceRoute = ReportOtherEvidenceRouteImport.update({
+  id: '/report/other/evidence',
+  path: '/report/other/evidence',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReportOtherSubmittedRoute = ReportOtherSubmittedRouteImport.update({
+  id: '/report/other/submitted',
+  path: '/report/other/submitted',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReportOtherVerifyRoute = ReportOtherVerifyRouteImport.update({
+  id: '/report/other/verify',
+  path: '/report/other/verify',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReportOtherWhatHappenedRoute = ReportOtherWhatHappenedRouteImport.update({
+  id: '/report/other/what-happened',
+  path: '/report/other/what-happened',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReportSafetyIndexRoute = ReportSafetyIndexRouteImport.update({
+  id: '/report/safety/',
+  path: '/report/safety/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReportSafetyAboutYouRoute = ReportSafetyAboutYouRouteImport.update({
+  id: '/report/safety/about-you',
+  path: '/report/safety/about-you',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReportSafetyEvidenceRoute = ReportSafetyEvidenceRouteImport.update({
+  id: '/report/safety/evidence',
+  path: '/report/safety/evidence',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReportSafetyPersonRoute = ReportSafetyPersonRouteImport.update({
+  id: '/report/safety/person',
+  path: '/report/safety/person',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReportSafetyStartRoute = ReportSafetyStartRouteImport.update({
+  id: '/report/safety/start',
+  path: '/report/safety/start',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReportSafetySubmittedRoute = ReportSafetySubmittedRouteImport.update({
+  id: '/report/safety/submitted',
+  path: '/report/safety/submitted',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReportSafetyWhatHappenedRoute =
+  ReportSafetyWhatHappenedRouteImport.update({
+    id: '/report/safety/what-happened',
+    path: '/report/safety/what-happened',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -216,7 +283,6 @@ export interface FileRoutesByFullPath {
   '/track': typeof TrackRoute
   '/training-resources': typeof TrainingResourcesRoute
   '/website-policies': typeof WebsitePoliciesRoute
-  '/report/safety': typeof ReportSafetyRoute
   '/report/financial/about-you': typeof ReportFinancialAboutYouRoute
   '/report/financial/evidence': typeof ReportFinancialEvidenceRoute
   '/report/financial/money': typeof ReportFinancialMoneyRoute
@@ -224,6 +290,18 @@ export interface FileRoutesByFullPath {
   '/report/financial/suspect': typeof ReportFinancialSuspectRoute
   '/report/financial/verify': typeof ReportFinancialVerifyRoute
   '/report/financial/what-happened': typeof ReportFinancialWhatHappenedRoute
+  '/report/other/about-you': typeof ReportOtherAboutYouRoute
+  '/report/other/evidence': typeof ReportOtherEvidenceRoute
+  '/report/other/submitted': typeof ReportOtherSubmittedRoute
+  '/report/other/verify': typeof ReportOtherVerifyRoute
+  '/report/other/what-happened': typeof ReportOtherWhatHappenedRoute
+  '/report/safety/about-you': typeof ReportSafetyAboutYouRoute
+  '/report/safety/evidence': typeof ReportSafetyEvidenceRoute
+  '/report/safety/person': typeof ReportSafetyPersonRoute
+  '/report/safety/start': typeof ReportSafetyStartRoute
+  '/report/safety/submitted': typeof ReportSafetySubmittedRoute
+  '/report/safety/what-happened': typeof ReportSafetyWhatHappenedRoute
+  '/report/safety/': typeof ReportSafetyIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -248,7 +326,6 @@ export interface FileRoutesByTo {
   '/track': typeof TrackRoute
   '/training-resources': typeof TrainingResourcesRoute
   '/website-policies': typeof WebsitePoliciesRoute
-  '/report/safety': typeof ReportSafetyRoute
   '/report/financial/about-you': typeof ReportFinancialAboutYouRoute
   '/report/financial/evidence': typeof ReportFinancialEvidenceRoute
   '/report/financial/money': typeof ReportFinancialMoneyRoute
@@ -256,6 +333,18 @@ export interface FileRoutesByTo {
   '/report/financial/suspect': typeof ReportFinancialSuspectRoute
   '/report/financial/verify': typeof ReportFinancialVerifyRoute
   '/report/financial/what-happened': typeof ReportFinancialWhatHappenedRoute
+  '/report/other/about-you': typeof ReportOtherAboutYouRoute
+  '/report/other/evidence': typeof ReportOtherEvidenceRoute
+  '/report/other/submitted': typeof ReportOtherSubmittedRoute
+  '/report/other/verify': typeof ReportOtherVerifyRoute
+  '/report/other/what-happened': typeof ReportOtherWhatHappenedRoute
+  '/report/safety/about-you': typeof ReportSafetyAboutYouRoute
+  '/report/safety/evidence': typeof ReportSafetyEvidenceRoute
+  '/report/safety/person': typeof ReportSafetyPersonRoute
+  '/report/safety/start': typeof ReportSafetyStartRoute
+  '/report/safety/submitted': typeof ReportSafetySubmittedRoute
+  '/report/safety/what-happened': typeof ReportSafetyWhatHappenedRoute
+  '/report/safety': typeof ReportSafetyIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -281,7 +370,6 @@ export interface FileRoutesById {
   '/track': typeof TrackRoute
   '/training-resources': typeof TrainingResourcesRoute
   '/website-policies': typeof WebsitePoliciesRoute
-  '/report/safety': typeof ReportSafetyRoute
   '/report/financial/about-you': typeof ReportFinancialAboutYouRoute
   '/report/financial/evidence': typeof ReportFinancialEvidenceRoute
   '/report/financial/money': typeof ReportFinancialMoneyRoute
@@ -289,6 +377,18 @@ export interface FileRoutesById {
   '/report/financial/suspect': typeof ReportFinancialSuspectRoute
   '/report/financial/verify': typeof ReportFinancialVerifyRoute
   '/report/financial/what-happened': typeof ReportFinancialWhatHappenedRoute
+  '/report/other/about-you': typeof ReportOtherAboutYouRoute
+  '/report/other/evidence': typeof ReportOtherEvidenceRoute
+  '/report/other/submitted': typeof ReportOtherSubmittedRoute
+  '/report/other/verify': typeof ReportOtherVerifyRoute
+  '/report/other/what-happened': typeof ReportOtherWhatHappenedRoute
+  '/report/safety/about-you': typeof ReportSafetyAboutYouRoute
+  '/report/safety/evidence': typeof ReportSafetyEvidenceRoute
+  '/report/safety/person': typeof ReportSafetyPersonRoute
+  '/report/safety/start': typeof ReportSafetyStartRoute
+  '/report/safety/submitted': typeof ReportSafetySubmittedRoute
+  '/report/safety/what-happened': typeof ReportSafetyWhatHappenedRoute
+  '/report/safety/': typeof ReportSafetyIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -315,7 +415,6 @@ export interface FileRouteTypes {
     | '/track'
     | '/training-resources'
     | '/website-policies'
-    | '/report/safety'
     | '/report/financial/about-you'
     | '/report/financial/evidence'
     | '/report/financial/money'
@@ -323,6 +422,18 @@ export interface FileRouteTypes {
     | '/report/financial/suspect'
     | '/report/financial/verify'
     | '/report/financial/what-happened'
+    | '/report/other/about-you'
+    | '/report/other/evidence'
+    | '/report/other/submitted'
+    | '/report/other/verify'
+    | '/report/other/what-happened'
+    | '/report/safety/about-you'
+    | '/report/safety/evidence'
+    | '/report/safety/person'
+    | '/report/safety/start'
+    | '/report/safety/submitted'
+    | '/report/safety/what-happened'
+    | '/report/safety/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -347,7 +458,6 @@ export interface FileRouteTypes {
     | '/track'
     | '/training-resources'
     | '/website-policies'
-    | '/report/safety'
     | '/report/financial/about-you'
     | '/report/financial/evidence'
     | '/report/financial/money'
@@ -355,6 +465,18 @@ export interface FileRouteTypes {
     | '/report/financial/suspect'
     | '/report/financial/verify'
     | '/report/financial/what-happened'
+    | '/report/other/about-you'
+    | '/report/other/evidence'
+    | '/report/other/submitted'
+    | '/report/other/verify'
+    | '/report/other/what-happened'
+    | '/report/safety/about-you'
+    | '/report/safety/evidence'
+    | '/report/safety/person'
+    | '/report/safety/start'
+    | '/report/safety/submitted'
+    | '/report/safety/what-happened'
+    | '/report/safety'
   id:
     | '__root__'
     | '/'
@@ -379,7 +501,6 @@ export interface FileRouteTypes {
     | '/track'
     | '/training-resources'
     | '/website-policies'
-    | '/report/safety'
     | '/report/financial/about-you'
     | '/report/financial/evidence'
     | '/report/financial/money'
@@ -387,6 +508,18 @@ export interface FileRouteTypes {
     | '/report/financial/suspect'
     | '/report/financial/verify'
     | '/report/financial/what-happened'
+    | '/report/other/about-you'
+    | '/report/other/evidence'
+    | '/report/other/submitted'
+    | '/report/other/verify'
+    | '/report/other/what-happened'
+    | '/report/safety/about-you'
+    | '/report/safety/evidence'
+    | '/report/safety/person'
+    | '/report/safety/start'
+    | '/report/safety/submitted'
+    | '/report/safety/what-happened'
+    | '/report/safety/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -412,7 +545,6 @@ export interface RootRouteChildren {
   TrackRoute: typeof TrackRoute
   TrainingResourcesRoute: typeof TrainingResourcesRoute
   WebsitePoliciesRoute: typeof WebsitePoliciesRoute
-  ReportSafetyRoute: typeof ReportSafetyRoute
   ReportFinancialAboutYouRoute: typeof ReportFinancialAboutYouRoute
   ReportFinancialEvidenceRoute: typeof ReportFinancialEvidenceRoute
   ReportFinancialMoneyRoute: typeof ReportFinancialMoneyRoute
@@ -420,6 +552,18 @@ export interface RootRouteChildren {
   ReportFinancialSuspectRoute: typeof ReportFinancialSuspectRoute
   ReportFinancialVerifyRoute: typeof ReportFinancialVerifyRoute
   ReportFinancialWhatHappenedRoute: typeof ReportFinancialWhatHappenedRoute
+  ReportOtherAboutYouRoute: typeof ReportOtherAboutYouRoute
+  ReportOtherEvidenceRoute: typeof ReportOtherEvidenceRoute
+  ReportOtherSubmittedRoute: typeof ReportOtherSubmittedRoute
+  ReportOtherVerifyRoute: typeof ReportOtherVerifyRoute
+  ReportOtherWhatHappenedRoute: typeof ReportOtherWhatHappenedRoute
+  ReportSafetyAboutYouRoute: typeof ReportSafetyAboutYouRoute
+  ReportSafetyEvidenceRoute: typeof ReportSafetyEvidenceRoute
+  ReportSafetyPersonRoute: typeof ReportSafetyPersonRoute
+  ReportSafetyStartRoute: typeof ReportSafetyStartRoute
+  ReportSafetySubmittedRoute: typeof ReportSafetySubmittedRoute
+  ReportSafetyWhatHappenedRoute: typeof ReportSafetyWhatHappenedRoute
+  ReportSafetyIndexRoute: typeof ReportSafetyIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -578,13 +722,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof WebsitePoliciesRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/report/safety': {
-      id: '/report/safety'
-      path: '/report/safety'
-      fullPath: '/report/safety'
-      preLoaderRoute: typeof ReportSafetyRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/report/financial/about-you': {
       id: '/report/financial/about-you'
       path: '/report/financial/about-you'
@@ -634,6 +771,90 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ReportFinancialWhatHappenedRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/report/other/about-you': {
+      id: '/report/other/about-you'
+      path: '/report/other/about-you'
+      fullPath: '/report/other/about-you'
+      preLoaderRoute: typeof ReportOtherAboutYouRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/report/other/evidence': {
+      id: '/report/other/evidence'
+      path: '/report/other/evidence'
+      fullPath: '/report/other/evidence'
+      preLoaderRoute: typeof ReportOtherEvidenceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/report/other/submitted': {
+      id: '/report/other/submitted'
+      path: '/report/other/submitted'
+      fullPath: '/report/other/submitted'
+      preLoaderRoute: typeof ReportOtherSubmittedRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/report/other/verify': {
+      id: '/report/other/verify'
+      path: '/report/other/verify'
+      fullPath: '/report/other/verify'
+      preLoaderRoute: typeof ReportOtherVerifyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/report/other/what-happened': {
+      id: '/report/other/what-happened'
+      path: '/report/other/what-happened'
+      fullPath: '/report/other/what-happened'
+      preLoaderRoute: typeof ReportOtherWhatHappenedRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/report/safety/': {
+      id: '/report/safety/'
+      path: '/report/safety'
+      fullPath: '/report/safety/'
+      preLoaderRoute: typeof ReportSafetyIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/report/safety/about-you': {
+      id: '/report/safety/about-you'
+      path: '/report/safety/about-you'
+      fullPath: '/report/safety/about-you'
+      preLoaderRoute: typeof ReportSafetyAboutYouRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/report/safety/evidence': {
+      id: '/report/safety/evidence'
+      path: '/report/safety/evidence'
+      fullPath: '/report/safety/evidence'
+      preLoaderRoute: typeof ReportSafetyEvidenceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/report/safety/person': {
+      id: '/report/safety/person'
+      path: '/report/safety/person'
+      fullPath: '/report/safety/person'
+      preLoaderRoute: typeof ReportSafetyPersonRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/report/safety/start': {
+      id: '/report/safety/start'
+      path: '/report/safety/start'
+      fullPath: '/report/safety/start'
+      preLoaderRoute: typeof ReportSafetyStartRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/report/safety/submitted': {
+      id: '/report/safety/submitted'
+      path: '/report/safety/submitted'
+      fullPath: '/report/safety/submitted'
+      preLoaderRoute: typeof ReportSafetySubmittedRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/report/safety/what-happened': {
+      id: '/report/safety/what-happened'
+      path: '/report/safety/what-happened'
+      fullPath: '/report/safety/what-happened'
+      preLoaderRoute: typeof ReportSafetyWhatHappenedRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -660,7 +881,6 @@ const rootRouteChildren: RootRouteChildren = {
   TrackRoute: TrackRoute,
   TrainingResourcesRoute: TrainingResourcesRoute,
   WebsitePoliciesRoute: WebsitePoliciesRoute,
-  ReportSafetyRoute: ReportSafetyRoute,
   ReportFinancialAboutYouRoute: ReportFinancialAboutYouRoute,
   ReportFinancialEvidenceRoute: ReportFinancialEvidenceRoute,
   ReportFinancialMoneyRoute: ReportFinancialMoneyRoute,
@@ -668,6 +888,18 @@ const rootRouteChildren: RootRouteChildren = {
   ReportFinancialSuspectRoute: ReportFinancialSuspectRoute,
   ReportFinancialVerifyRoute: ReportFinancialVerifyRoute,
   ReportFinancialWhatHappenedRoute: ReportFinancialWhatHappenedRoute,
+  ReportOtherAboutYouRoute: ReportOtherAboutYouRoute,
+  ReportOtherEvidenceRoute: ReportOtherEvidenceRoute,
+  ReportOtherSubmittedRoute: ReportOtherSubmittedRoute,
+  ReportOtherVerifyRoute: ReportOtherVerifyRoute,
+  ReportOtherWhatHappenedRoute: ReportOtherWhatHappenedRoute,
+  ReportSafetyAboutYouRoute: ReportSafetyAboutYouRoute,
+  ReportSafetyEvidenceRoute: ReportSafetyEvidenceRoute,
+  ReportSafetyPersonRoute: ReportSafetyPersonRoute,
+  ReportSafetyStartRoute: ReportSafetyStartRoute,
+  ReportSafetySubmittedRoute: ReportSafetySubmittedRoute,
+  ReportSafetyWhatHappenedRoute: ReportSafetyWhatHappenedRoute,
+  ReportSafetyIndexRoute: ReportSafetyIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

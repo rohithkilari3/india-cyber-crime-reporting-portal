@@ -1,23 +1,25 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ArrowRight, CheckCircle2, FileText, Trash2, Upload } from "lucide-react";
 import { Page } from "@/components/site/Page";
 import { StepIndicator } from "@/components/site/StepIndicator";
 import { formatBytes, useReportFlow, type ReportFile } from "@/lib/report-flow";
 
-export const Route = createFileRoute("/report/financial/evidence")({
+const OTHER_STEPS = ["Confirm your number", "What happened", "Evidence", "About you and send", "Sent"];
+
+export const Route = createFileRoute("/report/other/evidence")({
   head: () => ({
     meta: [
-      { title: "Add screenshots or messages - Report stolen money" },
+      { title: "Add screenshots or messages - not sure what happened" },
       {
         name: "description",
         content:
-          "Drag and drop several screenshots, bank messages or receipts at once. This step is optional.",
+          "Drag and drop screenshots, messages or anything else that shows what happened. This step is optional.",
       },
       { property: "og:title", content: "Add screenshots or messages" },
       {
         property: "og:description",
-        content: "Upload several files at once, or skip this step and add evidence later.",
+        content: "Upload files that help explain what happened, or skip and add them later.",
       },
     ],
   }),
@@ -29,6 +31,10 @@ function Evidence() {
   const { report, update } = useReportFlow();
   const [dragging, setDragging] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    if (!report.mobileVerified) navigate({ to: "/report/other/verify", replace: true });
+  }, [report.mobileVerified, navigate]);
 
   function addFiles(list: FileList | null) {
     if (!list) return;
@@ -47,16 +53,14 @@ function Evidence() {
 
   return (
     <Page>
-      <StepIndicator current={5} />
+      <StepIndicator current={3} steps={OTHER_STEPS} />
       <h1 className="text-3xl font-bold text-navy">Add anything that shows what happened</h1>
       <p className="mt-3 text-base text-muted-foreground">
-        Screenshots, bank SMS messages, transaction receipts, chat conversations. You can add
-        several at once.
+        Screenshots, messages, call logs, links - anything at all. You can add several at once.
       </p>
       <p className="mt-3 rounded-sm border-2 border-border bg-surface-grey p-4 text-base text-muted-foreground">
-        This step is optional because many people report from a borrowed phone or have already
-        deleted the messages. But a single bank SMS or screenshot is often what proves the case, so
-        add one if you can - and you can always add more after sending.
+        This step is optional. But a single screenshot is often what helps an officer work out
+        what kind of case this is - add one if you can, and you can always add more later.
       </p>
 
       <div
@@ -137,19 +141,19 @@ function Evidence() {
       <div className="mt-10 flex flex-wrap items-center gap-4">
         <button
           type="button"
-          onClick={() => navigate({ to: "/report/financial/about-you" })}
+          onClick={() => navigate({ to: "/report/other/about-you" })}
           className="inline-flex min-h-12 items-center gap-2 rounded-sm bg-brand-blue px-6 text-lg font-semibold text-primary-foreground hover:bg-brand-blue-hover"
         >
           Continue
           <ArrowRight className="size-5" aria-hidden="true" />
         </button>
-        <Link to="/report/financial/about-you" className="font-semibold text-brand-blue underline">
+        <Link to="/report/other/about-you" className="font-semibold text-brand-blue underline">
           Skip - I don&apos;t have anything to add
         </Link>
       </div>
       <p className="mt-6">
-        <Link to="/report/financial/suspect" className="font-semibold text-brand-blue underline">
-          Back to who contacted you
+        <Link to="/report/other/what-happened" className="font-semibold text-brand-blue underline">
+          Back to what happened
         </Link>
       </p>
     </Page>

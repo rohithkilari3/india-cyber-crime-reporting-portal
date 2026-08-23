@@ -6,7 +6,7 @@ import { Page } from "@/components/site/Page";
 export const Route = createFileRoute("/cyber-volunteers")({
   head: () => ({
     meta: [
-      { title: "Become a cyber volunteer — National Cyber Crime Reporting Portal" },
+      { title: "Become a cyber volunteer - National Cyber Crime Reporting Portal" },
       {
         name: "description",
         content:
@@ -55,8 +55,8 @@ const unlawful = [
 const notUnlawful = [
   "Opinions or criticism you disagree with, including criticism of government.",
   "Satire, journalism, art or academic discussion.",
-  "Personal disputes, defamation or civil matters — these go to the courts, not here.",
-  "Ordinary fraud or harassment against you — report that as a complaint instead.",
+  "Personal disputes, defamation or civil matters - these go to the courts, not here.",
+  "Ordinary fraud or harassment against you - report that as a complaint instead.",
 ];
 
 const instructions = [
@@ -126,7 +126,7 @@ function Volunteers() {
         <h1 className="mt-3 text-3xl font-bold text-navy">Become a cyber volunteer</h1>
         <p className="mt-3 text-base text-muted-foreground">
           The Cyber Crime Volunteer programme lets ordinary citizens help make the internet safer in
-          India. Read what the role is and is not before you register — it takes about five minutes.
+          India. Read what the role is and is not before you register - it takes about five minutes.
         </p>
       </div>
 
@@ -179,7 +179,7 @@ function Volunteers() {
         </h2>
         <p className="mt-2 text-base text-muted-foreground">
           Only a narrow set of content can be flagged through this programme. Getting this right
-          matters — wrongly flagged content wastes police time and can harm people.
+          matters - wrongly flagged content wastes police time and can harm people.
         </p>
         <div className="mt-4 grid gap-4 md:grid-cols-2">
           <div className="rounded-sm border-2 border-emergency bg-emergency-tint p-5">
@@ -361,7 +361,7 @@ function Volunteers() {
                     One-time code (OTP)
                   </label>
                   <p id="v-otp-help" className="text-sm text-muted-foreground">
-                    A six digit code sent by SMS. It is only for signing in — never share it with
+                    A six digit code sent by SMS. It is only for signing in - never share it with
                     anyone, including anyone claiming to be from the police.
                   </p>
                   <input
@@ -543,13 +543,13 @@ function Volunteers() {
                     ["Login ID", loginId],
                     ["Mobile", mobile],
                     ["Name", name],
-                    ["Photo ID", `${idType}${idFile ? ` — ${idFile}` : ""}`],
+                    ["Photo ID", `${idType}${idFile ? ` - ${idFile}` : ""}`],
                     ["Address proof", addressFile ?? "Not attached"],
                     ["Reason", reason],
                   ].map(([k, v]) => (
                     <div key={k} className="flex flex-wrap gap-2 p-4">
                       <dt className="w-40 font-semibold text-navy">{k}</dt>
-                      <dd className="flex-1 text-muted-foreground">{v || "—"}</dd>
+                      <dd className="flex-1 text-muted-foreground">{v || " - "}</dd>
                     </div>
                   ))}
                 </dl>

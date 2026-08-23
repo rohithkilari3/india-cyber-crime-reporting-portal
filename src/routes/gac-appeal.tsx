@@ -5,7 +5,7 @@ import { Page } from "@/components/site/Page";
 export const Route = createFileRoute("/gac-appeal")({
   head: () => ({
     meta: [
-      { title: "File an appeal with the GAC — National Cyber Crime Reporting Portal" },
+      { title: "File an appeal with the GAC - National Cyber Crime Reporting Portal" },
       {
         name: "description",
         content:
@@ -28,7 +28,7 @@ const steps = [
   },
   {
     title: "Wait for their decision or 15 days",
-    body: "If they reply and you disagree — or they say nothing in 15 days — you can appeal.",
+    body: "If they reply and you disagree - or they say nothing in 15 days - you can appeal.",
   },
   {
     title: "Appeal within 30 days",

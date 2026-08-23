@@ -5,7 +5,7 @@ import { Page } from "@/components/site/Page";
 export const Route = createFileRoute("/cyber-awareness")({
   head: () => ({
     meta: [
-      { title: "Cyber awareness — National Cyber Crime Reporting Portal" },
+      { title: "Cyber awareness - National Cyber Crime Reporting Portal" },
       {
         name: "description",
         content:
@@ -70,25 +70,25 @@ function CyberAwareness() {
             <Link to="/media-gallery" className="text-brand-blue underline">
               Photo, video and radio gallery
             </Link>{" "}
-            — campaign films and radio spots.
+            -  campaign films and radio spots.
           </li>
           <li>
             <Link to="/daily-digest" className="text-brand-blue underline">
               Daily digest
             </Link>{" "}
-            — the fraud methods being seen right now.
+            -  the fraud methods being seen right now.
           </li>
           <li>
             <Link to="/training-resources" className="text-brand-blue underline">
               Training resources
             </Link>{" "}
-            — courses for police, prosecutors and judicial officers.
+            -  courses for police, prosecutors and judicial officers.
           </li>
           <li>
             <Link to="/cyber-volunteers" className="text-brand-blue underline">
               Become a cyber awareness promoter
             </Link>{" "}
-            — run sessions where you live.
+            -  run sessions where you live.
           </li>
         </ul>
       </section>

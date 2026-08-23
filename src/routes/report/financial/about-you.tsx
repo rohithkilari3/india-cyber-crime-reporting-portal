@@ -1,23 +1,33 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useState } from "react";
-import { AlertCircle, MapPin, Send } from "lucide-react";
+import { MapPin, Send } from "lucide-react";
 import { Page } from "@/components/site/Page";
 import { StepIndicator } from "@/components/site/StepIndicator";
 import { STATES, makeAcknowledgement, useReportFlow } from "@/lib/report-flow";
+import { districtsFor } from "@/lib/locations";
+import {
+  ErrorSummary,
+  FieldError,
+  boxTone,
+  focusErrorSummary,
+  inputClass,
+  labelTone,
+  type FieldErrors,
+} from "@/components/site/form-ui";
 
 export const Route = createFileRoute("/report/financial/about-you")({
   head: () => ({
     meta: [
-      { title: "About you and send your report — Report stolen money" },
+      { title: "About you and send your report - Report stolen money" },
       {
         name: "description",
         content:
-          "Tell us who is reporting, who the money belongs to, and your state so the report reaches the right police cyber unit.",
+          "Tell us who is reporting, who the money belongs to, and your state and district so the report reaches the right police cyber unit.",
       },
       { property: "og:title", content: "About you and send your report" },
       {
         property: "og:description",
-        content: "Your state decides which police cyber unit handles your report.",
+        content: "Your state and district decide which police cyber unit handles your report.",
       },
     ],
   }),
@@ -36,34 +46,32 @@ const idTypes = ["Aadhaar", "PAN", "Voter ID", "Passport", "Driving licence"];
 function AboutYou() {
   const navigate = useNavigate();
   const { report, update } = useReportFlow();
-  const [error, setError] = useState("");
+  const [errors, setErrors] = useState<FieldErrors>({});
   const forSomeoneElse = report.relationship && report.relationship !== "self";
+  const districts = districtsFor(report.state);
 
   function onSubmit(e: React.FormEvent) {
     e.preventDefault();
-    if (!report.fullName.trim()) {
-      return fail("Enter your name — the officer needs to know who to contact.");
+    const found: FieldErrors = {};
+    if (!report.fullName.trim())
+      found["name"] = "Enter your name so the officer knows who to contact.";
+    if (!report.relationship)
+      found["relationship"] = "Tell us whether this happened to you or to someone else.";
+    if (forSomeoneElse && !report.victimName.trim())
+      found["victim-name"] = "Enter the name of the person the money belongs to.";
+    if (!report.state)
+      found["state"] = "Choose your state or union territory so we can route your report.";
+    if (!report.district)
+      found["district"] = "Choose your district or city so the case reaches that city's cyber unit.";
+    if (!report.declaration)
+      found["declaration"] = "Tick the box to confirm what you've told us is true, then send.";
+    setErrors(found);
+    if (Object.keys(found).length) {
+      focusErrorSummary();
+      return;
     }
-    if (!report.relationship) {
-      return fail("Tell us whether this happened to you or to someone else.");
-    }
-    if (forSomeoneElse && !report.victimName.trim()) {
-      return fail("Enter the name of the person the money belongs to.");
-    }
-    if (!report.state) {
-      return fail("Choose your state or union territory so we can send this to the right police unit.");
-    }
-    if (!report.declaration) {
-      return fail("Tick the box to confirm what you've told us is true, then send.");
-    }
-    setError("");
     update({ acknowledgement: makeAcknowledgement() });
     navigate({ to: "/report/financial/submitted" });
-  }
-
-  function fail(message: string) {
-    setError(message);
-    document.getElementById("about-error")?.focus();
   }
 
   return (
@@ -71,44 +79,36 @@ function AboutYou() {
       <StepIndicator current={6} />
       <h1 className="text-3xl font-bold text-navy">About you, and then we&apos;re done</h1>
       <p className="mt-3 text-base text-muted-foreground">
-        Last step. Your mobile number is already confirmed — we just need who you are and where
+        Last step. Your mobile number is already confirmed - we just need who you are and where
         this should go.
       </p>
 
-      {error ? (
-        <div
-          id="about-error"
-          tabIndex={-1}
-          role="alert"
-          className="mt-6 flex gap-3 rounded-sm border-2 border-emergency bg-emergency-tint p-4"
-        >
-          <AlertCircle className="size-5 shrink-0 text-emergency" aria-hidden="true" />
-          <p className="font-semibold text-emergency">{error}</p>
-        </div>
-      ) : null}
+      <ErrorSummary errors={errors} />
 
       <form onSubmit={onSubmit} className="mt-8 space-y-8">
         <section className="rounded-sm border-2 border-border p-5">
           <h2 className="text-xl font-bold text-navy">Who is reporting?</h2>
           <div className="mt-5 space-y-5">
             <div>
-              <label htmlFor="name" className="block text-lg font-semibold text-navy">
+              <label htmlFor="name" className={`block text-lg font-semibold ${labelTone(!!errors["name"])}`}>
                 Your full name
               </label>
+              <FieldError id="name" message={errors["name"]} />
               <input
                 id="name"
-                required
                 autoComplete="name"
+                aria-invalid={!!errors["name"]}
                 value={report.fullName}
                 onChange={(e) => update({ fullName: e.target.value })}
-                className="mt-2 min-h-12 w-full max-w-md rounded-sm border-2 border-input px-3 text-lg"
+                className={inputClass(!!errors["name"], "mt-2 max-w-md")}
               />
             </div>
 
-            <fieldset>
-              <legend className="text-lg font-semibold text-navy">
+            <fieldset id="relationship">
+              <legend className={`text-lg font-semibold ${labelTone(!!errors["relationship"])}`}>
                 Did this happen to you, or to someone else?
               </legend>
+              <FieldError id="relationship" message={errors["relationship"]} />
               <div className="mt-3 space-y-3">
                 {relationships.map((r) => (
                   <label
@@ -116,7 +116,7 @@ function AboutYou() {
                     className={`flex min-h-12 cursor-pointer items-center gap-3 rounded-sm border-2 p-3 text-lg font-semibold hover:bg-surface-grey ${
                       report.relationship === r.id
                         ? "border-brand-blue bg-surface-grey"
-                        : "border-border"
+                        : boxTone(!!errors["relationship"])
                     }`}
                   >
                     <input
@@ -134,19 +134,24 @@ function AboutYou() {
             </fieldset>
 
             {forSomeoneElse ? (
-              <div className="space-y-5 rounded-sm border-2 border-border bg-surface-grey p-4">
-                <div>
-                  <label htmlFor="victim-name" className="block text-lg font-semibold text-navy">
+              <div className="grid gap-5 rounded-sm border-2 border-border bg-surface-grey p-4 sm:grid-cols-2">
+                <div className="min-w-0">
+                  <label
+                    htmlFor="victim-name"
+                    className={`block text-lg font-semibold ${labelTone(!!errors["victim-name"])}`}
+                  >
                     Name of the person the money belongs to
                   </label>
+                  <FieldError id="victim-name" message={errors["victim-name"]} />
                   <input
                     id="victim-name"
+                    aria-invalid={!!errors["victim-name"]}
                     value={report.victimName}
                     onChange={(e) => update({ victimName: e.target.value })}
-                    className="mt-2 min-h-12 w-full max-w-md rounded-sm border-2 border-input px-3 text-lg"
+                    className={inputClass(!!errors["victim-name"], "mt-2")}
                   />
                 </div>
-                <div>
+                <div className="min-w-0">
                   <label htmlFor="victim-age" className="block text-lg font-semibold text-navy">
                     Their age (optional)
                   </label>
@@ -229,25 +234,26 @@ function AboutYou() {
 
         <section className="rounded-sm border-2 border-border p-5">
           <div className="flex items-center gap-2">
-            <MapPin className="size-6 text-navy" aria-hidden="true" />
+            <MapPin className="size-6 shrink-0 text-navy" aria-hidden="true" />
             <h2 className="text-xl font-bold text-navy">Where should this report go?</h2>
           </div>
           <p className="mt-2 text-base text-muted-foreground">
-            Cyber crime is investigated by the police in the state where you live. We use this to
-            route your report — nothing else.
+            Cyber crime is investigated by the police where you live. We use this to route your
+            report - nothing else.
           </p>
 
-          <div className="mt-5 space-y-5">
-            <div>
-              <label htmlFor="state" className="block text-lg font-semibold text-navy">
+          <div className="mt-5 grid gap-5 sm:grid-cols-2">
+            <div className="min-w-0">
+              <label htmlFor="state" className={`block text-lg font-semibold ${labelTone(!!errors["state"])}`}>
                 Your state or union territory
               </label>
+              <FieldError id="state" message={errors["state"]} />
               <select
                 id="state"
-                required
+                aria-invalid={!!errors["state"]}
                 value={report.state}
-                onChange={(e) => update({ state: e.target.value })}
-                className="mt-2 min-h-12 w-full max-w-md rounded-sm border-2 border-input bg-background px-3 text-lg"
+                onChange={(e) => update({ state: e.target.value, district: "" })}
+                className={inputClass(!!errors["state"], "mt-2 bg-background")}
               >
                 <option value="">Choose your state</option>
                 {STATES.map((s) => (
@@ -258,19 +264,52 @@ function AboutYou() {
               </select>
             </div>
 
-            <div>
-              <label htmlFor="district" className="block text-lg font-semibold text-navy">
-                District or city (optional)
+            <div className="min-w-0">
+              <label
+                htmlFor="district"
+                className={`block text-lg font-semibold ${labelTone(!!errors["district"])}`}
+              >
+                District or city
               </label>
-              <input
+              <FieldError id="district" message={errors["district"]} />
+              <select
                 id="district"
+                aria-invalid={!!errors["district"]}
+                disabled={!report.state}
                 value={report.district}
                 onChange={(e) => update({ district: e.target.value })}
-                className="mt-2 min-h-12 w-full max-w-md rounded-sm border-2 border-input px-3 text-lg"
+                className={inputClass(!!errors["district"], "mt-2 bg-background disabled:bg-surface-grey")}
+              >
+                <option value="">
+                  {report.state ? "Choose your district or city" : "Choose your state first"}
+                </option>
+                {districts.map((d) => (
+                  <option key={d} value={d}>
+                    {d}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            <div className="min-w-0">
+              <label htmlFor="pincode" className="block text-lg font-semibold text-navy">
+                Pincode (optional)
+              </label>
+              <p id="pincode-hint" className="text-base text-muted-foreground">
+                This tells us the exact police station area, so you don&apos;t have to name one.
+              </p>
+              <input
+                id="pincode"
+                inputMode="numeric"
+                maxLength={6}
+                aria-describedby="pincode-hint"
+                value={report.pincode}
+                onChange={(e) => update({ pincode: e.target.value.replace(/\D/g, "") })}
+                className="mt-2 min-h-12 w-36 rounded-sm border-2 border-input px-3 text-lg"
               />
             </div>
 
-            <div>
+            <div className="min-w-0 sm:col-span-2">
               <label htmlFor="address" className="block text-lg font-semibold text-navy">
                 Address (optional)
               </label>
@@ -286,40 +325,22 @@ function AboutYou() {
                 className="mt-2 w-full max-w-md rounded-sm border-2 border-input p-3 text-lg"
               />
             </div>
-
-            <div>
-              <label htmlFor="ps" className="block text-lg font-semibold text-navy">
-                Nearest police station (optional)
-              </label>
-              <p id="ps-hint" className="text-base text-muted-foreground">
-                Leave this blank if you don&apos;t know it — we will work it out from your district.
-              </p>
-              <input
-                id="ps"
-                aria-describedby="ps-hint"
-                value={report.policeStation}
-                onChange={(e) => update({ policeStation: e.target.value })}
-                className="mt-2 min-h-12 w-full max-w-md rounded-sm border-2 border-input px-3 text-lg"
-              />
-            </div>
-
-            <label className="flex min-h-12 items-start gap-3 text-lg">
-              <input
-                type="checkbox"
-                checked={report.anonymousContact}
-                onChange={(e) => update({ anonymousContact: e.target.checked })}
-                className="mt-1 size-5 accent-[var(--brand-blue)]"
-              />
-              <span>
-                Don&apos;t show my name to anyone outside the investigating team.
-              </span>
-            </label>
           </div>
+
+          <label className="mt-5 flex min-h-12 items-start gap-3 text-lg">
+            <input
+              type="checkbox"
+              checked={report.anonymousContact}
+              onChange={(e) => update({ anonymousContact: e.target.checked })}
+              className="mt-1 size-5 accent-[var(--brand-blue)]"
+            />
+            <span>Don&apos;t show my name to anyone outside the investigating team.</span>
+          </label>
         </section>
 
         <details className="rounded-sm border-2 border-border p-4">
           <summary className="min-h-11 cursor-pointer text-lg font-semibold text-navy">
-            Your declaration — what you&apos;re confirming
+            Your declaration - what you&apos;re confirming
           </summary>
           <p className="mt-3 text-base text-muted-foreground">
             You confirm the information you have given is true to the best of your knowledge. A
@@ -328,14 +349,22 @@ function AboutYou() {
           </p>
         </details>
 
-        <label className="flex min-h-12 items-start gap-3 text-lg">
+        <label
+          id="declaration"
+          tabIndex={-1}
+          className={`flex min-h-12 items-start gap-3 rounded-sm border-2 p-3 text-lg ${
+            errors["declaration"] ? "border-emergency bg-emergency-tint" : "border-transparent"
+          }`}
+        >
           <input
             type="checkbox"
             checked={report.declaration}
             onChange={(e) => update({ declaration: e.target.checked })}
             className="mt-1 size-5 accent-[var(--brand-blue)]"
           />
-          <span>Everything I&apos;ve told you is true to the best of my knowledge.</span>
+          <span className={errors["declaration"] ? "font-semibold text-emergency" : undefined}>
+            Everything I&apos;ve told you is true to the best of my knowledge.
+          </span>
         </label>
 
         <div className="flex flex-wrap items-center gap-4">
