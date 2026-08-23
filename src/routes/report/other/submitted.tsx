@@ -1,0 +1,148 @@
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { useState } from "react";
+import { CheckCircle2, Copy, Phone } from "lucide-react";
+import { Page } from "@/components/site/Page";
+import { StepIndicator } from "@/components/site/StepIndicator";
+import { useReportFlow } from "@/lib/report-flow";
+
+const OTHER_STEPS = ["Confirm your number", "What happened", "Evidence", "About you and send", "Sent"];
+
+export const Route = createFileRoute("/report/other/submitted")({
+  head: () => ({
+    meta: [
+      { title: "Report received - your acknowledgement number" },
+      {
+        name: "description",
+        content:
+          "Your report has been received. Save your acknowledgement number - an officer will now work out the right category for your case.",
+      },
+      { property: "og:title", content: "Report received" },
+      {
+        property: "og:description",
+        content: "Your report has been received. Save your acknowledgement number.",
+      },
+    ],
+  }),
+  component: Submitted,
+});
+
+function Submitted() {
+  const { report } = useReportFlow();
+  const [copied, setCopied] = useState(false);
+  const ack = report.acknowledgement;
+
+  async function copy() {
+    try {
+      await navigator.clipboard.writeText(ack);
+      setCopied(true);
+    } catch {
+      setCopied(false);
+    }
+  }
+
+  if (!ack) {
+    return (
+      <Page>
+        <h1 className="text-3xl font-bold text-navy">No report to show</h1>
+        <p className="mt-3 text-base text-muted-foreground">
+          This page shows your acknowledgement number right after you submit a report.
+        </p>
+        <p className="mt-6">
+          <Link
+            to="/report/other/verify"
+            className="inline-flex min-h-12 items-center rounded-sm bg-brand-blue px-6 font-semibold text-primary-foreground hover:bg-brand-blue-hover"
+          >
+            Report what happened
+          </Link>
+        </p>
+      </Page>
+    );
+  }
+
+  return (
+    <Page>
+      <StepIndicator current={5} steps={OTHER_STEPS} />
+      <div className="flex items-center gap-3">
+        <CheckCircle2 className="size-9 text-success" aria-hidden="true" />
+        <h1 className="text-3xl font-bold text-navy">We&apos;ve received your report</h1>
+      </div>
+      <p className="mt-3 text-base text-muted-foreground">
+        Thank you. You did the right thing by telling us, even without knowing exactly what to
+        call it.
+      </p>
+
+      <div className="mt-8 rounded-sm border-2 border-success bg-success-tint p-6">
+        <h2 className="text-lg font-semibold text-success">Your acknowledgement number</h2>
+        <p className="mt-2 break-all text-3xl font-bold tracking-wide text-navy">{ack}</p>
+        <p className="mt-2 text-base text-foreground">
+          Write this down or take a screenshot. You&apos;ll need it to check progress.
+        </p>
+        <button
+          type="button"
+          onClick={copy}
+          className="mt-4 inline-flex min-h-12 items-center gap-2 rounded-sm border-2 border-navy bg-background px-5 font-semibold text-navy"
+        >
+          <Copy className="size-5" aria-hidden="true" />
+          Copy number
+        </button>
+        <span aria-live="polite" className="ml-3 text-base font-semibold text-success">
+          {copied ? "Copied" : ""}
+        </span>
+      </div>
+
+      <section className="mt-10 rounded-sm border-2 border-border bg-surface-grey p-5">
+        <h2 className="text-xl font-bold text-navy">What happens to a report like this</h2>
+        <p className="mt-2 text-base text-foreground">
+          Because you weren&apos;t sure what kind of case this is, an officer will read what you
+          wrote and work out the right category for you. You don&apos;t need to do anything more
+          right now.
+        </p>
+      </section>
+
+      {report.lostMoney === "yes" ? (
+        <section className="mt-6">
+          <div className="rounded-sm border-2 border-emergency bg-emergency-tint p-4">
+            <p className="text-lg font-bold text-emergency">If money is involved, call 1930 now</p>
+            <p className="mt-1 text-base text-foreground">
+              The helpline can ask banks to hold the money while it is still moving.
+            </p>
+            <a
+              href="tel:1930"
+              className="mt-3 inline-flex min-h-12 items-center gap-2 rounded-sm border-2 border-emergency bg-background px-5 font-bold text-emergency"
+            >
+              <Phone className="size-5" aria-hidden="true" />
+              Call 1930 now
+            </a>
+          </div>
+        </section>
+      ) : null}
+
+      <section className="mt-10 border-t pt-6">
+        <h2 className="text-2xl font-bold text-navy">What happens next</h2>
+        <ul className="mt-3 list-disc space-y-2 pl-6 text-base text-muted-foreground">
+          <li>Your report goes to the police unit for the area where you live.</li>
+          <li>An officer will classify the case and you&apos;ll get an SMS if they need anything more.</li>
+          <li>You can check progress any time in "My reports", after a one-time code.</li>
+          <li>
+            Remembered something later - a screenshot, a name, a number? Open the report in "My
+            reports" and choose "Add more details".
+          </li>
+        </ul>
+        <div className="mt-6 flex flex-wrap gap-3">
+          <Link
+            to="/track"
+            className="inline-flex min-h-12 items-center rounded-sm bg-brand-blue px-6 font-semibold text-primary-foreground hover:bg-brand-blue-hover"
+          >
+            Go to my reports
+          </Link>
+          <Link
+            to="/"
+            className="inline-flex min-h-12 items-center rounded-sm border-2 border-navy px-6 font-semibold text-navy hover:bg-surface-grey"
+          >
+            Back to home
+          </Link>
+        </div>
+      </section>
+    </Page>
+  );
+}

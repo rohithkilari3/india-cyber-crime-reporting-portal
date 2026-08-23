@@ -3,12 +3,12 @@ import { createContext, useCallback, useContext, useMemo, useState, type ReactNo
 export type ReportFile = { id: string; name: string; size: number; type: string };
 
 export type FinancialReport = {
-  /** Step 1 — identity first, so a draft can be saved against a verified number */
+  /** Step 1 - identity first, so a draft can be saved against a verified number */
   mobile: string;
   mobileVerified: boolean;
   draftRef: string;
 
-  /** Step 2 — what happened */
+  /** Step 2 - what happened */
   whatHappened: string;
   otherDescription: string;
   whenBucket: string;
@@ -17,7 +17,7 @@ export type FinancialReport = {
   platform: string;
   platformDetail: string;
 
-  /** Step 3 — money and payment trail (needed to freeze funds) */
+  /** Step 3 - money and payment trail (needed to freeze funds) */
   amount: string;
   victimBank: string;
   victimAccountType: string;
@@ -27,17 +27,32 @@ export type FinancialReport = {
   txnCount: string;
   bankInformed: string;
 
-  /** Step 4 — suspect */
+  /** Step 4 - suspect */
   suspectKind: string;
   suspectValue: string;
   suspectNotes: string;
   suspectBank: string;
   suspectAccount: string;
 
-  /** Step 5 — evidence */
+  /** Safety / "not sure" flows */
+  track: "" | "financial" | "safety" | "other";
+  anonymous: boolean;
+  kind: string;
+  story: string;
+  contentLink: string;
+  stillOnline: string;
+  suspectKnown: string;
+  suspectName: string;
+  suspectHandle: string;
+  suspectPhone: string;
+  victimIsChild: string;
+  lostMoney: string;
+  place: string;
+
+  /** Step 5 - evidence */
   files: ReportFile[];
 
-  /** Step 6 — complainant and victim */
+  /** Step 6 - complainant and victim */
   relationship: string;
   victimName: string;
   victimAge: string;
@@ -48,6 +63,7 @@ export type FinancialReport = {
   state: string;
   district: string;
   policeStation: string;
+  pincode: string;
   address: string;
   anonymousContact: boolean;
   declaration: boolean;
@@ -73,6 +89,19 @@ const emptyReport: FinancialReport = {
   txnDate: "",
   txnRefs: "",
   txnCount: "",
+  track: "",
+  anonymous: false,
+  kind: "",
+  story: "",
+  contentLink: "",
+  stillOnline: "",
+  suspectKnown: "",
+  suspectName: "",
+  suspectHandle: "",
+  suspectPhone: "",
+  victimIsChild: "",
+  lostMoney: "",
+  place: "",
   bankInformed: "",
   suspectKind: "",
   suspectValue: "",
@@ -90,6 +119,7 @@ const emptyReport: FinancialReport = {
   state: "",
   district: "",
   policeStation: "",
+  pincode: "",
   address: "",
   anonymousContact: false,
   declaration: false,

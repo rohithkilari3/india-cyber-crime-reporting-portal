@@ -5,16 +5,18 @@ import { Page } from "@/components/site/Page";
 import { StepIndicator } from "@/components/site/StepIndicator";
 import { makeDraftRef, useReportFlow } from "@/lib/report-flow";
 
-export const Route = createFileRoute("/report/financial/verify")({
+const OTHER_STEPS = ["Confirm your number", "What happened", "Evidence", "About you and send", "Sent"];
+
+export const Route = createFileRoute("/report/other/verify")({
   head: () => ({
     meta: [
-      { title: "Confirm your mobile number — Report stolen money" },
+      { title: "Confirm your mobile number - Report something you're not sure about" },
       {
         name: "description",
         content:
-          "We confirm your mobile number first, so your report is saved as you go and nothing is lost if you stop halfway.",
+          "Not sure what kind of cyber crime this is? Confirm your mobile number and tell us in your own words - we will work out the category for you.",
       },
-      { property: "og:title", content: "Confirm your mobile number" },
+      { property: "og:title", content: "Confirm your mobile number - not sure what happened" },
       {
         property: "og:description",
         content: "Verification happens first so your answers are saved from the very beginning.",
@@ -61,18 +63,18 @@ function VerifyStep() {
       return;
     }
     setError("");
-    update({ mobileVerified: true, draftRef: report.draftRef || makeDraftRef() });
-    navigate({ to: "/report/financial/what-happened" });
+    update({ track: "other", mobileVerified: true, draftRef: report.draftRef || makeDraftRef() });
+    navigate({ to: "/report/other/what-happened" });
   }
 
   return (
     <Page>
-      <StepIndicator current={1} />
+      <StepIndicator current={1} steps={OTHER_STEPS} />
       <h1 className="text-3xl font-bold text-navy">First, confirm your mobile number</h1>
       <p className="mt-3 text-base text-muted-foreground">
-        We do this before any questions for two reasons: your answers are saved against this number
-        from the start, and if the code doesn&apos;t arrive you find out now — not after filling in
-        a long form.
+        You don&apos;t need to know what kind of cyber crime this is. We do this before any
+        questions for two reasons: your answers are saved against this number from the start, and
+        if the code doesn&apos;t arrive you find out now - not after filling in a long form.
       </p>
 
       <div className="mt-6 rounded-sm border-2 border-border bg-surface-grey p-4 text-base">
@@ -131,7 +133,7 @@ function VerifyStep() {
             <h2 className="text-xl font-bold text-navy">The code from your SMS</h2>
           </div>
           <p id="otp-hint" className="mt-2 text-base text-muted-foreground">
-            Six digits. There is no time limit — ask for a new code whenever you need one.
+            Six digits. There is no time limit - ask for a new code whenever you need one.
           </p>
           <div className="mt-4 flex gap-2" role="group" aria-labelledby="otp-hint">
             {digits.map((d, i) => (
@@ -155,14 +157,12 @@ function VerifyStep() {
           </div>
         </section>
 
-        {sent ? (
-          <section className="flex items-start gap-3 rounded-sm border-2 border-success bg-success-tint p-4">
-            <ShieldCheck className="size-6 shrink-0 text-success" aria-hidden="true" />
-            <p className="text-base font-semibold text-success">
-              Security check passed - there is no puzzle for you to solve.
-            </p>
-          </section>
-        ) : null}
+        <section className="flex items-start gap-3 rounded-sm border-2 border-success bg-success-tint p-4">
+          <ShieldCheck className="size-6 shrink-0 text-success" aria-hidden="true" />
+          <p className="text-base font-semibold text-success">
+            Security check passed - no puzzle to solve.
+          </p>
+        </section>
 
         <div className="flex flex-wrap items-center gap-4">
           <button

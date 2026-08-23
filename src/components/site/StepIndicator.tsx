@@ -1,4 +1,4 @@
-const steps = [
+export const FINANCIAL_STEPS = [
   "Confirm your number",
   "What happened",
   "Money and payments",
@@ -8,13 +8,19 @@ const steps = [
   "Sent",
 ];
 
-export type StepNumber = 1 | 2 | 3 | 4 | 5 | 6 | 7;
+export type StepNumber = number;
 
-export function StepIndicator({ current }: { current: StepNumber }) {
+export function StepIndicator({
+  current,
+  steps = FINANCIAL_STEPS,
+}: {
+  current: StepNumber;
+  steps?: string[];
+}) {
   return (
     <div className="mb-8">
       <p className="text-sm font-semibold text-muted-foreground">
-        Step {current} of {steps.length} — {steps[current - 1]}
+        Step {current} of {steps.length} - {steps[current - 1]}
       </p>
       <ol className="mt-2 flex gap-2" aria-label={`Step ${current} of ${steps.length}`}>
         {steps.map((label, i) => (

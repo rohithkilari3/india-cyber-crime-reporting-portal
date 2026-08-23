@@ -62,7 +62,7 @@ const triage = [
     detail: "Check a phone number, UPI ID, bank account, email or social media account before you act.",
   },
   {
-    to: "/report/safety" as const,
+    to: "/report/other/verify" as const,
     icon: HelpCircle,
     title: "I'm not sure what happened",
     detail: "Tell us in your own words. We'll work out the category for you.",
