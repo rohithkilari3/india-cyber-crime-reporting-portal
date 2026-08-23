@@ -5,7 +5,7 @@ import { Page } from "@/components/site/Page";
 export const Route = createFileRoute("/media-gallery")({
   head: () => ({
     meta: [
-      { title: "Photo, video and radio gallery -  National Cyber Crime Reporting Portal" },
+      { title: "Photo, video and radio gallery - National Cyber Crime Reporting Portal" },
       {
         name: "description",
         content:
@@ -34,12 +34,12 @@ const videos = [
   { title: "Never share your OTP", len: "0:45" },
   { title: "What a digital arrest call sounds like", len: "1:30" },
   { title: "How to report on this portal, step by step", len: "3:10" },
-  { title: "Keeping children safe online -  for parents", len: "2:20" },
+  { title: "Keeping children safe online - for parents", len: "2:20" },
 ];
 
 const radio = [
-  { title: "CyberDost jingle -  Hindi", len: "0:30" },
-  { title: "Loan app warning -  regional languages", len: "0:40" },
+  { title: "CyberDost jingle - Hindi", len: "0:30" },
+  { title: "Loan app warning - regional languages", len: "0:40" },
   { title: "1930 helpline announcement", len: "0:25" },
 ];
 

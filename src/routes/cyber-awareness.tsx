@@ -5,7 +5,7 @@ import { Page } from "@/components/site/Page";
 export const Route = createFileRoute("/cyber-awareness")({
   head: () => ({
     meta: [
-      { title: "Cyber awareness -  National Cyber Crime Reporting Portal" },
+      { title: "Cyber awareness - National Cyber Crime Reporting Portal" },
       {
         name: "description",
         content:

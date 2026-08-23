@@ -5,7 +5,7 @@ import { Page } from "@/components/site/Page";
 export const Route = createFileRoute("/report-abuse-social-media")({
   head: () => ({
     meta: [
-      { title: "Report abuse to a social media platform -  National Cyber Crime Reporting Portal" },
+      { title: "Report abuse to a social media platform - National Cyber Crime Reporting Portal" },
       {
         name: "description",
         content:
@@ -64,7 +64,7 @@ function ReportAbuse() {
         </h1>
         <p className="mt-3 text-base text-muted-foreground">
           Reporting to the platform gets content taken down fastest. It is separate from reporting
-          to the police -  you can and should do both.
+          to the police - you can and should do both.
         </p>
         <div className="mt-4 rounded-sm border-2 border-caution bg-caution-tint p-4 text-base">
           <p className="font-semibold text-navy">Before you report, take screenshots.</p>

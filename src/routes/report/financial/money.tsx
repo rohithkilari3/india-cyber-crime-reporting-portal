@@ -8,7 +8,7 @@ import { useReportFlow } from "@/lib/report-flow";
 export const Route = createFileRoute("/report/financial/money")({
   head: () => ({
     meta: [
-      { title: "Money and payment details -  Report stolen money" },
+      { title: "Money and payment details - Report stolen money" },
       {
         name: "description",
         content:
@@ -41,7 +41,7 @@ function MoneyStep() {
   function onSubmit(e: React.FormEvent) {
     e.preventDefault();
     if (!report.amount.trim()) {
-      setError("Enter roughly how much money was taken -  an approximate figure is fine.");
+      setError("Enter roughly how much money was taken - an approximate figure is fine.");
       document.getElementById("money-error")?.focus();
       return;
     }
@@ -67,7 +67,7 @@ function MoneyStep() {
         <Info className="size-5 shrink-0 text-brand-blue" aria-hidden="true" />
         <p className="text-base text-muted-foreground">
           Never type your full card number, PIN, CVV or any password. We only ask for the last few
-          digits -  no genuine officer will ever ask for more.
+          digits - no genuine officer will ever ask for more.
         </p>
       </div>
 
@@ -167,7 +167,7 @@ function MoneyStep() {
           <h2 className="text-xl font-bold text-navy">The transactions</h2>
           <p className="mt-2 text-base text-muted-foreground">
             Copy these from your bank SMS or app history if you can. If you can&apos;t find them,
-            continue -  your bank statement can be added later.
+            continue - your bank statement can be added later.
           </p>
 
           <div className="mt-5 space-y-5">
@@ -202,7 +202,7 @@ function MoneyStep() {
                 Transaction or UTR reference numbers (optional)
               </label>
               <p id="txn-refs-hint" className="text-base text-muted-foreground">
-                One per line. These are in your bank SMS -  they are how a bank finds the exact
+                One per line. These are in your bank SMS - they are how a bank finds the exact
                 payment to freeze.
               </p>
               <textarea

@@ -24,7 +24,7 @@ import { HomeBanner } from "@/components/site/HomeBanner";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Report cyber crime or online fraud -  National Cyber Crime Reporting Portal" },
+      { title: "Report cyber crime or online fraud - National Cyber Crime Reporting Portal" },
       {
         name: "description",
         content:
@@ -46,7 +46,7 @@ const triage = [
     to: "/report/financial/verify" as const,
     icon: Banknote,
     title: "Money was stolen from me",
-    detail: "Money left your bank account, card, wallet or UPI. Report this first -  speed matters.",
+    detail: "Money left your bank account, card, wallet or UPI. Report this first - speed matters.",
     urgent: true,
   },
   {
@@ -105,7 +105,7 @@ const services = [
     icon: FileClock,
     title: "My reports",
     detail:
-      "Every report you've made, finished or not -  check progress, finish a draft or add more details. Confirm your mobile number to open.",
+      "Every report you've made, finished or not - check progress, finish a draft or add more details. Confirm your mobile number to open.",
   },
   {
     to: "/learn-cybercrime" as const,
@@ -177,7 +177,7 @@ function Index() {
         <section className="max-w-3xl">
           <h2 className="text-3xl font-bold text-navy sm:text-4xl">What happened?</h2>
           <p className="mt-3 text-lg text-foreground">
-            Choose the option closest to your situation -  you don&apos;t need to know any legal or
+            Choose the option closest to your situation - you don&apos;t need to know any legal or
             technical terms.
           </p>
           <p className="mt-3 text-base text-muted-foreground">

@@ -53,7 +53,7 @@ function AccessibilityControls({ stacked }: { stacked?: boolean }) {
     <div className={cn("flex gap-2", stacked ? "flex-col items-stretch" : "items-center")}>
       <div className={cn("relative", stacked ? "" : "w-60")}>
         <label htmlFor={selectId} className="sr-only">
-          {CHANGE_LANGUAGE_LABEL[language]} -  change language
+          {CHANGE_LANGUAGE_LABEL[language]} - change language
         </label>
         <Globe
           className="pointer-events-none absolute left-3 top-1/2 size-4 -translate-y-1/2 text-navy"
@@ -67,7 +67,7 @@ function AccessibilityControls({ stacked }: { stacked?: boolean }) {
         >
           {LANGUAGES.map((l) => (
             <option key={l.code} value={l.code}>
-              {l.native} -  {l.english}
+              {l.native} - {l.english}
             </option>
           ))}
         </select>
@@ -130,7 +130,7 @@ export function SiteHeader() {
 
   return (
     <header className="border-b-2 border-navy bg-background">
-      {/* Government identity strip -  mirrors the official portal masthead. */}
+      {/* Government identity strip - mirrors the official portal masthead. */}
       <div className="bg-navy text-navy-foreground">
         <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-x-4 gap-y-1 px-4 py-1.5">
           <p className="text-[11px] leading-snug sm:text-sm">
@@ -196,7 +196,7 @@ export function SiteHeader() {
           >
             <Phone className="size-5" aria-hidden="true" />
             Call 1930 now
-            <span className="sr-only"> -  free 24 hour cyber fraud helpline</span>
+            <span className="sr-only"> - free 24 hour cyber fraud helpline</span>
           </a>
           <div className="hidden lg:block">
             <AccessibilityControls />
@@ -206,7 +206,7 @@ export function SiteHeader() {
         {language !== "en" ? (
           <p aria-live="polite" className="mt-3 rounded-sm border-2 border-border bg-surface-grey p-3 text-sm">
             You chose {LANGUAGES.find((l) => l.code === language)?.native}. Translated pages are
-            being added -  content is shown in English for now.
+            being added - content is shown in English for now.
           </p>
         ) : null}
       </div>

@@ -8,7 +8,7 @@ import { makeDraftRef, useReportFlow } from "@/lib/report-flow";
 export const Route = createFileRoute("/report/financial/verify")({
   head: () => ({
     meta: [
-      { title: "Confirm your mobile number -  Report stolen money" },
+      { title: "Confirm your mobile number - Report stolen money" },
       {
         name: "description",
         content:
@@ -71,7 +71,7 @@ function VerifyStep() {
       <h1 className="text-3xl font-bold text-navy">First, confirm your mobile number</h1>
       <p className="mt-3 text-base text-muted-foreground">
         We do this before any questions for two reasons: your answers are saved against this number
-        from the start, and if the code doesn&apos;t arrive you find out now -  not after filling in
+        from the start, and if the code doesn&apos;t arrive you find out now - not after filling in
         a long form.
       </p>
 
@@ -131,7 +131,7 @@ function VerifyStep() {
             <h2 className="text-xl font-bold text-navy">The code from your SMS</h2>
           </div>
           <p id="otp-hint" className="mt-2 text-base text-muted-foreground">
-            Six digits. There is no time limit -  ask for a new code whenever you need one.
+            Six digits. There is no time limit - ask for a new code whenever you need one.
           </p>
           <div className="mt-4 flex gap-2" role="group" aria-labelledby="otp-hint">
             {digits.map((d, i) => (

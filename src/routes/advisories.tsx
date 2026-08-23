@@ -5,7 +5,7 @@ import { Page } from "@/components/site/Page";
 export const Route = createFileRoute("/advisories")({
   head: () => ({
     meta: [
-      { title: "Advisories -  National Cyber Crime Reporting Portal" },
+      { title: "Advisories - National Cyber Crime Reporting Portal" },
       {
         name: "description",
         content:
@@ -32,7 +32,7 @@ const advisories = [
     date: "30 Jul 2026",
     title: "Fake loan apps",
     what: "Apps offer instant loans, then take your contacts and photos and threaten to send edited images to everyone you know.",
-    do: "Only use lenders on the Reserve Bank of India list. If you are being blackmailed, keep the messages and report it -  you are the victim, not the offender.",
+    do: "Only use lenders on the Reserve Bank of India list. If you are being blackmailed, keep the messages and report it - you are the victim, not the offender.",
   },
   {
     date: "18 Jul 2026",

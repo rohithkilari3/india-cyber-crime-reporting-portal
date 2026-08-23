@@ -4,7 +4,7 @@ import { Phone, ChevronRight, ShieldCheck } from "lucide-react";
 export function HomeBanner() {
   return (
     <section className="relative overflow-hidden bg-navy text-navy-foreground">
-      {/* Decorative shield-grid artwork -  calm, geometric, no threat imagery. */}
+      {/* Decorative shield-grid artwork - calm, geometric, no threat imagery. */}
       <svg
         aria-hidden="true"
         className="pointer-events-none absolute inset-y-0 right-0 h-full w-[70%] opacity-25"
@@ -40,7 +40,7 @@ export function HomeBanner() {
           <span className="block text-[#FFD24C]">We&apos;ll help you sort it out.</span>
         </h1>
         <p className="mt-5 max-w-2xl text-lg text-navy-foreground/90">
-          Report fraud, threats or abuse in your own words -  no legal terms, no forms you need help
+          Report fraud, threats or abuse in your own words - no legal terms, no forms you need help
           to understand. It takes a few minutes and it is free.
         </p>
 
@@ -57,7 +57,7 @@ export function HomeBanner() {
             className="inline-flex min-h-14 items-center gap-2 rounded-sm border-2 border-navy-foreground px-6 text-lg font-bold text-navy-foreground hover:bg-navy-foreground/10"
           >
             <Phone className="size-5" aria-hidden="true" />
-            Call 1930 -  free, 24 hours
+            Call 1930 - free, 24 hours
           </a>
         </div>
 

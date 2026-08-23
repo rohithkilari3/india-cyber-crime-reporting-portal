@@ -5,7 +5,7 @@ import { Page } from "@/components/site/Page";
 export const Route = createFileRoute("/citizen-manual")({
   head: () => ({
     meta: [
-      { title: "Citizen manual -  National Cyber Crime Reporting Portal" },
+      { title: "Citizen manual - National Cyber Crime Reporting Portal" },
       {
         name: "description",
         content:
@@ -72,7 +72,7 @@ function CitizenManual() {
         <h2 className="text-2xl font-bold text-navy">Kinds of report this portal accepts</h2>
         <ul className="mt-3 space-y-2 text-base text-muted-foreground">
           <li>
-            <span className="font-semibold text-navy">Financial fraud</span> -  money taken from a
+            <span className="font-semibold text-navy">Financial fraud</span> - money taken from a
             bank account, card, wallet or UPI.{" "}
             <Link to="/report/financial/verify" className="text-brand-blue underline">
               Report it
@@ -88,7 +88,7 @@ function CitizenManual() {
             .
           </li>
           <li>
-            <span className="font-semibold text-navy">Suspect information</span> -  flag a number,
+            <span className="font-semibold text-navy">Suspect information</span> - flag a number,
             account or website to I4C even if you were not the victim.{" "}
             <Link to="/report-suspect" className="text-brand-blue underline">
               Report a suspect
