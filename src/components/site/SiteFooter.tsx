@@ -59,7 +59,7 @@ export function SiteFooter() {
           <a className="font-semibold text-brand-blue underline" href="tel:1930">
             1930
           </a>{" "}
-          — free, 24 hours a day. The sooner you call, the better the chance of stopping the money.
+          -  free, 24 hours a day. The sooner you call, the better the chance of stopping the money.
         </p>
 
         <div className="mt-8 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">

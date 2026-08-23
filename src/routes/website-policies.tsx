@@ -5,7 +5,7 @@ import { Page } from "@/components/site/Page";
 export const Route = createFileRoute("/website-policies")({
   head: () => ({
     meta: [
-      { title: "Website policies, privacy and disclaimer — National Cyber Crime Reporting Portal" },
+      { title: "Website policies, privacy and disclaimer -  National Cyber Crime Reporting Portal" },
       {
         name: "description",
         content:

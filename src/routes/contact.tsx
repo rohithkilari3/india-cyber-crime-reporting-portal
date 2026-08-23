@@ -6,7 +6,7 @@ import { socialLinks } from "@/components/site/SiteHeader";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact us — National Cyber Crime Reporting Portal" },
+      { title: "Contact us -  National Cyber Crime Reporting Portal" },
       {
         name: "description",
         content:
@@ -27,13 +27,13 @@ function Contact() {
     <Page>
       <h1 className="text-3xl font-bold text-navy">Contact us</h1>
       <p className="mt-3 text-base text-muted-foreground">
-        If money has been taken from you, call 1930 first — it is the fastest way to stop it.
+        If money has been taken from you, call 1930 first -  it is the fastest way to stop it.
       </p>
 
       <div className="mt-8 space-y-4">
         <div className="rounded-sm border-2 border-emergency bg-emergency-tint p-6">
           <Phone className="size-8 text-emergency" aria-hidden="true" />
-          <h2 className="mt-2 text-2xl font-bold text-navy">1930 — cyber fraud helpline</h2>
+          <h2 className="mt-2 text-2xl font-bold text-navy">1930 -  cyber fraud helpline</h2>
           <p className="mt-2 text-base">Free, 24 hours a day, every day, in many Indian languages.</p>
           <a
             href="tel:1930"
@@ -73,7 +73,7 @@ function Contact() {
           <h2 className="mt-2 text-xl font-bold text-navy">Your local cyber cell</h2>
           <p className="mt-2 text-base text-muted-foreground">
             Every state and union territory has a cyber crime police station. Reports filed here are
-            sent to the right one automatically — you do not need to find it yourself.
+            sent to the right one automatically -  you do not need to find it yourself.
           </p>
         </div>
       </div>

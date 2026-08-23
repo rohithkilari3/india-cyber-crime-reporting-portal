@@ -5,7 +5,7 @@ import { Page } from "@/components/site/Page";
 export const Route = createFileRoute("/nodal-officers")({
   head: () => ({
     meta: [
-      { title: "State nodal and grievance officers — National Cyber Crime Reporting Portal" },
+      { title: "State nodal and grievance officers -  National Cyber Crime Reporting Portal" },
       {
         name: "description",
         content:
@@ -45,7 +45,7 @@ function NodalOfficers() {
         <Users className="size-10 text-brand-blue" aria-hidden="true" strokeWidth={1.75} />
         <h1 className="mt-3 text-3xl font-bold text-navy">State nodal and grievance officers</h1>
         <p className="mt-3 text-base text-muted-foreground">
-          You do not need this list to report — reports are routed automatically. Use it only if your
+          You do not need this list to report -  reports are routed automatically. Use it only if your
           report needs to be escalated or you have not heard back for a long time. Contact details in
           this prototype are illustrative.
         </p>

@@ -97,7 +97,7 @@ function Submitted() {
           <li>Your report goes to the cyber crime unit for your state.</li>
           <li>
             If the content is still online, a takedown request goes to the platform. Save the links
-            - don&apos;t delete anything yourself yet.
+           - don&apos;t delete anything yourself yet.
           </li>
           {!report.anonymous ? (
             <li>An officer may call you from an official number to ask a few questions.</li>

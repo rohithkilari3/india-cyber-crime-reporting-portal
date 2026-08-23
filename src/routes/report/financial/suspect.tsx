@@ -8,7 +8,7 @@ import { useReportFlow } from "@/lib/report-flow";
 export const Route = createFileRoute("/report/financial/suspect")({
   head: () => ({
     meta: [
-      { title: "Who contacted you? — Report stolen money" },
+      { title: "Who contacted you? -  Report stolen money" },
       {
         name: "description",
         content:
@@ -30,7 +30,7 @@ const contactKinds = [
   { id: "bank", label: "A bank account number", hint: "Where your money went" },
   { id: "profile", label: "A social media or WhatsApp profile", hint: "Username, link or display name" },
   { id: "website", label: "A website or app", hint: "Paste the link if you still have it" },
-  { id: "none", label: "I don't have any of these", hint: "That's fine — we can still take your report" },
+  { id: "none", label: "I don't have any of these", hint: "That's fine -  we can still take your report" },
 ];
 
 function SuspectStep() {

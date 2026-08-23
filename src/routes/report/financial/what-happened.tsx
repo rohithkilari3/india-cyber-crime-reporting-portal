@@ -8,13 +8,13 @@ import { useReportFlow } from "@/lib/report-flow";
 export const Route = createFileRoute("/report/financial/what-happened")({
   head: () => ({
     meta: [
-      { title: "Tell us what happened — Report stolen money" },
+      { title: "Tell us what happened -  Report stolen money" },
       {
         name: "description",
         content:
           "Choose the plain-language description that fits best, or select 'I'm not sure'. No banking jargon required.",
       },
-      { property: "og:title", content: "Tell us what happened — Report stolen money" },
+      { property: "og:title", content: "Tell us what happened -  Report stolen money" },
       {
         property: "og:description",
         content: "Report money taken from your account in plain language. No banking jargon required.",
@@ -38,7 +38,7 @@ const choices = [
   { id: "loan", label: "A loan or lending app", hint: "Fees taken up front, or threats after a small loan" },
   { id: "impersonation", label: "Someone posed as police, a bank or an official", hint: "Includes 'digital arrest', KYC update and customer-care calls" },
   { id: "shopping", label: "Online shopping, delivery or refund", hint: "Fake seller, fake refund, or a courier fee" },
-  { id: "unsure", label: "I'm not sure how it happened", hint: "We'll work it out — you don't need to know" },
+  { id: "unsure", label: "I'm not sure how it happened", hint: "We'll work it out -  you don't need to know" },
 ];
 
 const places = [
@@ -94,7 +94,7 @@ function WhatHappened() {
       return;
     }
     if (!report.platform) {
-      setError("Tell us where this reached you — choose “I don't know” if you're unsure.");
+      setError("Tell us where this reached you -  choose “I don't know” if you're unsure.");
       document.getElementById("error-summary")?.focus();
       return;
     }
@@ -112,7 +112,7 @@ function WhatHappened() {
       <StepIndicator current={2} />
       <h1 className="text-3xl font-bold text-navy">Tell us what happened</h1>
       <p className="mt-3 text-base text-muted-foreground">
-        Pick whatever is closest. You will not be penalised for choosing the wrong one — we sort
+        Pick whatever is closest. You will not be penalised for choosing the wrong one -  we sort
         out the exact category for you.
       </p>
 
@@ -131,7 +131,7 @@ function WhatHappened() {
           <li>The number, UPI ID or link the other person used</li>
         </ul>
         <p className="mt-3 text-base text-muted-foreground">
-          Missing something? Carry on — you can add it later. Not sure what to call this?{" "}
+          Missing something? Carry on -  you can add it later. Not sure what to call this?{" "}
           <Link to="/learn-cybercrime" className="font-semibold text-brand-blue underline">
             See cyber crime types in plain words
           </Link>
@@ -210,7 +210,7 @@ function WhatHappened() {
                 {detailHints[report.platform]}
               </label>
               <p id="platform-detail-hint" className="text-base text-muted-foreground">
-                This is often the single most useful thing in a report — please add it if you can.
+                This is often the single most useful thing in a report -  please add it if you can.
               </p>
               <input
                 id="platform-detail"
@@ -273,7 +273,7 @@ function WhatHappened() {
                 What kept you from reporting earlier? (optional)
               </label>
               <p id="delay-hint" className="text-base text-foreground">
-                Nobody is judging you — this is very common. Telling us helps the officer
+                Nobody is judging you -  this is very common. Telling us helps the officer
                 understand the case and ask banks for older records.
               </p>
               <textarea
@@ -293,7 +293,7 @@ function WhatHappened() {
             Tell us in your own words what happened (optional)
           </label>
           <p id="details-hint" className="text-base text-muted-foreground">
-            Even a few lines help. What was said to you, what you clicked, what you were promised —
+            Even a few lines help. What was said to you, what you clicked, what you were promised - 
             this is often what lets an officer link your case to others.
           </p>
           <textarea

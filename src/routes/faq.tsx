@@ -5,7 +5,7 @@ import { Page } from "@/components/site/Page";
 export const Route = createFileRoute("/faq")({
   head: () => ({
     meta: [
-      { title: "Help and frequently asked questions — National Cyber Crime Reporting Portal" },
+      { title: "Help and frequently asked questions -  National Cyber Crime Reporting Portal" },
       {
         name: "description",
         content:
@@ -27,7 +27,7 @@ const groups = [
     items: [
       {
         q: "What do I need to make a report?",
-        a: "Your mobile number for the one-time password, and whatever details you already have — the transaction, the message, the profile, the screenshots. If something is missing you can still report; you can add details later.",
+        a: "Your mobile number for the one-time password, and whatever details you already have -  the transaction, the message, the profile, the screenshots. If something is missing you can still report; you can add details later.",
       },
       {
         q: "Can I report on behalf of someone else?",
@@ -56,7 +56,7 @@ const groups = [
       },
       {
         q: "The fraud happened in another state. Where do I report?",
-        a: "Report here from wherever you are. The report is routed to the police unit with jurisdiction — you do not need to work that out.",
+        a: "Report here from wherever you are. The report is routed to the police unit with jurisdiction -  you do not need to work that out.",
       },
     ],
   },
@@ -65,7 +65,7 @@ const groups = [
     items: [
       {
         q: "What is my acknowledgement number for?",
-        a: "It identifies your report. Keep it safe — you need it to check progress on the Check my report page and to speak to the police unit handling your case.",
+        a: "It identifies your report. Keep it safe -  you need it to check progress on the Check my report page and to speak to the police unit handling your case.",
       },
       {
         q: "How long does it take?",

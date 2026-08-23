@@ -5,7 +5,7 @@ import { Page } from "@/components/site/Page";
 export const Route = createFileRoute("/public-notices")({
   head: () => ({
     meta: [
-      { title: "Public notices — National Cyber Crime Reporting Portal" },
+      { title: "Public notices -  National Cyber Crime Reporting Portal" },
       {
         name: "description",
         content:

@@ -15,7 +15,7 @@ import { useReportFlow } from "@/lib/report-flow";
 export const Route = createFileRoute("/track")({
   head: () => ({
     meta: [
-      { title: "My reports — National Cyber Crime Reporting Portal" },
+      { title: "My reports -  National Cyber Crime Reporting Portal" },
       {
         name: "description",
         content:
@@ -24,7 +24,7 @@ export const Route = createFileRoute("/track")({
       { property: "og:title", content: "My reports" },
       {
         property: "og:description",
-        content: "One place for every report you've made — finished or not. Protected by a one-time code.",
+        content: "One place for every report you've made -  finished or not. Protected by a one-time code.",
       },
     ],
   }),
@@ -115,7 +115,7 @@ function MyReports() {
       <Page>
         <h1 className="text-3xl font-bold text-navy">My reports</h1>
         <p className="mt-3 text-base text-muted-foreground">
-          Everything you have reported is here — finished or not. Because reports contain personal
+          Everything you have reported is here -  finished or not. Because reports contain personal
           details, we confirm it&apos;s you first. You only need the mobile number you reported
           with; no acknowledgement number needed.
         </p>
@@ -235,7 +235,7 @@ function MyReports() {
                 <span>
                   Unsent reports are kept for <span className="font-bold">15 days</span>. This one
                   closes on its own in <span className="font-bold">{r.daysLeft} days</span> if you
-                  don&apos;t send it. Nothing bad happens if it does — you can always start a new
+                  don&apos;t send it. Nothing bad happens if it does -  you can always start a new
                   report.
                 </span>
               </p>
@@ -246,7 +246,7 @@ function MyReports() {
                 <button
                   type="button"
                   onClick={() => {
-                    // Already signed in with a code on this page — don't ask again.
+                    // Already signed in with a code on this page -  don't ask again.
                     update({ mobile, mobileVerified: true, draftRef: r.ref });
                     navigate({ to: "/report/financial/what-happened" });
                   }}
@@ -285,7 +285,7 @@ function MyReports() {
                 </label>
                 <p className="text-base text-muted-foreground">
                   A new transaction number, another payment, a screenshot you found, or anything you
-                  remembered. It is added to your existing report — you never start again.
+                  remembered. It is added to your existing report -  you never start again.
                 </p>
                 <textarea
                   id={`add-${r.ref}`}
@@ -332,7 +332,7 @@ function MyReports() {
         <h2 className="text-2xl font-bold text-navy">Something else</h2>
         <ul className="mt-3 list-disc space-y-2 pl-6 text-base text-muted-foreground">
           <li>
-            Changing your mobile number? Call <span className="font-bold">1930</span> — we can only
+            Changing your mobile number? Call <span className="font-bold">1930</span> -  we can only
             move reports to a new number after checking who you are.
           </li>
           <li>

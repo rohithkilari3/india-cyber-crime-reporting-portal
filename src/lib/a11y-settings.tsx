@@ -16,7 +16,7 @@ const A11yContext = createContext<A11yContextValue | null>(null);
 const STORAGE_KEY = "ncrp-a11y";
 
 export function A11yProvider({ children }: { children: ReactNode }) {
-  // Compact size is the default — the previous default read as oversized.
+  // Compact size is the default -  the previous default read as oversized.
   const [fontScale, setFontScaleState] = useState<FontScale>(87.5);
   const [highContrast, setHighContrast] = useState(false);
 

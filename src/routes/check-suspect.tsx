@@ -6,7 +6,7 @@ import { Page } from "@/components/site/Page";
 export const Route = createFileRoute("/check-suspect")({
   head: () => ({
     meta: [
-      { title: "Check a suspicious number, UPI ID or link — Cyber Crime Help" },
+      { title: "Check a suspicious number, UPI ID or link -  Cyber Crime Help" },
       {
         name: "description",
         content:
@@ -118,7 +118,7 @@ function CheckSuspect() {
                 No reports found
               </p>
               <p className="mt-2 text-base text-muted-foreground">
-                No one has reported this yet. That doesn&apos;t prove it&apos;s safe — new scams
+                No one has reported this yet. That doesn&apos;t prove it&apos;s safe -  new scams
                 appear every day.
               </p>
             </div>

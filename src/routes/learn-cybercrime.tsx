@@ -6,7 +6,7 @@ import { Page } from "@/components/site/Page";
 export const Route = createFileRoute("/learn-cybercrime")({
   head: () => ({
     meta: [
-      { title: "What kind of cyber crime is this? — plain-language guide" },
+      { title: "What kind of cyber crime is this? -  plain-language guide" },
       {
         name: "description",
         content:
@@ -86,7 +86,7 @@ function LearnCybercrime() {
             >
               Start a report anyway
             </Link>{" "}
-            — there is an &ldquo;I&apos;m not sure&rdquo; option on every question.
+            -  there is an &ldquo;I&apos;m not sure&rdquo; option on every question.
           </span>
         </p>
       </div>
@@ -141,7 +141,7 @@ function LearnCybercrime() {
         })}
         {filtered.length === 0 ? (
           <p className="rounded-sm border-2 border-border bg-surface-grey p-5 text-base">
-            Nothing matched &ldquo;{query}&rdquo;. That doesn&apos;t matter —{" "}
+            Nothing matched &ldquo;{query}&rdquo;. That doesn&apos;t matter - {" "}
             <Link to="/report/safety" className="font-semibold text-brand-blue underline">
               tell us what happened in your own words
             </Link>

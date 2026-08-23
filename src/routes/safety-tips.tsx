@@ -5,7 +5,7 @@ import { Page } from "@/components/site/Page";
 export const Route = createFileRoute("/safety-tips")({
   head: () => ({
     meta: [
-      { title: "Online safety tips — National Cyber Crime Reporting Portal" },
+      { title: "Online safety tips -  National Cyber Crime Reporting Portal" },
       {
         name: "description",
         content:
@@ -36,7 +36,7 @@ const sections = [
     tips: [
       "Install apps only from the official app store, and check who published them.",
       "Never install screen-sharing or remote-control apps because someone on a call asked you to.",
-      "Keep automatic updates on — most attacks use faults that were already fixed.",
+      "Keep automatic updates on -  most attacks use faults that were already fixed.",
       "Lock your device with a PIN or biometrics, and encrypt backups.",
     ],
   },
@@ -44,7 +44,7 @@ const sections = [
     title: "Your accounts",
     tips: [
       "Turn on two-step verification for email, banking and social media.",
-      "Use a different password for your email than for anything else — email resets everything else.",
+      "Use a different password for your email than for anything else -  email resets everything else.",
       "Check the sender address, not the display name, before you click a link in a message.",
       "Review which apps and devices are signed in to your accounts every few months.",
     ],
@@ -54,7 +54,7 @@ const sections = [
     tips: [
       "Keep children's accounts private and know which apps they use.",
       "Do not accept friend or video call requests from strangers, and never undress on a video call.",
-      "Screenshot abusive messages before blocking — you will need them to report.",
+      "Screenshot abusive messages before blocking -  you will need them to report.",
       "Talk to an older relative about fraud calls before it happens, not after.",
     ],
   },

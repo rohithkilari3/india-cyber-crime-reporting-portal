@@ -8,7 +8,7 @@ import { formatBytes, useReportFlow, type ReportFile } from "@/lib/report-flow";
 export const Route = createFileRoute("/report/financial/evidence")({
   head: () => ({
     meta: [
-      { title: "Add screenshots or messages — Report stolen money" },
+      { title: "Add screenshots or messages -  Report stolen money" },
       {
         name: "description",
         content:
@@ -56,7 +56,7 @@ function Evidence() {
       <p className="mt-3 rounded-sm border-2 border-border bg-surface-grey p-4 text-base text-muted-foreground">
         This step is optional because many people report from a borrowed phone or have already
         deleted the messages. But a single bank SMS or screenshot is often what proves the case, so
-        add one if you can — and you can always add more after sending.
+        add one if you can -  and you can always add more after sending.
       </p>
 
       <div
@@ -77,7 +77,7 @@ function Evidence() {
         <Upload className="mx-auto size-10 text-brand-blue" aria-hidden="true" strokeWidth={1.75} />
         <p className="mt-3 text-lg font-semibold text-navy">Drag your files here</p>
         <p className="mt-1 text-base text-muted-foreground">
-          Images, PDFs, screenshots — as many as you like.
+          Images, PDFs, screenshots -  as many as you like.
         </p>
         <button
           type="button"
@@ -144,7 +144,7 @@ function Evidence() {
           <ArrowRight className="size-5" aria-hidden="true" />
         </button>
         <Link to="/report/financial/about-you" className="font-semibold text-brand-blue underline">
-          Skip — I don&apos;t have anything to add
+          Skip -  I don&apos;t have anything to add
         </Link>
       </div>
       <p className="mt-6">

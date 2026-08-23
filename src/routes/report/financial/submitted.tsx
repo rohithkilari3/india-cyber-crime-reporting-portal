@@ -8,7 +8,7 @@ import { useReportFlow } from "@/lib/report-flow";
 export const Route = createFileRoute("/report/financial/submitted")({
   head: () => ({
     meta: [
-      { title: "Report received — your acknowledgement number" },
+      { title: "Report received -  your acknowledgement number" },
       {
         name: "description",
         content:
@@ -119,7 +119,7 @@ function Submitted() {
           <li>You&apos;ll get an SMS if an officer needs anything more from you.</li>
           <li>You can check progress any time in “My reports”, after a one-time code.</li>
           <li>
-            Remembered something later — a screenshot, a transaction number, another payment? Open
+            Remembered something later -  a screenshot, a transaction number, another payment? Open
             the report in “My reports” and choose “Add more details”.
           </li>
         </ul>

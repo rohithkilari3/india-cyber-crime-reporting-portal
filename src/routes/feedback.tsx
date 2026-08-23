@@ -6,11 +6,11 @@ import { Page } from "@/components/site/Page";
 export const Route = createFileRoute("/feedback")({
   head: () => ({
     meta: [
-      { title: "Feedback — National Cyber Crime Reporting Portal" },
+      { title: "Feedback -  National Cyber Crime Reporting Portal" },
       {
         name: "description",
         content:
-          "Tell us what worked and what did not while using this portal. Feedback about the website only — to report a crime, use the reporting pages.",
+          "Tell us what worked and what did not while using this portal. Feedback about the website only -  to report a crime, use the reporting pages.",
       },
       { property: "og:title", content: "Give feedback on this portal" },
       {
@@ -32,7 +32,7 @@ function Feedback() {
       <h1 className="mt-3 text-3xl font-bold text-navy">Feedback</h1>
       <p className="mt-3 text-base text-muted-foreground">
         This form is for feedback about the website. It is not a way to report a crime or to chase an
-        existing report — for that, call 1930 or use Check my report.
+        existing report -  for that, call 1930 or use Check my report.
       </p>
 
       {sent ? (

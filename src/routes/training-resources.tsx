@@ -5,7 +5,7 @@ import { Page } from "@/components/site/Page";
 export const Route = createFileRoute("/training-resources")({
   head: () => ({
     meta: [
-      { title: "Training resources — National Cyber Crime Reporting Portal" },
+      { title: "Training resources -  National Cyber Crime Reporting Portal" },
       {
         name: "description",
         content:
@@ -23,7 +23,7 @@ export const Route = createFileRoute("/training-resources")({
 
 const courses = [
   {
-    title: "CyTrain — online course platform",
+    title: "CyTrain -  online course platform",
     who: "Police officers, prosecutors and judicial officers",
     detail:
       "Self-paced modules with certification on first response, cyber forensics, evidence handling and legal provisions.",

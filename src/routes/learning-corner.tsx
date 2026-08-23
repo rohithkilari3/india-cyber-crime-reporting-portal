@@ -70,13 +70,13 @@ const resources = [
 export const Route = createFileRoute("/learning-corner")({
   head: () => ({
     meta: [
-      { title: "Learning corner — National Cyber Crime Reporting Portal" },
+      { title: "Learning corner -  National Cyber Crime Reporting Portal" },
       {
         name: "description",
         content:
           "Simple guides on staying safe online for children, parents, students, senior citizens, women and small businesses.",
       },
-      { property: "og:title", content: "Learning corner — stay safe online" },
+      { property: "og:title", content: "Learning corner -  stay safe online" },
       {
         property: "og:description",
         content: "Short, plain-language guides on online safety for every age group.",
@@ -92,7 +92,7 @@ const audiences = [
     title: "Children and teenagers",
     points: [
       "Never share your photos or school details with someone you only know online.",
-      "If someone makes you uncomfortable, tell an adult — you will not be in trouble.",
+      "If someone makes you uncomfortable, tell an adult -  you will not be in trouble.",
       "Block first, then tell someone. Do not reply.",
     ],
   },
@@ -102,7 +102,7 @@ const audiences = [
     points: [
       "Keep devices in shared rooms and talk about what your child sees online.",
       "Learn the reporting buttons on the apps your child uses.",
-      "If images of your child are shared, report immediately — content can be removed.",
+      "If images of your child are shared, report immediately -  content can be removed.",
     ],
   },
   {
@@ -126,7 +126,7 @@ const audiences = [
 ];
 
 const quickRules = [
-  "Never share an OTP, PIN or CVV — not even with the police or your bank.",
+  "Never share an OTP, PIN or CVV -  not even with the police or your bank.",
   "Call 1930 within the first hour if money has left your account.",
   "Take screenshots before you block or delete anything.",
   "Check links carefully: a single wrong letter usually means it is fake.",
