@@ -103,14 +103,9 @@ const services = [
   {
     to: "/track" as const,
     icon: FileClock,
-    title: "Check my report",
-    detail: "See what has happened with a report you already made, using your acknowledgement number.",
-  },
-  {
-    to: "/track" as const,
-    icon: FileClock,
     title: "My reports",
-    detail: "Continue an unfinished report, withdraw a report, or change your mobile number.",
+    detail:
+      "Every report you've made, finished or not — check progress, finish a draft or add more details. Confirm your mobile number to open.",
   },
   {
     to: "/learn-cybercrime" as const,
