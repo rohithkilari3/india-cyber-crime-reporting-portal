@@ -15,7 +15,7 @@ const columns = [
   {
     title: "Services",
     links: [
-      { to: "/track" as const, label: "Check my report" },
+      { to: "/track" as const, label: "My reports" },
       { to: "/check-suspect" as const, label: "Check a number, link or UPI ID" },
       { to: "/cyber-volunteers" as const, label: "Become a cyber volunteer" },
       { to: "/nodal-officers" as const, label: "State nodal and grievance officers" },
