@@ -46,7 +46,7 @@ export function HomeBanner() {
 
         <div className="mt-8 flex flex-wrap gap-3">
           <Link
-            to="/report/financial/what-happened"
+            to="/report/financial/verify"
             className="inline-flex min-h-14 items-center gap-2 rounded-sm bg-background px-6 text-lg font-bold text-navy hover:bg-surface-grey"
           >
             Report what happened

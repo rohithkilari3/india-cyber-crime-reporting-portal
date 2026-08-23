@@ -47,7 +47,7 @@ function Submitted() {
         </p>
         <p className="mt-6">
           <Link
-            to="/report/financial/what-happened"
+            to="/report/financial/verify"
             className="inline-flex min-h-12 items-center rounded-sm bg-brand-blue px-6 font-semibold text-primary-foreground hover:bg-brand-blue-hover"
           >
             Report what happened
@@ -59,7 +59,7 @@ function Submitted() {
 
   return (
     <Page>
-      <StepIndicator current={6} />
+      <StepIndicator current={7} />
       <div className="flex items-center gap-3">
         <CheckCircle2 className="size-9 text-success" aria-hidden="true" />
         <h1 className="text-3xl font-bold text-navy">We&apos;ve received your report</h1>
@@ -117,14 +117,18 @@ function Submitted() {
         <ul className="mt-3 list-disc space-y-2 pl-6 text-base text-muted-foreground">
           <li>Your report goes to the police unit for the area where the fraud happened.</li>
           <li>You&apos;ll get an SMS if an officer needs anything more from you.</li>
-          <li>You can check progress any time using your acknowledgement number.</li>
+          <li>You can check progress any time in “My reports”, after a one-time code.</li>
+          <li>
+            Remembered something later — a screenshot, a transaction number, another payment? Open
+            the report in “My reports” and choose “Add more details”.
+          </li>
         </ul>
         <div className="mt-6 flex flex-wrap gap-3">
           <Link
             to="/track"
             className="inline-flex min-h-12 items-center rounded-sm bg-brand-blue px-6 font-semibold text-primary-foreground hover:bg-brand-blue-hover"
           >
-            Track this report
+            Go to my reports
           </Link>
           <Link
             to="/"

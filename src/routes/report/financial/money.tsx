@@ -258,7 +258,7 @@ function MoneyStep() {
             <ArrowRight className="size-5" aria-hidden="true" />
           </button>
           <Link
-            to="/report/financial/what-happened"
+            to="/report/financial/verify"
             className="font-semibold text-brand-blue underline"
           >
             Back to what happened

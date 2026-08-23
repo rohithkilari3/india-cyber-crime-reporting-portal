@@ -5,7 +5,7 @@ import { Page } from "@/components/site/Page";
 import { StepIndicator } from "@/components/site/StepIndicator";
 import { useReportFlow } from "@/lib/report-flow";
 
-export const Route = createFileRoute("/report/financial/what-happened")({
+export const Route = createFileRoute("/report/financial/verify")({
   head: () => ({
     meta: [
       { title: "Tell us what happened — Report stolen money" },
