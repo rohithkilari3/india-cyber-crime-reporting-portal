@@ -189,10 +189,10 @@ export function SiteHeader() {
         </div>
 
         {/* Action row: full-width helpline on mobile, inline controls from large screens up. */}
-        <div className="mt-3 flex flex-wrap items-end justify-between gap-3">
+        <div className="mt-3 flex flex-wrap items-center justify-between gap-3 border-t pt-3">
           <a
             href="tel:1930"
-            className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-sm border-2 border-emergency bg-emergency-tint px-4 text-base font-bold text-emergency sm:w-auto sm:justify-start"
+            className="inline-flex h-11 w-full items-center justify-center gap-2 rounded-sm border-2 border-emergency bg-emergency-tint px-4 text-base font-bold text-emergency sm:w-auto sm:justify-start"
           >
             <Phone className="size-5" aria-hidden="true" />
             Call 1930 now
