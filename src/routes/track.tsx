@@ -71,7 +71,7 @@ const stateStyles: Record<Report["state"], string> = {
 
 function MyReports() {
   const navigate = useNavigate();
-  const { update } = useReportFlow();
+  const { update, reset, resumeFlow } = useReportFlow();
   const [reports, setReports] = useState<Report[]>(demoReports);
   const [mobile, setMobile] = useState("");
   const [sent, setSent] = useState(false);
@@ -247,6 +247,8 @@ function MyReports() {
                   type="button"
                   onClick={() => {
                     // Already signed in with a code on this page - don't ask again.
+                    reset();
+                    resumeFlow("financial");
                     update({ mobile, mobileVerified: true, draftRef: r.ref });
                     navigate({ to: "/report/financial/what-happened" });
                   }}
