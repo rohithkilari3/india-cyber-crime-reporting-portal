@@ -3,7 +3,7 @@ import { useState } from "react";
 import { AlertCircle, ArrowRight, KeyRound, ShieldCheck, Smartphone } from "lucide-react";
 import { Page } from "@/components/site/Page";
 import { StepIndicator } from "@/components/site/StepIndicator";
-import { makeDraftRef, useReportFlow } from "@/lib/report-flow";
+import { makeDraftRef, useReportFlow, useStartFreshReport } from "@/lib/report-flow";
 
 export const Route = createFileRoute("/report/financial/verify")({
   head: () => ({
@@ -27,6 +27,7 @@ export const Route = createFileRoute("/report/financial/verify")({
 function VerifyStep() {
   const navigate = useNavigate();
   const { report, update } = useReportFlow();
+  useStartFreshReport("financial");
   const [sent, setSent] = useState(false);
   const [digits, setDigits] = useState<string[]>(Array(6).fill(""));
   const [error, setError] = useState("");

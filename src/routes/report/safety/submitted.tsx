@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { CheckCircle2, Copy, Phone } from "lucide-react";
 import { Page } from "@/components/site/Page";
 import { StepIndicator } from "@/components/site/StepIndicator";
@@ -26,7 +26,8 @@ export const Route = createFileRoute("/report/safety/submitted")({
 });
 
 function Submitted() {
-  const { report } = useReportFlow();
+  const { report, endFlow } = useReportFlow();
+  useEffect(() => endFlow(), [endFlow]);
   const [copied, setCopied] = useState(false);
   const ack = report.acknowledgement;
 
