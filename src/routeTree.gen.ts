@@ -229,35 +229,35 @@ const ReportSafetyIndexRoute = ReportSafetyIndexRouteImport.update({
   getParentRoute: () => rootRouteImport,
 } as any)
 const ReportSafetyAboutYouRoute = ReportSafetyAboutYouRouteImport.update({
-  id: '/about-you',
-  path: '/about-you',
-  getParentRoute: () => ReportSafetyRoute,
+  id: '/report/safety/about-you',
+  path: '/report/safety/about-you',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const ReportSafetyEvidenceRoute = ReportSafetyEvidenceRouteImport.update({
-  id: '/evidence',
-  path: '/evidence',
-  getParentRoute: () => ReportSafetyRoute,
+  id: '/report/safety/evidence',
+  path: '/report/safety/evidence',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const ReportSafetyPersonRoute = ReportSafetyPersonRouteImport.update({
-  id: '/person',
-  path: '/person',
-  getParentRoute: () => ReportSafetyRoute,
+  id: '/report/safety/person',
+  path: '/report/safety/person',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const ReportSafetyStartRoute = ReportSafetyStartRouteImport.update({
-  id: '/start',
-  path: '/start',
-  getParentRoute: () => ReportSafetyRoute,
+  id: '/report/safety/start',
+  path: '/report/safety/start',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const ReportSafetySubmittedRoute = ReportSafetySubmittedRouteImport.update({
-  id: '/submitted',
-  path: '/submitted',
-  getParentRoute: () => ReportSafetyRoute,
+  id: '/report/safety/submitted',
+  path: '/report/safety/submitted',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const ReportSafetyWhatHappenedRoute =
   ReportSafetyWhatHappenedRouteImport.update({
-    id: '/what-happened',
-    path: '/what-happened',
-    getParentRoute: () => ReportSafetyRoute,
+    id: '/report/safety/what-happened',
+    path: '/report/safety/what-happened',
+    getParentRoute: () => rootRouteImport,
   } as any)
 
 export interface FileRoutesByFullPath {
@@ -557,6 +557,12 @@ export interface RootRouteChildren {
   ReportOtherSubmittedRoute: typeof ReportOtherSubmittedRoute
   ReportOtherVerifyRoute: typeof ReportOtherVerifyRoute
   ReportOtherWhatHappenedRoute: typeof ReportOtherWhatHappenedRoute
+  ReportSafetyAboutYouRoute: typeof ReportSafetyAboutYouRoute
+  ReportSafetyEvidenceRoute: typeof ReportSafetyEvidenceRoute
+  ReportSafetyPersonRoute: typeof ReportSafetyPersonRoute
+  ReportSafetyStartRoute: typeof ReportSafetyStartRoute
+  ReportSafetySubmittedRoute: typeof ReportSafetySubmittedRoute
+  ReportSafetyWhatHappenedRoute: typeof ReportSafetyWhatHappenedRoute
   ReportSafetyIndexRoute: typeof ReportSafetyIndexRoute
 }
 
@@ -809,45 +815,45 @@ declare module '@tanstack/react-router' {
     }
     '/report/safety/about-you': {
       id: '/report/safety/about-you'
-      path: '/about-you'
+      path: '/report/safety/about-you'
       fullPath: '/report/safety/about-you'
       preLoaderRoute: typeof ReportSafetyAboutYouRouteImport
-      parentRoute: typeof ReportSafetyRoute
+      parentRoute: typeof rootRouteImport
     }
     '/report/safety/evidence': {
       id: '/report/safety/evidence'
-      path: '/evidence'
+      path: '/report/safety/evidence'
       fullPath: '/report/safety/evidence'
       preLoaderRoute: typeof ReportSafetyEvidenceRouteImport
-      parentRoute: typeof ReportSafetyRoute
+      parentRoute: typeof rootRouteImport
     }
     '/report/safety/person': {
       id: '/report/safety/person'
-      path: '/person'
+      path: '/report/safety/person'
       fullPath: '/report/safety/person'
       preLoaderRoute: typeof ReportSafetyPersonRouteImport
-      parentRoute: typeof ReportSafetyRoute
+      parentRoute: typeof rootRouteImport
     }
     '/report/safety/start': {
       id: '/report/safety/start'
-      path: '/start'
+      path: '/report/safety/start'
       fullPath: '/report/safety/start'
       preLoaderRoute: typeof ReportSafetyStartRouteImport
-      parentRoute: typeof ReportSafetyRoute
+      parentRoute: typeof rootRouteImport
     }
     '/report/safety/submitted': {
       id: '/report/safety/submitted'
-      path: '/submitted'
+      path: '/report/safety/submitted'
       fullPath: '/report/safety/submitted'
       preLoaderRoute: typeof ReportSafetySubmittedRouteImport
-      parentRoute: typeof ReportSafetyRoute
+      parentRoute: typeof rootRouteImport
     }
     '/report/safety/what-happened': {
       id: '/report/safety/what-happened'
-      path: '/what-happened'
+      path: '/report/safety/what-happened'
       fullPath: '/report/safety/what-happened'
       preLoaderRoute: typeof ReportSafetyWhatHappenedRouteImport
-      parentRoute: typeof ReportSafetyRoute
+      parentRoute: typeof rootRouteImport
     }
   }
 }
@@ -887,6 +893,12 @@ const rootRouteChildren: RootRouteChildren = {
   ReportOtherSubmittedRoute: ReportOtherSubmittedRoute,
   ReportOtherVerifyRoute: ReportOtherVerifyRoute,
   ReportOtherWhatHappenedRoute: ReportOtherWhatHappenedRoute,
+  ReportSafetyAboutYouRoute: ReportSafetyAboutYouRoute,
+  ReportSafetyEvidenceRoute: ReportSafetyEvidenceRoute,
+  ReportSafetyPersonRoute: ReportSafetyPersonRoute,
+  ReportSafetyStartRoute: ReportSafetyStartRoute,
+  ReportSafetySubmittedRoute: ReportSafetySubmittedRoute,
+  ReportSafetyWhatHappenedRoute: ReportSafetyWhatHappenedRoute,
   ReportSafetyIndexRoute: ReportSafetyIndexRoute,
 }
 export const routeTree = rootRouteImport
