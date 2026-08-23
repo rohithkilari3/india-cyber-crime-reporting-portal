@@ -135,9 +135,8 @@ export function SiteHeader() {
         <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-x-4 gap-y-1 px-4 py-1.5">
           <p className="text-[11px] leading-snug sm:text-sm">
             <span className="sm:border-r sm:border-navy-foreground/40 sm:pr-3">
-              भारत सरकार | Government of India
+              Government Website (Prototype)
             </span>
-            <span className="block sm:ml-3 sm:inline">गृह मंत्रालय | Ministry of Home Affairs</span>
           </p>
           <ul className="flex items-center gap-1">
             {socialLinks.map(({ href, label, Icon }) => (
@@ -171,7 +170,7 @@ export function SiteHeader() {
                 राष्ट्रीय साइबर अपराध रिपोर्टिंग पोर्टल
               </span>
               <span className="block text-base font-bold text-navy sm:text-lg">
-                National Cyber Crime Reporting Portal
+                National Cyber Crime Reporting Portal (Prototype - Not Official Website)
               </span>
             </span>
           </Link>
