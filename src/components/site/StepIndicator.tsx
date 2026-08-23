@@ -1,6 +1,14 @@
-const steps = ["What happened", "Who contacted you", "Evidence", "About you", "Confirm", "Done"];
+const steps = [
+  "Confirm your number",
+  "What happened",
+  "Money and payments",
+  "Who contacted you",
+  "Evidence",
+  "About you and send",
+  "Sent",
+];
 
-export type StepNumber = 1 | 2 | 3 | 4 | 5 | 6;
+export type StepNumber = 1 | 2 | 3 | 4 | 5 | 6 | 7;
 
 export function StepIndicator({ current }: { current: StepNumber }) {
   return (

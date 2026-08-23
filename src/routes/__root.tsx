@@ -11,6 +11,7 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { LanguageProvider } from "@/lib/language";
 import { A11yProvider } from "@/lib/a11y-settings";
 import { ReportFlowProvider } from "@/lib/report-flow";
 import { SiteHeader } from "@/components/site/SiteHeader";
@@ -127,6 +128,7 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
+      <LanguageProvider>
       <A11yProvider>
         <ReportFlowProvider>
           <a
@@ -143,6 +145,7 @@ function RootComponent() {
           <SiteFooter />
         </ReportFlowProvider>
       </A11yProvider>
+      </LanguageProvider>
     </QueryClientProvider>
   );
 }

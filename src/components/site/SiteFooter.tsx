@@ -5,7 +5,7 @@ const columns = [
   {
     title: "Report",
     links: [
-      { to: "/report/financial/what-happened" as const, label: "Financial fraud" },
+      { to: "/report/financial/verify" as const, label: "Financial fraud" },
       { to: "/report/safety" as const, label: "Threats, abuse or harassment" },
       { to: "/report-suspect" as const, label: "Report a suspect to I4C" },
       { to: "/report-abuse-social-media" as const, label: "Report abuse to social media" },
@@ -15,7 +15,7 @@ const columns = [
   {
     title: "Services",
     links: [
-      { to: "/track" as const, label: "Check my report" },
+      { to: "/track" as const, label: "My reports" },
       { to: "/check-suspect" as const, label: "Check a number, link or UPI ID" },
       { to: "/cyber-volunteers" as const, label: "Become a cyber volunteer" },
       { to: "/nodal-officers" as const, label: "State nodal and grievance officers" },

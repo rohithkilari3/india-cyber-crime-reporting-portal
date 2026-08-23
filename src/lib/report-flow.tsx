@@ -3,47 +3,96 @@ import { createContext, useCallback, useContext, useMemo, useState, type ReactNo
 export type ReportFile = { id: string; name: string; size: number; type: string };
 
 export type FinancialReport = {
+  /** Step 1 — identity first, so a draft can be saved against a verified number */
+  mobile: string;
+  mobileVerified: boolean;
+  draftRef: string;
+
+  /** Step 2 — what happened */
   whatHappened: string;
   otherDescription: string;
-  amount: string;
-  whenHappened: string;
-  /** Where the incident reached you — call, WhatsApp, website, app, in person */
+  whenBucket: string;
+  whenDate: string;
+  delayReason: string;
   platform: string;
   platformDetail: string;
-  /** Suspect details */
+
+  /** Step 3 — money and payment trail (needed to freeze funds) */
+  amount: string;
+  victimBank: string;
+  victimAccountType: string;
+  victimAccountLast: string;
+  txnDate: string;
+  txnRefs: string;
+  txnCount: string;
+  bankInformed: string;
+
+  /** Step 4 — suspect */
   suspectKind: string;
   suspectValue: string;
   suspectNotes: string;
+  suspectBank: string;
+  suspectAccount: string;
+
+  /** Step 5 — evidence */
   files: ReportFile[];
-  /** Complainant details */
+
+  /** Step 6 — complainant and victim */
+  relationship: string;
+  victimName: string;
+  victimAge: string;
   fullName: string;
   email: string;
+  idType: string;
+  idLast4: string;
   state: string;
   district: string;
   policeStation: string;
+  address: string;
   anonymousContact: boolean;
-  mobile: string;
+  declaration: boolean;
+
   acknowledgement: string;
 };
 
 const emptyReport: FinancialReport = {
+  mobile: "",
+  mobileVerified: false,
+  draftRef: "",
   whatHappened: "",
   otherDescription: "",
-  amount: "",
-  whenHappened: "",
+  whenBucket: "",
+  whenDate: "",
+  delayReason: "",
   platform: "",
   platformDetail: "",
+  amount: "",
+  victimBank: "",
+  victimAccountType: "",
+  victimAccountLast: "",
+  txnDate: "",
+  txnRefs: "",
+  txnCount: "",
+  bankInformed: "",
   suspectKind: "",
   suspectValue: "",
   suspectNotes: "",
+  suspectBank: "",
+  suspectAccount: "",
   files: [],
+  relationship: "",
+  victimName: "",
+  victimAge: "",
   fullName: "",
   email: "",
+  idType: "",
+  idLast4: "",
   state: "",
   district: "",
   policeStation: "",
+  address: "",
   anonymousContact: false,
-  mobile: "",
+  declaration: false,
   acknowledgement: "",
 };
 
@@ -77,6 +126,12 @@ export function makeAcknowledgement() {
   const year = new Date().getFullYear();
   const digits = Math.floor(1000000 + Math.random() * 8999999);
   return `NCRP-${year}-${digits}`;
+}
+
+export function makeDraftRef() {
+  const year = new Date().getFullYear();
+  const digits = Math.floor(100000 + Math.random() * 899999);
+  return `DRAFT-${year}-${digits}`;
 }
 
 export function formatBytes(bytes: number) {

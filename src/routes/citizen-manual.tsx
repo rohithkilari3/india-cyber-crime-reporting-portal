@@ -74,7 +74,7 @@ function CitizenManual() {
           <li>
             <span className="font-semibold text-navy">Financial fraud</span> — money taken from a
             bank account, card, wallet or UPI.{" "}
-            <Link to="/report/financial/what-happened" className="text-brand-blue underline">
+            <Link to="/report/financial/verify" className="text-brand-blue underline">
               Report it
             </Link>
             .

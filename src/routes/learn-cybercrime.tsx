@@ -54,7 +54,7 @@ const items: Item[] = [
 ];
 
 const groups = [
-  { id: "money", label: "Money was taken", icon: Banknote, to: "/report/financial/what-happened" as const, cta: "Report stolen money" },
+  { id: "money", label: "Money was taken", icon: Banknote, to: "/report/financial/verify" as const, cta: "Report stolen money" },
   { id: "harassment", label: "Someone is threatening or harassing", icon: ShieldAlert, to: "/report/safety" as const, cta: "Report threats or abuse" },
   { id: "content", label: "Accounts, devices and fake content", icon: ImageOff, to: "/report-suspect" as const, cta: "Report this to I4C" },
 ] as const;
@@ -81,7 +81,7 @@ function LearnCybercrime() {
           <span>
             Not sure which one fits?{" "}
             <Link
-              to="/report/financial/what-happened"
+              to="/report/financial/verify"
               className="font-semibold text-brand-blue underline"
             >
               Start a report anyway
