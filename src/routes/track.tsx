@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useState } from "react";
 import {
   AlertCircle,
@@ -10,6 +10,7 @@ import {
   XCircle,
 } from "lucide-react";
 import { Page } from "@/components/site/Page";
+import { useReportFlow } from "@/lib/report-flow";
 
 export const Route = createFileRoute("/track")({
   head: () => ({
@@ -37,6 +38,8 @@ type Report = {
   state: "draft" | "received" | "investigating" | "closed";
   stateLabel: string;
   note: string;
+  /** Days left before an unsent draft is closed automatically. Drafts only. */
+  daysLeft?: number;
 };
 
 const demoReports: Report[] = [
@@ -47,6 +50,7 @@ const demoReports: Report[] = [
     state: "draft",
     stateLabel: "Not sent yet",
     note: "You stopped at the evidence step. Nothing has reached the police yet.",
+    daysLeft: 13,
   },
   {
     ref: "NCRP-2026-4471902",
@@ -66,6 +70,9 @@ const stateStyles: Record<Report["state"], string> = {
 };
 
 function MyReports() {
+  const navigate = useNavigate();
+  const { update } = useReportFlow();
+  const [reports, setReports] = useState<Report[]>(demoReports);
   const [mobile, setMobile] = useState("");
   const [sent, setSent] = useState(false);
   const [digits, setDigits] = useState<string[]>(Array(6).fill(""));
@@ -205,7 +212,7 @@ function MyReports() {
       </p>
 
       <ul className="mt-8 space-y-6">
-        {demoReports.map((r) => (
+        {reports.map((r) => (
           <li key={r.ref} className="rounded-sm border-2 border-border p-5">
             <div className="flex flex-wrap items-start justify-between gap-3">
               <div>
@@ -222,15 +229,31 @@ function MyReports() {
               </p>
             </div>
             <p className="mt-3 text-base text-muted-foreground">{r.note}</p>
+            {r.state === "draft" ? (
+              <p className="mt-3 flex items-start gap-2 rounded-sm border-2 border-caution bg-caution-tint p-3 text-base text-foreground">
+                <Clock className="mt-0.5 size-5 shrink-0 text-caution" aria-hidden="true" />
+                <span>
+                  Unsent reports are kept for <span className="font-bold">15 days</span>. This one
+                  closes on its own in <span className="font-bold">{r.daysLeft} days</span> if you
+                  don&apos;t send it. Nothing bad happens if it does — you can always start a new
+                  report.
+                </span>
+              </p>
+            ) : null}
 
             <div className="mt-4 flex flex-wrap gap-3">
               {r.state === "draft" ? (
-                <Link
-                  to="/report/financial/verify"
+                <button
+                  type="button"
+                  onClick={() => {
+                    // Already signed in with a code on this page — don't ask again.
+                    update({ mobile, mobileVerified: true, draftRef: r.ref });
+                    navigate({ to: "/report/financial/what-happened" });
+                  }}
                   className="inline-flex min-h-12 items-center gap-2 rounded-sm bg-brand-blue px-5 font-semibold text-primary-foreground hover:bg-brand-blue-hover"
                 >
-                  Finish this report
-                </Link>
+                  Carry on where you left off
+                </button>
               ) : (
                 <button
                   type="button"
@@ -289,10 +312,15 @@ function MyReports() {
                 </p>
                 <button
                   type="button"
-                  onClick={() => setOpenPanel(null)}
+                  onClick={() => {
+                    if (r.state === "draft") {
+                      setReports((prev) => prev.filter((x) => x.ref !== r.ref));
+                    }
+                    setOpenPanel(null);
+                  }}
                   className="mt-3 inline-flex min-h-12 items-center rounded-sm border-2 border-navy px-5 font-semibold text-navy hover:bg-background"
                 >
-                  {r.state === "draft" ? "Delete the draft" : "Send my withdrawal request"}
+                  {r.state === "draft" ? "Yes, delete this draft" : "Send my withdrawal request"}
                 </button>
               </div>
             ) : null}
