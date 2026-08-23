@@ -1,5 +1,7 @@
 # National Cyber Crime Reporting Portal - Trauma-Informed Redesign
 
+**Live app**: https://indiacybercrimeprototype.lovable.app
+
 Project: Modern, Trauma-Informed Redesign of the Indian National Cyber Crime Reporting Portal (cybercrime.gov.in).
 
 Objective: Build a functional React/Tailwind prototype that completely overhauls the current portal. The current site suffers from a 2014-2018-era visual vocabulary with drop-shadow cards, gradient buttons, and stock "hooded hacker" threat photography. Your goal is to build a modern, high-trust, trauma-informed application that prioritizes user safety, clarity, and speed over bureaucratic framing.
@@ -49,8 +51,6 @@ Phase 3: Interactivity & State
 Use smooth, calming micro-interactions (e.g., soft fades for page transitions) to reduce anxiety.
 
 Ensure all primary actions are actual route transitions (shareable URLs), rather than relying on legacy JavaScript postbacks that break upon page refresh. Also, strictly follow the colours and branding guidelines attached in the second PDF.
-
-**Live app**: https://indiacybercrimeprototype.lovable.app
 
 ## Development
 
