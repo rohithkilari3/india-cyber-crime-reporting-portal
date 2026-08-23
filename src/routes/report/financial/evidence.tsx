@@ -47,11 +47,16 @@ function Evidence() {
 
   return (
     <Page>
-      <StepIndicator current={3} />
+      <StepIndicator current={5} />
       <h1 className="text-3xl font-bold text-navy">Add anything that shows what happened</h1>
       <p className="mt-3 text-base text-muted-foreground">
         Screenshots, bank SMS messages, transaction receipts, chat conversations. You can add
-        several at once. This step is optional — you can skip it and add files later.
+        several at once.
+      </p>
+      <p className="mt-3 rounded-sm border-2 border-border bg-surface-grey p-4 text-base text-muted-foreground">
+        This step is optional because many people report from a borrowed phone or have already
+        deleted the messages. But a single bank SMS or screenshot is often what proves the case, so
+        add one if you can — and you can always add more after sending.
       </p>
 
       <div
