@@ -62,7 +62,7 @@ function VerifyStep() {
     }
     setError("");
     update({ mobileVerified: true, draftRef: report.draftRef || makeDraftRef() });
-    navigate({ to: "/report/financial/verify" });
+    navigate({ to: "/report/financial/what-happened" });
   }
 
   return (
