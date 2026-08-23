@@ -50,18 +50,20 @@ function AccessibilityControls({ stacked }: { stacked?: boolean }) {
   const selectId = stacked ? "language-select-mobile" : "language-select";
 
   return (
-    <div className={cn("flex items-center gap-2", stacked ? "flex-col items-stretch" : "flex-wrap")}>
-      <div className={cn("flex flex-col", stacked ? "" : "min-w-56")}>
-        <label htmlFor={selectId} className="flex items-center gap-1.5 text-xs font-semibold text-navy">
-          <Globe className="size-4" aria-hidden="true" />
-          {CHANGE_LANGUAGE_LABEL[language]}
-          {language !== "en" ? <span className="text-muted-foreground">· Change language</span> : null}
+    <div className={cn("flex gap-2", stacked ? "flex-col items-stretch" : "items-center")}>
+      <div className={cn("relative", stacked ? "" : "w-60")}>
+        <label htmlFor={selectId} className="sr-only">
+          {CHANGE_LANGUAGE_LABEL[language]} — change language
         </label>
+        <Globe
+          className="pointer-events-none absolute left-3 top-1/2 size-4 -translate-y-1/2 text-navy"
+          aria-hidden="true"
+        />
         <select
           id={selectId}
           value={language}
           onChange={(e) => setLanguage(e.target.value as LanguageCode)}
-          className="mt-1 min-h-11 w-full rounded-sm border-2 border-navy bg-background px-2 text-base font-semibold text-navy"
+          className="h-11 w-full appearance-none rounded-sm border border-border bg-background pl-9 pr-8 text-sm font-semibold text-navy hover:bg-surface-grey"
         >
           {LANGUAGES.map((l) => (
             <option key={l.code} value={l.code}>
@@ -69,17 +71,23 @@ function AccessibilityControls({ stacked }: { stacked?: boolean }) {
             </option>
           ))}
         </select>
+        <span
+          aria-hidden="true"
+          className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-xs text-navy"
+        >
+          ▾
+        </span>
       </div>
 
       <div
         className={cn(
-          "inline-flex min-h-11 items-center gap-1 rounded-sm border-2 border-border px-2",
+          "flex h-11 items-center gap-1 rounded-sm border border-border px-1.5",
           stacked && "justify-center",
         )}
         role="group"
         aria-label="Text size"
       >
-        <Type className="mr-1 size-4 text-navy" aria-hidden="true" />
+        <Type className="mx-1 size-4 shrink-0 text-navy" aria-hidden="true" />
         {scales.map((s) => (
           <button
             key={s.value}
@@ -87,10 +95,10 @@ function AccessibilityControls({ stacked }: { stacked?: boolean }) {
             onClick={() => setFontScale(s.value)}
             aria-pressed={fontScale === s.value}
             className={cn(
-              "min-h-9 min-w-9 rounded-sm border px-2 text-sm font-semibold",
+              "h-8 min-w-8 rounded-sm px-2 text-sm font-semibold",
               fontScale === s.value
-                ? "border-navy bg-navy text-navy-foreground"
-                : "border-border text-navy hover:bg-surface-grey",
+                ? "bg-navy text-navy-foreground"
+                : "text-navy hover:bg-surface-grey",
             )}
           >
             <span aria-hidden="true">{s.label}</span>
@@ -104,11 +112,12 @@ function AccessibilityControls({ stacked }: { stacked?: boolean }) {
         onClick={toggleHighContrast}
         aria-pressed={highContrast}
         className={cn(
-          "inline-flex min-h-11 items-center gap-2 rounded-sm border-2 border-border px-3 text-sm font-semibold text-navy hover:bg-surface-grey",
+          "inline-flex h-11 items-center gap-2 rounded-sm border border-border px-3 text-sm font-semibold text-navy hover:bg-surface-grey",
+          highContrast && "border-navy bg-navy text-navy-foreground",
           stacked && "justify-center",
         )}
       >
-        <Contrast className="size-4" aria-hidden="true" />
+        <Contrast className="size-4 shrink-0" aria-hidden="true" />
         High contrast: {highContrast ? "on" : "off"}
       </button>
     </div>
