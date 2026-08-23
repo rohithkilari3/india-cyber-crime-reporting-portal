@@ -1,8 +1,8 @@
-# Safe Space Portal
+# National Cyber Crime Reporting Portal - Trauma-Informed Redesign
 
 Project: Modern, Trauma-Informed Redesign of the Indian National Cyber Crime Reporting Portal (cybercrime.gov.in).
 
-Objective: Build a functional React/Tailwind prototype that completely overhauls the current portal. The current site suffers from a 2014-2018-era visual vocabulary with drop-shadow cards, gradient buttons, and stock "hooded hacker" threat photography, which makes it look like a phishing clone site. Your goal is to build a modern, high-trust, trauma-informed application that prioritizes user safety, clarity, and speed over bureaucratic framing.
+Objective: Build a functional React/Tailwind prototype that completely overhauls the current portal. The current site suffers from a 2014-2018-era visual vocabulary with drop-shadow cards, gradient buttons, and stock "hooded hacker" threat photography. Your goal is to build a modern, high-trust, trauma-informed application that prioritizes user safety, clarity, and speed over bureaucratic framing.
 
 Phase 1: Global UI/UX & Design System Principles Apply the following strict UX guidelines inspired by the GOV.UK Design System, WCAG 2.2, and SAMHSA's trauma-informed care framework:
 
@@ -19,8 +19,6 @@ Phase 2: Core Components & Layouts to Build
 1. The Global Emergency Header (Sticky):
 
 Must feature a highly visible, persistent, tap-to-call "1930" helpline button styled like an emergency service, not a passive banner image.
-
-Include a prominent "Quick Exit" or "Leave Site Now" safety button that immediately redirects to a neutral site (like Google).
 
 2. Triage-First Homepage:
 
@@ -52,17 +50,7 @@ Use smooth, calming micro-interactions (e.g., soft fades for page transitions) t
 
 Ensure all primary actions are actual route transitions (shareable URLs), rather than relying on legacy JavaScript postbacks that break upon page refresh. Also, strictly follow the colours and branding guidelines attached in the second PDF.
 
-This project was built with [Lovable](https://lovable.dev).
-
 **Live app**: https://indiacybercrimeprototype.lovable.app
-
-## Build with Lovable
-
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/7def9c24-1acd-45be-9a1c-eccccea63034).
-
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: every change made in Lovable is committed straight to this repository.
-- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
 
 ## Development
 
