@@ -30,9 +30,7 @@ function SafetyStart() {
   const navigate = useNavigate();
   const { report, update } = useReportFlow();
   useStartFreshReport("safety");
-  const [choice, setChoice] = useState<"anonymous" | "tracked" | "">(
-    report.track === "safety" ? (report.anonymous ? "anonymous" : "tracked") : "",
-  );
+  const [choice, setChoice] = useState<"anonymous" | "tracked" | "">("");
   const [sent, setSent] = useState(false);
   const [digits, setDigits] = useState<string[]>(Array(6).fill(""));
   const [errors, setErrors] = useState<Record<string, string>>({});
